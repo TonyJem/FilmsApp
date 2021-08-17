@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Favourite Films View Controller-->
         <scene sceneID="btl-jb-uas">
             <objects>
-                <viewController id="bBQ-5J-vku" sceneMemberID="viewController">
+                <viewController id="bBQ-5J-vku" customClass="FavouriteFilmsViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5gE-gg-2QN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="1048" y="867"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Film View Controller-->
         <scene sceneID="692-l7-7MT">
             <objects>
-                <viewController id="Brc-pL-8pe" sceneMemberID="viewController">
+                <viewController id="Brc-pL-8pe" customClass="DetailFilmViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kx0-o0-Z2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="1851" y="138"/>
         </scene>
-        <!--View Controller-->
+        <!--Film Pics View Controller-->
         <scene sceneID="2zS-TR-CXN">
             <objects>
-                <viewController id="lPT-nd-rPo" sceneMemberID="viewController">
+                <viewController id="lPT-nd-rPo" customClass="FilmPicsViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fQZ-Yb-Egf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="2655" y="138"/>
         </scene>
-        <!--View Controller-->
+        <!--Full Pic View Controller-->
         <scene sceneID="gmo-MY-zWi">
             <objects>
-                <viewController id="QEL-fm-iQ3" sceneMemberID="viewController">
+                <viewController id="QEL-fm-iQ3" customClass="FullPicViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPf-qo-1mv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
