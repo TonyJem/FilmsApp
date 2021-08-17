@@ -1,5 +1,6 @@
 import Foundation
 
+// TODO: Why class not struct here ?
 class JSONModel {
     var original_title: String?
     var poster_path: String?
