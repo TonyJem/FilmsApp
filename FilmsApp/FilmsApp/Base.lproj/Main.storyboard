@@ -58,6 +58,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FilmsApp" id="kPI-AL-49K"/>
+                    <connections>
+                        <outlet property="filmsSearchBar" destination="bPJ-PV-QoD" id="gMA-Ba-Obf"/>
+                        <outlet property="mainCollectionView" destination="zOV-d3-ZVG" id="4DN-d2-JaL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
