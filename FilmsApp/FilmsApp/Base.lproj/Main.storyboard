@@ -28,19 +28,71 @@
                                 <rect key="frame" x="20" y="152" width="374" height="710"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Zw-jr-r03">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="301" height="655"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilmCell" id="LcA-n5-zfF">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="36.5" y="0.0" width="301" height="655"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZW0-IE-uE7">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="301" height="655"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w07-5J-1E1">
+                                                    <rect key="frame" x="10" y="10" width="281" height="436"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NTF-P2-0I1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="281" height="436"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstItem="NTF-P2-0I1" firstAttribute="leading" secondItem="w07-5J-1E1" secondAttribute="leading" id="0DR-ei-cBm"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NTF-P2-0I1" secondAttribute="trailing" id="Jos-dJ-SHK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="NTF-P2-0I1" secondAttribute="bottom" id="KUd-xq-m36"/>
+                                                        <constraint firstItem="NTF-P2-0I1" firstAttribute="top" secondItem="w07-5J-1E1" secondAttribute="top" id="vgc-bX-WI6"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pf5-MC-bpo">
+                                                    <rect key="frame" x="10" y="466" width="281" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usl-Su-D48">
+                                                    <rect key="frame" x="10" y="503.5" width="281" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAL-ph-iFY">
+                                                    <rect key="frame" x="10" y="534.5" width="281" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Usl-Su-D48" firstAttribute="leading" secondItem="ZW0-IE-uE7" secondAttribute="leading" constant="10" id="0qM-cP-Fl0"/>
+                                                <constraint firstItem="w07-5J-1E1" firstAttribute="top" secondItem="ZW0-IE-uE7" secondAttribute="top" constant="10" id="1T5-lN-cdx"/>
+                                                <constraint firstItem="cAL-ph-iFY" firstAttribute="top" secondItem="Usl-Su-D48" secondAttribute="bottom" constant="10" id="9Bc-TZ-zdC"/>
+                                                <constraint firstItem="w07-5J-1E1" firstAttribute="leading" secondItem="ZW0-IE-uE7" secondAttribute="leading" constant="10" id="ERv-zO-Srl"/>
+                                                <constraint firstAttribute="trailing" secondItem="Usl-Su-D48" secondAttribute="trailing" constant="10" id="RvE-hd-jQE"/>
+                                                <constraint firstItem="Usl-Su-D48" firstAttribute="top" secondItem="pf5-MC-bpo" secondAttribute="bottom" constant="10" id="UcX-id-kmM"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cAL-ph-iFY" secondAttribute="bottom" constant="10" id="Ui6-TD-LHR"/>
+                                                <constraint firstItem="pf5-MC-bpo" firstAttribute="top" secondItem="w07-5J-1E1" secondAttribute="bottom" constant="20" id="XKu-Pr-BUr"/>
+                                                <constraint firstAttribute="trailing" secondItem="pf5-MC-bpo" secondAttribute="trailing" constant="10" id="m3W-oz-jS6"/>
+                                                <constraint firstItem="cAL-ph-iFY" firstAttribute="leading" secondItem="ZW0-IE-uE7" secondAttribute="leading" constant="10" id="mAY-Ek-BD7"/>
+                                                <constraint firstAttribute="trailing" secondItem="w07-5J-1E1" secondAttribute="trailing" constant="10" id="mU2-MT-k5n"/>
+                                                <constraint firstItem="w07-5J-1E1" firstAttribute="height" secondItem="ZW0-IE-uE7" secondAttribute="height" multiplier="0.666" id="nlO-yW-HwW"/>
+                                                <constraint firstItem="pf5-MC-bpo" firstAttribute="leading" secondItem="ZW0-IE-uE7" secondAttribute="leading" constant="10" id="r5k-gN-rdx"/>
+                                                <constraint firstAttribute="trailing" secondItem="cAL-ph-iFY" secondAttribute="trailing" constant="10" id="vSQ-19-7eN"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="301" height="655"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

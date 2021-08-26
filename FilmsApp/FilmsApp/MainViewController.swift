@@ -13,7 +13,7 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         
-        mainCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellID")
+        mainCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "FilmCell")
     }
     
 }
@@ -36,8 +36,8 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as? UICollectionViewCell
-//        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
+        let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "FilmCell", for: indexPath)
+        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
         return UICollectionViewCell()
     }
 }
