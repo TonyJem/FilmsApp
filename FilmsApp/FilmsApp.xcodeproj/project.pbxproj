@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */; };
 		3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02226CC0082003E9A33 /* AppDelegate.swift */; };
 		3A38A02526CC0082003E9A33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02426CC0082003E9A33 /* SceneDelegate.swift */; };
 		3A38A02726CC0082003E9A33 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02626CC0082003E9A33 /* MainViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A38A01F26CC0082003E9A33 /* FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A38A02226CC0082003E9A33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A38A02426CC0082003E9A33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				3A38A02226CC0082003E9A33 /* AppDelegate.swift */,
 				3A38A02426CC0082003E9A33 /* SceneDelegate.swift */,
 				3A38A02626CC0082003E9A33 /* MainViewController.swift */,
+				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 				3A38A03826CC0355003E9A33 /* DetailFilmViewController.swift */,
 				3A38A03B26CC03ED003E9A33 /* FilmPicsViewController.swift */,
 				3A38A03E26CC03FD003E9A33 /* FullPicViewController.swift */,
@@ -158,6 +161,7 @@
 				3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */,
 				3A38A02526CC0082003E9A33 /* SceneDelegate.swift in Sources */,
 				3A38A04826CC0642003E9A33 /* JSONModel.swift in Sources */,
+				3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */,
 				3A38A03F26CC03FD003E9A33 /* FullPicViewController.swift in Sources */,
 				3A38A03926CC0355003E9A33 /* DetailFilmViewController.swift in Sources */,
 			);
