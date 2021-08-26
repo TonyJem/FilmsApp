@@ -34,7 +34,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilmCell" id="LcA-n5-zfF">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilmCell" id="LcA-n5-zfF" customClass="FilmCollectionViewCell" customModule="FilmsApp" customModuleProvider="target">
                                         <rect key="frame" x="36.5" y="0.0" width="301" height="655"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZW0-IE-uE7">
@@ -93,6 +93,13 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="301" height="655"/>
+                                        <connections>
+                                            <outlet property="containerView" destination="w07-5J-1E1" id="375-Nu-4N4"/>
+                                            <outlet property="filmTitleLabel" destination="pf5-MC-bpo" id="5TO-VS-iho"/>
+                                            <outlet property="posterImageView" destination="NTF-P2-0I1" id="oue-5m-buC"/>
+                                            <outlet property="ratingLabel" destination="cAL-ph-iFY" id="A5H-3G-9MD"/>
+                                            <outlet property="yearLabel" destination="Usl-Su-D48" id="Jly-P9-9cd"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
