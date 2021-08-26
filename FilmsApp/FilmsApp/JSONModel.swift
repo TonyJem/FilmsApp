@@ -9,3 +9,11 @@ class JSONModel {
     var vote_average: Double?
     var backdrop_path: String?
 }
+
+// TODO: Why class not struct here ?
+class TestModel {
+    var testPic: String?
+    var testTitle: String?
+    var testYear: String?
+    var testRating: String?
+}
