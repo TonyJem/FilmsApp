@@ -16,4 +16,11 @@ class TestModel {
     var testTitle: String?
     var testYear: String?
     var testRating: String?
+    
+    init(testPic: String?, testTitle: String?, testYear: String?, testRating: String?) {
+        self.testPic = testPic
+        self.testTitle = testTitle
+        self.testYear = testYear
+        self.testRating = testRating
+    }
 }
