@@ -59,6 +59,7 @@ extension MainViewController: UICollectionViewDataSource {
         }
         
         cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
+        
         return cell
     }
 }
