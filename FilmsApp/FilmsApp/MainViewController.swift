@@ -31,7 +31,9 @@ class MainViewController: UIViewController {
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         
-        mainCollectionView.register(FilmCollectionViewCell.self, forCellWithReuseIdentifier: "FilmCell")
+        let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
+        mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "FilmCell")
+        mainCollectionView.reloadData()
     }
     
 }
@@ -59,6 +61,10 @@ extension MainViewController: UICollectionViewDataSource {
         }
         
         cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
+        
+        
+        cell.posterImageView.image = UIImage(named: testArray[indexPath.item].testPic!)
+        cell.filmTitleLabel.text = testArray[indexPath.item].testTitle
         
         return cell
     }
