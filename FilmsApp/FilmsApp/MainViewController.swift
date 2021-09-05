@@ -38,16 +38,6 @@ class MainViewController: UIViewController {
     
 }
 
-// MARK: UISearchBarDelegate
-extension MainViewController: UISearchBarDelegate {
-    
-}
-
-// MARK: UICollectionViewDelegate
-extension MainViewController: UICollectionViewDelegate {
-    
-}
-
 // MARK: UICollectionViewDataSource
 extension MainViewController: UICollectionViewDataSource {
     
@@ -67,4 +57,14 @@ extension MainViewController: UICollectionViewDataSource {
         
         return cell
     }
+}
+
+// MARK: UICollectionViewDelegate
+extension MainViewController: UICollectionViewDelegate {
+    
+}
+
+// MARK: UISearchBarDelegate
+extension MainViewController: UISearchBarDelegate {
+    
 }
