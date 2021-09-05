@@ -62,9 +62,12 @@ extension MainViewController: UICollectionViewDataSource {
         
         cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
         
+        let testItem = testArray[indexPath.item]
         
-        cell.posterImageView.image = UIImage(named: testArray[indexPath.item].testPic!)
-        cell.filmTitleLabel.text = testArray[indexPath.item].testTitle
+        cell.posterImageView.image = UIImage(named: testItem.testPic!)
+        cell.filmTitleLabel.text = testItem.testTitle
+        cell.yearLabel.text = testItem.testYear
+        cell.ratingLabel.text = testItem.testRating
         
         return cell
     }
