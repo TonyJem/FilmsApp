@@ -34,7 +34,7 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yv-Sn-5CC">
                         <rect key="frame" x="10" y="455" width="315" height="27.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -68,6 +68,7 @@
                     <constraint firstAttribute="trailing" secondItem="OZN-Xe-oJb" secondAttribute="trailing" constant="10" id="xX2-xS-kzf"/>
                 </constraints>
             </collectionViewCellContentView>
+            <color key="backgroundColor" red="0.8974346662068996" green="1" blue="0.78389688118559675" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <size key="customSize" width="335" height="607"/>
             <point key="canvasLocation" x="-3.6231884057971016" y="282.25446428571428"/>
         </collectionViewCell>
