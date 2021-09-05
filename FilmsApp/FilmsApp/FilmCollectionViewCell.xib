@@ -70,6 +70,13 @@
             </collectionViewCellContentView>
             <color key="backgroundColor" red="0.8974346662068996" green="1" blue="0.78389688118559675" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <size key="customSize" width="335" height="607"/>
+            <connections>
+                <outlet property="containerView" destination="Fth-Sz-0H9" id="jdh-Cc-iwz"/>
+                <outlet property="filmTitleLabel" destination="3yv-Sn-5CC" id="Vgh-XY-Zgz"/>
+                <outlet property="posterImageView" destination="zJf-UC-zoJ" id="4er-BZ-km0"/>
+                <outlet property="ratingLabel" destination="Th0-XS-WkW" id="VjI-OK-xJ3"/>
+                <outlet property="yearLabel" destination="OZN-Xe-oJb" id="skM-bG-wIL"/>
+            </connections>
             <point key="canvasLocation" x="-3.6231884057971016" y="282.25446428571428"/>
         </collectionViewCell>
     </objects>
