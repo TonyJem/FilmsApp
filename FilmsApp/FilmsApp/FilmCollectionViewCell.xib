@@ -17,10 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="223" height="483"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fth-Sz-0H9">
+                    <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Fth-Sz-0H9">
                         <rect key="frame" x="10" y="10" width="203" height="338"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zJf-UC-zoJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image01" translatesAutoresizingMaskIntoConstraints="NO" id="zJf-UC-zoJ">
                                 <rect key="frame" x="0.0" y="0.0" width="203" height="338"/>
                             </imageView>
                         </subviews>
@@ -81,6 +81,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="image01" width="411" height="617"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
