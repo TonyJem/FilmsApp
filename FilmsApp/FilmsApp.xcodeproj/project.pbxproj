@@ -76,7 +76,6 @@
 				3AAAFA1427E5092400839670 /* Storyboards */,
 				3AAAFA1227E5071800839670 /* ViewControllers */,
 				3AAAFA1627E509B500839670 /* Resources */,
-				3A38A03026CC0084003E9A33 /* Info.plist */,
 			);
 			path = FilmsApp;
 			sourceTree = "<group>";
@@ -130,6 +129,7 @@
 		3AAAFA1627E509B500839670 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3A38A03026CC0084003E9A33 /* Info.plist */,
 				3A38A02B26CC0084003E9A33 /* Assets.xcassets */,
 				3A38A02D26CC0084003E9A33 /* LaunchScreen.storyboard */,
 			);
@@ -364,7 +364,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J73Q43L2S;
-				INFOPLIST_FILE = FilmsApp/Info.plist;
+				INFOPLIST_FILE = FilmsApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,7 +383,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8J73Q43L2S;
-				INFOPLIST_FILE = FilmsApp/Info.plist;
+				INFOPLIST_FILE = FilmsApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
