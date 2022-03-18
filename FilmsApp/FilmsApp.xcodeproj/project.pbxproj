@@ -70,8 +70,7 @@
 		3A38A02126CC0082003E9A33 /* FilmsApp */ = {
 			isa = PBXGroup;
 			children = (
-				3A38A02226CC0082003E9A33 /* AppDelegate.swift */,
-				3A38A02426CC0082003E9A33 /* SceneDelegate.swift */,
+				3AAAFA1127E5069900839670 /* Application */,
 				3A38A02626CC0082003E9A33 /* MainViewController.swift */,
 				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 				3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell.xib */,
@@ -86,6 +85,15 @@
 				3A38A03026CC0084003E9A33 /* Info.plist */,
 			);
 			path = FilmsApp;
+			sourceTree = "<group>";
+		};
+		3AAAFA1127E5069900839670 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3A38A02226CC0082003E9A33 /* AppDelegate.swift */,
+				3A38A02426CC0082003E9A33 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
