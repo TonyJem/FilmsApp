@@ -38,7 +38,8 @@ class MainViewController: UIViewController {
     
 }
 
-// MARK: UICollectionViewDataSource
+// MARK: - UICollectionViewDataSource
+
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,12 +60,14 @@ extension MainViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: UICollectionViewDelegate
+// MARK: - UICollectionViewDelegate
+
 extension MainViewController: UICollectionViewDelegate {
     
 }
 
-// MARK: UISearchBarDelegate
+// MARK: - UISearchBarDelegate
+
 extension MainViewController: UISearchBarDelegate {
     
 }

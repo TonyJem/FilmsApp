@@ -2,11 +2,11 @@ import UIKit
 
 class FilmCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var filmTitleLabel: UILabel!
-    @IBOutlet weak var yearLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var filmTitleLabel: UILabel!
+    @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
     
     var film: TestModel? {
         didSet {
