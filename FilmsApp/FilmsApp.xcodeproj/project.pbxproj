@@ -20,6 +20,7 @@
 		3A38A03F26CC03FD003E9A33 /* FullPicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A03E26CC03FD003E9A33 /* FullPicViewController.swift */; };
 		3A38A04226CC0410003E9A33 /* FavouriteFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */; };
 		3A38A04826CC0642003E9A33 /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A04726CC0642003E9A33 /* JSONModel.swift */; };
+		3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		3A38A03E26CC03FD003E9A33 /* FullPicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPicViewController.swift; sourceTree = "<group>"; };
 		3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFilmsViewController.swift; sourceTree = "<group>"; };
 		3A38A04726CC0642003E9A33 /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
+		3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterFullViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */,
 				3A38A03E26CC03FD003E9A33 /* FullPicViewController.swift */,
 				3A38A03B26CC03ED003E9A33 /* FilmPicsViewController.swift */,
+				3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */,
 				3A38A02526CC0082003E9A33 /* SceneDelegate.swift in Sources */,
 				3A38A04826CC0642003E9A33 /* JSONModel.swift in Sources */,
+				3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */,
 				3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */,
 				3A38A03F26CC03FD003E9A33 /* FullPicViewController.swift in Sources */,
 				3A38A03926CC0355003E9A33 /* DetailFilmViewController.swift in Sources */,

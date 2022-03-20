@@ -84,6 +84,35 @@
             </objects>
             <point key="canvasLocation" x="1048" y="867"/>
         </scene>
+        <!--Poster Full View Controller-->
+        <scene sceneID="nuU-ff-p6I">
+            <objects>
+                <viewController id="I36-pQ-rDp" customClass="PosterFullViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QYP-Ld-ETZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qcu-JI-rFE">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VYf-Bg-8Cx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qcu-JI-rFE" firstAttribute="top" secondItem="VYf-Bg-8Cx" secondAttribute="top" id="5ta-mV-sxc"/>
+                            <constraint firstItem="VYf-Bg-8Cx" firstAttribute="trailing" secondItem="Qcu-JI-rFE" secondAttribute="trailing" id="AkU-F4-huw"/>
+                            <constraint firstItem="Qcu-JI-rFE" firstAttribute="leading" secondItem="VYf-Bg-8Cx" secondAttribute="leading" id="h01-1M-DlR"/>
+                            <constraint firstItem="VYf-Bg-8Cx" firstAttribute="bottom" secondItem="Qcu-JI-rFE" secondAttribute="bottom" id="tOK-mq-xmf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fullPosterImageView" destination="Qcu-JI-rFE" id="vdf-18-DvY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nqe-QV-H6d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1851" y="867"/>
+        </scene>
         <!--Detail Film View Controller-->
         <scene sceneID="692-l7-7MT">
             <objects>
@@ -438,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KA6-2x-FWd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1894" y="867"/>
+            <point key="canvasLocation" x="1048" y="1552"/>
         </scene>
     </scenes>
     <resources>
