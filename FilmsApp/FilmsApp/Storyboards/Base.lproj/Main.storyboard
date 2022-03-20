@@ -93,19 +93,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image04" translatesAutoresizingMaskIntoConstraints="NO" id="Qcu-JI-rFE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="80" width="414" height="728"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="use-Ls-XuK">
+                                <rect key="frame" x="354" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="ErF-Aq-XDf"/>
+                                    <constraint firstAttribute="width" secondItem="use-Ls-XuK" secondAttribute="height" id="dSW-42-apO"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="gray"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="I36-pQ-rDp" eventType="touchUpInside" id="ZMw-d8-UAF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VYf-Bg-8Cx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Qcu-JI-rFE" firstAttribute="top" secondItem="VYf-Bg-8Cx" secondAttribute="top" id="5ta-mV-sxc"/>
+                            <constraint firstItem="VYf-Bg-8Cx" firstAttribute="trailing" secondItem="use-Ls-XuK" secondAttribute="trailing" constant="20" id="6lu-JO-eHB"/>
                             <constraint firstItem="VYf-Bg-8Cx" firstAttribute="trailing" secondItem="Qcu-JI-rFE" secondAttribute="trailing" id="AkU-F4-huw"/>
+                            <constraint firstItem="Qcu-JI-rFE" firstAttribute="top" secondItem="use-Ls-XuK" secondAttribute="bottom" constant="20" id="Om7-KE-i82"/>
+                            <constraint firstItem="use-Ls-XuK" firstAttribute="top" secondItem="VYf-Bg-8Cx" secondAttribute="top" constant="20" id="YAu-NM-Ut4"/>
                             <constraint firstItem="Qcu-JI-rFE" firstAttribute="leading" secondItem="VYf-Bg-8Cx" secondAttribute="leading" id="h01-1M-DlR"/>
                             <constraint firstItem="VYf-Bg-8Cx" firstAttribute="bottom" secondItem="Qcu-JI-rFE" secondAttribute="bottom" id="tOK-mq-xmf"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="use-Ls-XuK" id="2Od-U5-7sL"/>
                         <outlet property="fullPosterImageView" destination="Qcu-JI-rFE" id="vdf-18-DvY"/>
                     </connections>
                 </viewController>
