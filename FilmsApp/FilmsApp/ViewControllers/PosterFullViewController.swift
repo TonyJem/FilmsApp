@@ -6,7 +6,12 @@ final class PosterFullViewController: UIViewController {
     @IBOutlet private weak var closeButton: UIButton!
     @IBOutlet private weak var fullPosterImageView: UIImageView!
     
+    // MARK: - Properties
+    
+    var detailIndexPath: Int = Int()
+    
     // MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,5 +32,6 @@ final class PosterFullViewController: UIViewController {
     
     private func setupViews() {
         closeButton.clipsToBounds = true
+        fullPosterImageView.image = UIImage(named: testArray[detailIndexPath].testPic ?? "image01")
     }
 }

@@ -20,6 +20,11 @@ class DetailFilmViewController: UIViewController {
         ratingLabel.text = testArray[receivedIndex].testRating
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destinationVC = segue.destination as? PosterFullViewController else { return }
+        destinationVC.detailIndexPath = receivedIndex
+    }
+    
     @IBAction func tapGestureAction(_ sender: Any) {
     }
     
