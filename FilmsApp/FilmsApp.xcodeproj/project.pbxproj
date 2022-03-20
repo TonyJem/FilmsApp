@@ -21,6 +21,7 @@
 		3A38A04226CC0410003E9A33 /* FavouriteFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */; };
 		3A38A04826CC0642003E9A33 /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A04726CC0642003E9A33 /* JSONModel.swift */; };
 		3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */; };
+		3AAAFA1A27E77A4D00839670 /* RoundingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFilmsViewController.swift; sourceTree = "<group>"; };
 		3A38A04726CC0642003E9A33 /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
 		3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterFullViewController.swift; sourceTree = "<group>"; };
+		3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				3AAAFA1127E5069900839670 /* Application */,
+				3AAAFA1B27E77A7200839670 /* Animations */,
 				3AAAFA1327E508B800839670 /* Models */,
 				3AAAFA1527E5097500839670 /* Views */,
 				3AAAFA1427E5092400839670 /* Storyboards */,
@@ -137,6 +140,14 @@
 				3A38A02D26CC0084003E9A33 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3AAAFA1B27E77A7200839670 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */,
+			);
+			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAAFA1A27E77A4D00839670 /* RoundingTransition.swift in Sources */,
 				3A38A03C26CC03ED003E9A33 /* FilmPicsViewController.swift in Sources */,
 				3A38A04226CC0410003E9A33 /* FavouriteFilmsViewController.swift in Sources */,
 				3A38A02726CC0082003E9A33 /* MainViewController.swift in Sources */,
