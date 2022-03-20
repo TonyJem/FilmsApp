@@ -2,24 +2,24 @@ import UIKit
 
 class RoundingTransition: NSObject {
     
-    private let time = 0.3
-    private let roundColor = UIColor.red
-    
-    private var round = UIView()
-    
-    private var start = CGPoint.zero {
-        didSet {
-            round.center = start
-        }
-    }
-    
     enum RoundingTransitionProfile: Int {
         case show
         case cancel
         case pop
     }
     
+    private let time = 0.3
+    
     var transitionProfile: RoundingTransitionProfile = .show
+    var roundColor = UIColor.red
+    
+    var start = CGPoint.zero {
+        didSet {
+            round.center = start
+        }
+    }
+    
+    private var round = UIView()
 }
 
 // MARK: - UIViewControllerAnimatedTransitioning
