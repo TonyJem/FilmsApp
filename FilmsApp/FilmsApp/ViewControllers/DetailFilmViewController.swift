@@ -9,8 +9,15 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet private weak var galleryCollection: UICollectionView!
     @IBOutlet private weak var descriptionTextView: UITextView!
     
+    var receivedIndex: Int = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        posterImageView.image = UIImage(named: testArray[receivedIndex].testPic ?? "image01")
+        filmTitleLabel.text = testArray[receivedIndex].testTitle
+        releaseYearLabel.text = testArray[receivedIndex].testYear
+        ratingLabel.text = testArray[receivedIndex].testRating
     }
     
     @IBAction func tapGestureAction(_ sender: Any) {

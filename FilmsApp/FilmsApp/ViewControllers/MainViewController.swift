@@ -45,7 +45,13 @@ extension MainViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension MainViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerID") as? DetailFilmViewController else {
+            return
+        }
+        destinationVC.receivedIndex = indexPath.row
+        navigationController?.pushViewController(destinationVC, animated: true)
+    }
 }
 
 // MARK: - UISearchBarDelegate
