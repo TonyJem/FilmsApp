@@ -12,4 +12,8 @@ class DetailFilmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    @IBAction func tapGestureAction(_ sender: Any) {
+    }
+    
 }
