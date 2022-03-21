@@ -75,11 +75,9 @@
 			isa = PBXGroup;
 			children = (
 				3AAAFA1127E5069900839670 /* Application */,
-				3AAAFA1B27E77A7200839670 /* Animations */,
 				3AAAFA1327E508B800839670 /* Models */,
 				3AAAFA1527E5097500839670 /* Views */,
-				3AAAFA1427E5092400839670 /* Storyboards */,
-				3AAAFA1227E5071800839670 /* ViewControllers */,
+				3AAAFA1227E5071800839670 /* Controllers */,
 				3AAAFA1627E509B500839670 /* Resources */,
 			);
 			path = FilmsApp;
@@ -94,40 +92,34 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		3AAAFA1227E5071800839670 /* ViewControllers */ = {
+		3AAAFA1227E5071800839670 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				3A38A02626CC0082003E9A33 /* MainViewController.swift */,
 				3A38A03826CC0355003E9A33 /* DetailFilmViewController.swift */,
-				3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */,
-				3A38A03E26CC03FD003E9A33 /* FullPicViewController.swift */,
 				3A38A03B26CC03ED003E9A33 /* FilmPicsViewController.swift */,
+				3A38A03E26CC03FD003E9A33 /* FullPicViewController.swift */,
+				3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */,
 				3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		3AAAFA1327E508B800839670 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				3A38A04726CC0642003E9A33 /* JSONModel.swift */,
+				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		3AAAFA1427E5092400839670 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				3A38A02826CC0082003E9A33 /* Main.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		3AAAFA1527E5097500839670 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
+				3A38A02826CC0082003E9A33 /* Main.storyboard */,
 				3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell.xib */,
+				3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,19 +127,11 @@
 		3AAAFA1627E509B500839670 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A38A03026CC0084003E9A33 /* Info.plist */,
 				3A38A02B26CC0084003E9A33 /* Assets.xcassets */,
 				3A38A02D26CC0084003E9A33 /* LaunchScreen.storyboard */,
+				3A38A03026CC0084003E9A33 /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		3AAAFA1B27E77A7200839670 /* Animations */ = {
-			isa = PBXGroup;
-			children = (
-				3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */,
-			);
-			path = Animations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
