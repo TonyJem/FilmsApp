@@ -5,6 +5,8 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var filmsSearchBar: UISearchBar!
     @IBOutlet private weak var mainCollectionView: UICollectionView!
     
+    let model = Model()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +27,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Model().likedFilms.count
+        return model.newTestArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -34,9 +36,7 @@ extension MainViewController: UICollectionViewDataSource {
         }
         
         cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
-        
-        let testItem = Model().likedFilms[indexPath.item]
-        cell.film = testItem
+        cell.data = self.model.newTestArray[indexPath.item]
         
         return cell
     }

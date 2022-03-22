@@ -8,6 +8,7 @@ final class PosterFullViewController: UIViewController {
     
     // MARK: - Properties
     
+    let model = Model()
     var detailIndexPath: Int = Int()
     
     // MARK: - LifeCycle
@@ -32,6 +33,6 @@ final class PosterFullViewController: UIViewController {
     
     private func setupViews() {
         closeButton.clipsToBounds = true
-        fullPosterImageView.image = UIImage(named: testArray[detailIndexPath].testPic ?? "image01")
+        fullPosterImageView.image = UIImage(named: model.testArray[detailIndexPath].testPic ?? "image01")
     }
 }

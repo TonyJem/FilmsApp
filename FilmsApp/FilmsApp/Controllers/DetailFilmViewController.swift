@@ -11,14 +11,15 @@ class DetailFilmViewController: UIViewController {
     
     var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
+    var model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        posterImageView.image = UIImage(named: testArray[receivedIndex].testPic ?? "image01")
-        filmTitleLabel.text = testArray[receivedIndex].testTitle
-        releaseYearLabel.text = testArray[receivedIndex].testYear
-        ratingLabel.text = testArray[receivedIndex].testRating
+        posterImageView.image = UIImage(named: model.testArray[receivedIndex].testPic ?? "image01")
+        filmTitleLabel.text = model.testArray[receivedIndex].testTitle
+        releaseYearLabel.text = String(model.testArray[receivedIndex].testYear ?? 0)
+        ratingLabel.text = String(model.testArray[receivedIndex].testRating ?? 0.0)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
