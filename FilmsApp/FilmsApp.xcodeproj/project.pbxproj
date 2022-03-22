@@ -23,6 +23,7 @@
 		3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */; };
 		3AAAFA1A27E77A4D00839670 /* RoundingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */; };
 		3AAAFA1D27E9047A00839670 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1C27E9047A00839670 /* Model.swift */; };
+		3AAAFA2127EA49DA00839670 /* FavoriteFilmViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterFullViewController.swift; sourceTree = "<group>"; };
 		3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
 		3AAAFA1C27E9047A00839670 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFilmViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				3AAAFA1C27E9047A00839670 /* Model.swift */,
 				3A38A04726CC0642003E9A33 /* JSONModel.swift */,
 				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
+				3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				3AAAFA1D27E9047A00839670 /* Model.swift in Sources */,
 				3A38A02726CC0082003E9A33 /* MainViewController.swift in Sources */,
 				3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */,
+				3AAAFA2127EA49DA00839670 /* FavoriteFilmViewCell.swift in Sources */,
 				3A38A02526CC0082003E9A33 /* SceneDelegate.swift in Sources */,
 				3A38A04826CC0642003E9A33 /* JSONModel.swift in Sources */,
 				3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */,
