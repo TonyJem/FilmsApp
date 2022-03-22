@@ -2,24 +2,42 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet private weak var filmsSearchBar: UISearchBar!
-    @IBOutlet private weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var mainCollectionView: UICollectionView!
+    @IBOutlet weak var sortingButton: UIBarButtonItem!
+    
+    @IBAction func sortingButtonPressed(_ sender: UIBarButtonItem) {
+        let arrowUp = UIImage(systemName: "arrow.up")
+        let arrowDown = UIImage(systemName: "arrow.down")
+        
+        model.sortAscending = !model.sortAscending
+        sortingButton.image = model.sortAscending ? arrowUp : arrowDown
+        model.ratingSort()
+        mainCollectionView.reloadData()
+    }
     
     let model = Model()
+    
+    var searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        filmsSearchBar.delegate = self
+        model.newTestArray = model.testArray
         
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Find Your Film"
+        
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
         let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
         mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "FilmCell")
+        model.ratingSort()
         mainCollectionView.reloadData()
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource
@@ -49,7 +67,7 @@ extension MainViewController: UICollectionViewDelegate {
         guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerID") as? DetailFilmViewController else {
             return
         }
-        destinationVC.receivedIndex = indexPath.row
+        destinationVC.receivedIndex = model.newTestArray[indexPath.row].id ?? 0
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
@@ -57,5 +75,19 @@ extension MainViewController: UICollectionViewDelegate {
 // MARK: - UISearchBarDelegate
 
 extension MainViewController: UISearchBarDelegate {
+}
+
+// MARK: - SearchBar Methods
+
+extension MainViewController {
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        model.search(searchTextValue: searchText)
+        mainCollectionView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        model.newTestArray = model.testArray
+        mainCollectionView.reloadData()
+    }
 }

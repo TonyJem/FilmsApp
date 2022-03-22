@@ -18,15 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bPJ-PV-QoD">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="DXe-6V-d6k"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zOV-d3-ZVG">
-                                <rect key="frame" x="20" y="152" width="374" height="710"/>
+                                <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Zw-jr-r03">
                                     <size key="itemSize" width="174" height="265"/>
@@ -50,19 +43,23 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zOV-d3-ZVG" firstAttribute="top" secondItem="bPJ-PV-QoD" secondAttribute="bottom" constant="20" id="1TD-Ov-KGM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zOV-d3-ZVG" secondAttribute="trailing" constant="20" id="1mm-YE-Zjp"/>
-                            <constraint firstItem="bPJ-PV-QoD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2vX-xm-Fbi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zOV-d3-ZVG" secondAttribute="bottom" id="7Is-My-N0z"/>
                             <constraint firstItem="zOV-d3-ZVG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JjA-9M-i34"/>
-                            <constraint firstItem="bPJ-PV-QoD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="L2v-F5-Eqv"/>
-                            <constraint firstItem="bPJ-PV-QoD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cuL-j6-IGb"/>
+                            <constraint firstItem="zOV-d3-ZVG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hZB-jn-0Le"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="FilmsApp" id="kPI-AL-49K"/>
+                    <navigationItem key="navigationItem" title="FilmsApp" id="kPI-AL-49K">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="bolt.heart.fill" catalog="system" id="pm0-hM-MQN"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.down" catalog="system" id="q5N-6i-9GH">
+                            <connections>
+                                <action selector="sortinButon:" destination="BYZ-38-t0r" id="XZT-pz-GWq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="filmsSearchBar" destination="bPJ-PV-QoD" id="gMA-Ba-Obf"/>
                         <outlet property="mainCollectionView" destination="zOV-d3-ZVG" id="4DN-d2-JaL"/>
+                        <outlet property="sortingButton" destination="q5N-6i-9GH" id="T0Z-YJ-8mC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -496,6 +493,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.down" catalog="system" width="120" height="128"/>
+        <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
         <image name="image04" width="413" height="621"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
