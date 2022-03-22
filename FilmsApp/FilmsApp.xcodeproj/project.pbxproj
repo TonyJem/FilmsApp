@@ -110,8 +110,8 @@
 		3AAAFA1327E508B800839670 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3A38A04726CC0642003E9A33 /* JSONModel.swift */,
 				3AAAFA1C27E9047A00839670 /* Model.swift */,
+				3A38A04726CC0642003E9A33 /* JSONModel.swift */,
 				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 			);
 			path = Models;

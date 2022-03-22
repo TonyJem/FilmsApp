@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return testArray.count
+        return Model().likedFilms.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -35,7 +35,7 @@ extension MainViewController: UICollectionViewDataSource {
         
         cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
         
-        let testItem = testArray[indexPath.item]
+        let testItem = Model().likedFilms[indexPath.item]
         cell.film = testItem
         
         return cell
