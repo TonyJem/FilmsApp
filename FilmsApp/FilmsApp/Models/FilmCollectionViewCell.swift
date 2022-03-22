@@ -8,13 +8,18 @@ class FilmCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    var film: Item? {
+    var data: Item? {
+        
         didSet {
-            guard let unwrappedFilm = film else { return }
-            posterImageView.image = UIImage(named: unwrappedFilm.testPic ?? "untitledPicture")
-            filmTitleLabel.text = unwrappedFilm.testTitle
-            yearLabel.text = unwrappedFilm.testYear
-            ratingLabel.text = unwrappedFilm.testRating
+            
+            guard data != nil else {
+                return
+            }
+            
+            posterImageView.image = UIImage(named: data?.testPic ?? "image01")
+            filmTitleLabel.text = data?.testTitle
+            yearLabel.text = String(data?.testYear ?? 0)
+            ratingLabel.text = String(data?.testRating ?? 0.0)
         }
     }
 }
