@@ -21,4 +21,9 @@ class FavoriteFilmViewCell: UICollectionViewCell {
             favoriteRatingLabel.text = String(data?.testRating ?? 0.0)
         }
     }
+    
+    @IBAction func deleteFromFavPressed(_ sender: UIButton) {
+        
+    }
+    
 }
