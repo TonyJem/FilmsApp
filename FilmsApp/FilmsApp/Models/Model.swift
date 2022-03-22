@@ -9,7 +9,7 @@ class Item {
     var testRating: Double?
     var isLiked: Bool
     
-    init(id: Int? = nil, testPic: String?, testTitle: String?, testYear: Int?, testRating: Double?, isliked: Bool = false) {
+    init(id: Int?, testPic: String?, testTitle: String?, testYear: Int?, testRating: Double?, isliked: Bool) {
         self.id = id
         self.testPic = testPic
         self.testTitle = testTitle
@@ -39,9 +39,7 @@ class Model {
     ]
     
     var newTestArray: [Item] = []
-    
     var likedTestArray: [Item] = []
-    
     var sortAscending: Bool = true
     
     func ratingSort() {
@@ -85,7 +83,7 @@ class Model {
         newTestArray.count
     }
     
-    func buuildCell(cell: FilmCollectionViewCell, indexPath: IndexPath) -> UICollectionViewCell {
+    func buildCell(cell: FilmCollectionViewCell, indexPath: IndexPath) -> UICollectionViewCell {
         
         cell.posterImageView.image = UIImage(named: newTestArray[indexPath.row].testPic ?? "image01")
         cell.filmTitleLabel.text = newTestArray[indexPath.row].testTitle
