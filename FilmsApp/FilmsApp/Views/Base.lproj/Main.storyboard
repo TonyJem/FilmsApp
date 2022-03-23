@@ -70,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="137.94642857142856"/>
         </scene>
-        <!--Favourite Films View Controller-->
+        <!--Fav Films-->
         <scene sceneID="btl-jb-uas">
             <objects>
                 <viewController id="bBQ-5J-vku" customClass="FavouriteFilmsViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -80,7 +80,7 @@
                         <viewLayoutGuide key="safeArea" id="MwC-6t-rC4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kyg-7d-np7"/>
+                    <navigationItem key="navigationItem" title="Fav Films" id="kyg-7d-np7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvH-eF-jvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
