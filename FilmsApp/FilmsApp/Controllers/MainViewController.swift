@@ -53,7 +53,6 @@ extension MainViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.backgroundColor = indexPath.item % 2 == 0 ? .red : .blue
         cell.data = self.model.newTestArray[indexPath.item]
         
         return cell

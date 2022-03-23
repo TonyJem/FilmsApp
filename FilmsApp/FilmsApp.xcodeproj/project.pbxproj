@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */; };
-		3A2924C226E3AF69003D2A9A /* FilmCollectionViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell1.xib */; };
 		3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02226CC0082003E9A33 /* AppDelegate.swift */; };
 		3A38A02526CC0082003E9A33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02426CC0082003E9A33 /* SceneDelegate.swift */; };
 		3A38A02726CC0082003E9A33 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02626CC0082003E9A33 /* MainViewController.swift */; };
@@ -30,7 +29,6 @@
 
 /* Begin PBXFileReference section */
 		3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
-		3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewCell1.xib; sourceTree = "<group>"; };
 		3A38A01F26CC0082003E9A33 /* FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A38A02226CC0082003E9A33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A38A02426CC0082003E9A33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 			children = (
 				3A38A02826CC0082003E9A33 /* Main.storyboard */,
 				3AAAFA2627EBAA7C00839670 /* FilmCollectionViewCell.xib */,
-				3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell1.xib */,
 				3AAAFA2227EA4D1100839670 /* FavoriteFilmViewCell.xib */,
 				3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */,
 			);
@@ -207,7 +204,6 @@
 				3A38A02F26CC0084003E9A33 /* LaunchScreen.storyboard in Resources */,
 				3AAAFA2327EA4D1100839670 /* FavoriteFilmViewCell.xib in Resources */,
 				3A38A02C26CC0084003E9A33 /* Assets.xcassets in Resources */,
-				3A2924C226E3AF69003D2A9A /* FilmCollectionViewCell1.xib in Resources */,
 				3A38A02A26CC0082003E9A33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,19 +22,20 @@
                                 <rect key="frame" x="20" y="88" width="374" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1Zw-jr-r03">
-                                    <size key="itemSize" width="149" height="154"/>
+                                    <size key="itemSize" width="172" height="288"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="LcA-n5-zfF" userLabel="Default Cell">
-                                        <rect key="frame" x="0.0" y="0.0" width="149" height="154"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="LcA-n5-zfF">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="288"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZW0-IE-uE7">
-                                            <rect key="frame" x="0.0" y="0.0" width="149" height="154"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="172" height="288"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="172" height="288"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -43,7 +44,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zOV-d3-ZVG" secondAttribute="trailing" constant="20" id="1mm-YE-Zjp"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zOV-d3-ZVG" secondAttribute="bottom" id="7Is-My-N0z"/>
+                            <constraint firstItem="zOV-d3-ZVG" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7Is-My-N0z"/>
                             <constraint firstItem="zOV-d3-ZVG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="JjA-9M-i34"/>
                             <constraint firstItem="zOV-d3-ZVG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hZB-jn-0Le"/>
                         </constraints>
@@ -54,11 +55,7 @@
                                 <segue destination="bBQ-5J-vku" kind="show" id="G4x-IO-NUB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.down" catalog="system" id="q5N-6i-9GH">
-                            <connections>
-                                <action selector="sortinButon:" destination="BYZ-38-t0r" id="XZT-pz-GWq"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.down" catalog="system" id="q5N-6i-9GH"/>
                     </navigationItem>
                     <connections>
                         <outlet property="mainCollectionView" destination="zOV-d3-ZVG" id="4DN-d2-JaL"/>
