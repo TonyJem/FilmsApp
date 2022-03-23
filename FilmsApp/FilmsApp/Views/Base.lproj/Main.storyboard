@@ -255,6 +255,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Yx-bMp">
+                                <rect key="frame" x="354" y="64" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="HBP-AL-8x1"/>
+                                    <constraint firstAttribute="width" constant="40" id="YuD-Ff-Xbc"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="heart.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="likeButtonPressed:" destination="Brc-pL-8pe" eventType="touchUpInside" id="tmz-nc-O8p"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QTD-GN-rw3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -275,6 +287,8 @@
                             <constraint firstItem="6Xw-ZD-HhE" firstAttribute="centerY" secondItem="kx0-o0-Z2N" secondAttribute="centerY" id="ilj-1J-2dS"/>
                             <constraint firstItem="QTD-GN-rw3" firstAttribute="bottom" secondItem="gu2-ph-YJj" secondAttribute="bottom" constant="34" id="mTh-nY-bET"/>
                             <constraint firstItem="QTD-GN-rw3" firstAttribute="trailing" secondItem="j4e-tI-a0n" secondAttribute="trailing" constant="20" id="p5B-77-m3y"/>
+                            <constraint firstItem="6f3-Yx-bMp" firstAttribute="top" secondItem="QTD-GN-rw3" secondAttribute="top" constant="20" id="q8N-qV-Bjw"/>
+                            <constraint firstItem="QTD-GN-rw3" firstAttribute="trailing" secondItem="6f3-Yx-bMp" secondAttribute="trailing" constant="20" id="tfB-YW-PvD"/>
                             <constraint firstItem="QTD-GN-rw3" firstAttribute="trailing" secondItem="6Xw-ZD-HhE" secondAttribute="trailing" constant="20" id="x2J-Td-MyF"/>
                         </constraints>
                     </view>
@@ -282,6 +296,7 @@
                         <outlet property="descriptionTextView" destination="gu2-ph-YJj" id="Ptc-nt-wbd"/>
                         <outlet property="filmTitleLabel" destination="8M9-i1-BDK" id="vHm-PR-jXY"/>
                         <outlet property="galleryCollection" destination="yDh-1c-Vhq" id="GLW-dY-b0n"/>
+                        <outlet property="likeButton" destination="6f3-Yx-bMp" id="7Sf-jk-Knv"/>
                         <outlet property="posterImageView" destination="flR-1n-SWf" id="Rgc-EL-bGU"/>
                         <outlet property="ratingLabel" destination="uak-Ob-86R" id="lBu-rG-Aaf"/>
                         <outlet property="releaseYearLabel" destination="akz-ju-k3A" id="MAT-MC-lAn"/>
@@ -500,6 +515,7 @@
     <resources>
         <image name="arrow.down" catalog="system" width="120" height="128"/>
         <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image04" width="413" height="621"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
