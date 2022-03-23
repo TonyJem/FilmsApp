@@ -2,7 +2,6 @@ import UIKit
 
 class FilmCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet private weak var containerView: UIView!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var filmTitleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!

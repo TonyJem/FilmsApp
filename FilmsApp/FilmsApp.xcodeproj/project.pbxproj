@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */; };
-		3A2924C226E3AF69003D2A9A /* FilmCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell.xib */; };
+		3A2924C226E3AF69003D2A9A /* FilmCollectionViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell1.xib */; };
 		3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02226CC0082003E9A33 /* AppDelegate.swift */; };
 		3A38A02526CC0082003E9A33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02426CC0082003E9A33 /* SceneDelegate.swift */; };
 		3A38A02726CC0082003E9A33 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02626CC0082003E9A33 /* MainViewController.swift */; };
@@ -25,11 +25,12 @@
 		3AAAFA1D27E9047A00839670 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1C27E9047A00839670 /* Model.swift */; };
 		3AAAFA2127EA49DA00839670 /* FavoriteFilmViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */; };
 		3AAAFA2327EA4D1100839670 /* FavoriteFilmViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AAAFA2227EA4D1100839670 /* FavoriteFilmViewCell.xib */; };
+		3AAAFA2727EBB10F00839670 /* FilmCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AAAFA2627EBAA7C00839670 /* FilmCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
-		3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewCell.xib; sourceTree = "<group>"; };
+		3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewCell1.xib; sourceTree = "<group>"; };
 		3A38A01F26CC0082003E9A33 /* FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A38A02226CC0082003E9A33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A38A02426CC0082003E9A33 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		3AAAFA1C27E9047A00839670 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFilmViewCell.swift; sourceTree = "<group>"; };
 		3AAAFA2227EA4D1100839670 /* FavoriteFilmViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteFilmViewCell.xib; sourceTree = "<group>"; };
+		3AAAFA2627EBAA7C00839670 /* FilmCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				3A38A02826CC0082003E9A33 /* Main.storyboard */,
-				3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell.xib */,
+				3AAAFA2627EBAA7C00839670 /* FilmCollectionViewCell.xib */,
+				3A2924C126E3AF69003D2A9A /* FilmCollectionViewCell1.xib */,
 				3AAAFA2227EA4D1100839670 /* FavoriteFilmViewCell.xib */,
 				3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */,
 			);
@@ -200,10 +203,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AAAFA2727EBB10F00839670 /* FilmCollectionViewCell.xib in Resources */,
 				3A38A02F26CC0084003E9A33 /* LaunchScreen.storyboard in Resources */,
 				3AAAFA2327EA4D1100839670 /* FavoriteFilmViewCell.xib in Resources */,
 				3A38A02C26CC0084003E9A33 /* Assets.xcassets in Resources */,
-				3A2924C226E3AF69003D2A9A /* FilmCollectionViewCell.xib in Resources */,
+				3A2924C226E3AF69003D2A9A /* FilmCollectionViewCell1.xib in Resources */,
 				3A38A02A26CC0082003E9A33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
