@@ -50,7 +50,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FilmsApp" id="kPI-AL-49K">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="bolt.heart.fill" catalog="system" id="pm0-hM-MQN"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="bolt.heart.fill" catalog="system" id="pm0-hM-MQN">
+                            <connections>
+                                <segue destination="bBQ-5J-vku" kind="show" id="G4x-IO-NUB"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.down" catalog="system" id="q5N-6i-9GH">
                             <connections>
                                 <action selector="sortinButon:" destination="BYZ-38-t0r" id="XZT-pz-GWq"/>
@@ -76,6 +80,7 @@
                         <viewLayoutGuide key="safeArea" id="MwC-6t-rC4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kyg-7d-np7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvH-eF-jvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
