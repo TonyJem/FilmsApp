@@ -17,55 +17,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="172" height="295"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="P54-Ju-Mzy">
-                        <rect key="frame" x="8" y="10" width="156" height="275"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="tPe-o2-v7S">
+                        <rect key="frame" x="8" y="7" width="156" height="281"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="tPe-o2-v7S">
-                                <rect key="frame" x="0.0" y="0.0" width="156" height="275"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2N-PJ-Gqh">
-                                        <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="208" id="9Ib-LA-4Af"/>
-                                            <constraint firstAttribute="width" constant="156" id="gIo-aM-NUR"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Название фильма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a93-Q8-c7q">
-                                        <rect key="frame" x="0.0" y="209" width="156" height="23"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Год выпуска" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZF-v3-TVh">
-                                        <rect key="frame" x="0.0" y="233" width="156" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rK-gm-xBR">
-                                        <rect key="frame" x="0.0" y="254.5" width="156" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2N-PJ-Gqh">
+                                <rect key="frame" x="0.0" y="0.0" width="156" height="208"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="275" id="jyf-Og-WW6"/>
+                                    <constraint firstAttribute="height" constant="208" id="9Ib-LA-4Af"/>
+                                    <constraint firstAttribute="width" constant="156" id="gIo-aM-NUR"/>
                                 </constraints>
-                            </stackView>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Название фильма" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a93-Q8-c7q">
+                                <rect key="frame" x="0.0" y="209" width="156" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Год выпуска" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZF-v3-TVh">
+                                <rect key="frame" x="0.0" y="239" width="156" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0rK-gm-xBR">
+                                <rect key="frame" x="0.0" y="260.5" width="156" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="tPe-o2-v7S" firstAttribute="top" secondItem="P54-Ju-Mzy" secondAttribute="top" id="26p-wi-zaP"/>
-                            <constraint firstAttribute="trailing" secondItem="tPe-o2-v7S" secondAttribute="trailing" id="2yf-35-FDa"/>
-                            <constraint firstAttribute="bottom" secondItem="tPe-o2-v7S" secondAttribute="bottom" id="fVs-Jz-7SW"/>
-                            <constraint firstItem="tPe-o2-v7S" firstAttribute="leading" secondItem="P54-Ju-Mzy" secondAttribute="leading" id="fsn-Ba-epq"/>
-                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="P54-Ju-Mzy" firstAttribute="top" secondItem="RlM-FI-kcu" secondAttribute="top" constant="10" id="a8W-yw-1C1"/>
-                    <constraint firstAttribute="trailing" secondItem="P54-Ju-Mzy" secondAttribute="trailing" constant="8" id="bRL-lM-LnB"/>
-                    <constraint firstItem="P54-Ju-Mzy" firstAttribute="leading" secondItem="RlM-FI-kcu" secondAttribute="leading" constant="8" id="y0c-W5-64l"/>
+                    <constraint firstItem="tPe-o2-v7S" firstAttribute="top" secondItem="RlM-FI-kcu" secondAttribute="top" constant="7" id="4go-ke-hW2"/>
+                    <constraint firstAttribute="bottom" secondItem="tPe-o2-v7S" secondAttribute="bottom" constant="7" id="4pQ-8h-2FE"/>
+                    <constraint firstAttribute="trailing" secondItem="tPe-o2-v7S" secondAttribute="trailing" constant="8" id="9CP-c6-lw4"/>
+                    <constraint firstItem="tPe-o2-v7S" firstAttribute="leading" secondItem="RlM-FI-kcu" secondAttribute="leading" constant="8" id="D93-m5-q43"/>
                 </constraints>
             </collectionViewCellContentView>
             <color key="backgroundColor" red="0.88235294117647056" green="1" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
