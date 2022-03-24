@@ -238,7 +238,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="yDh-1c-Vhq">
-                                <rect key="frame" x="20" y="484" width="374" height="128"/>
+                                <rect key="frame" x="20" y="484" width="324" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Gtv-ek-oad"/>
@@ -303,6 +303,16 @@
                                     <action selector="likeButtonPressed:" destination="Brc-pL-8pe" eventType="touchUpInside" id="tmz-nc-O8p"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BS-1a-bxz">
+                                <rect key="frame" x="349" y="484" width="45" height="128"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="RP2-tk-60b"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="play.fill" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QTD-GN-rw3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -314,9 +324,12 @@
                             <constraint firstItem="j4e-tI-a0n" firstAttribute="top" secondItem="QTD-GN-rw3" secondAttribute="top" constant="50" id="872-iX-o9l"/>
                             <constraint firstItem="HaX-Se-Xqn" firstAttribute="top" secondItem="yDh-1c-Vhq" secondAttribute="bottom" constant="24" id="Bbj-1J-KMU"/>
                             <constraint firstItem="gu2-ph-YJj" firstAttribute="top" secondItem="HaX-Se-Xqn" secondAttribute="bottom" constant="14" id="Cnh-Hs-7fF"/>
+                            <constraint firstItem="7BS-1a-bxz" firstAttribute="leading" secondItem="yDh-1c-Vhq" secondAttribute="trailing" constant="5" id="F6V-gS-sh5"/>
+                            <constraint firstItem="7BS-1a-bxz" firstAttribute="top" secondItem="6Xw-ZD-HhE" secondAttribute="bottom" constant="24" id="FHS-jE-Ytu"/>
                             <constraint firstItem="gu2-ph-YJj" firstAttribute="leading" secondItem="QTD-GN-rw3" secondAttribute="leading" constant="20" id="HVN-04-Rkv"/>
-                            <constraint firstItem="QTD-GN-rw3" firstAttribute="trailing" secondItem="yDh-1c-Vhq" secondAttribute="trailing" constant="20" id="M3N-Tk-Ide"/>
+                            <constraint firstItem="HaX-Se-Xqn" firstAttribute="top" secondItem="7BS-1a-bxz" secondAttribute="bottom" constant="24" id="NPz-ue-DMH"/>
                             <constraint firstItem="j4e-tI-a0n" firstAttribute="leading" secondItem="QTD-GN-rw3" secondAttribute="leading" constant="20" id="POR-E7-rKp"/>
+                            <constraint firstItem="QTD-GN-rw3" firstAttribute="trailing" secondItem="7BS-1a-bxz" secondAttribute="trailing" constant="20" id="axF-av-0W4"/>
                             <constraint firstItem="6Xw-ZD-HhE" firstAttribute="top" secondItem="j4e-tI-a0n" secondAttribute="bottom" constant="24" id="bNS-2z-lW7"/>
                             <constraint firstItem="6Xw-ZD-HhE" firstAttribute="leading" secondItem="QTD-GN-rw3" secondAttribute="leading" constant="20" id="dP3-nM-iLY"/>
                             <constraint firstItem="HaX-Se-Xqn" firstAttribute="leading" secondItem="QTD-GN-rw3" secondAttribute="leading" constant="20" id="fRI-8h-Xnu"/>
@@ -553,6 +566,7 @@
         <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image04" width="413" height="621"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
