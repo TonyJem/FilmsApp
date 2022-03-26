@@ -315,7 +315,7 @@
                                 <state key="normal" image="play.fill" catalog="system"/>
                                 <connections>
                                     <action selector="goToGAlleryButtonAction:" destination="Brc-pL-8pe" eventType="touchUpInside" id="Riq-cu-tO1"/>
-                                    <segue destination="lPT-nd-rPo" kind="show" id="yar-Vx-KCk"/>
+                                    <segue destination="lPT-nd-rPo" kind="show" identifier="showFullCollection" id="yar-Vx-KCk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -416,6 +416,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="PRU-Ta-ugT" secondAttribute="bottom" id="sH7-9v-lzg"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <segue destination="QEL-fm-iQ3" kind="show" identifier="showIndexedPic" id="mRW-pD-bb3"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -447,11 +450,70 @@
             <objects>
                 <viewController id="QEL-fm-iQ3" customClass="FullPicViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPf-qo-1mv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$НОМЕР/ОБЩЕЕ КОЛ-ВО$ " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-M9-e3q">
+                                <rect key="frame" x="20" y="5" width="374" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="V92-7E-de6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LQH-Sx-Qmw">
+                                <rect key="frame" x="0.0" y="43" width="414" height="765"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SmV-7E-aRn">
+                                    <size key="itemSize" width="416" height="750"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FullPicCell" id="yvH-bj-HN3">
+                                        <rect key="frame" x="0.0" y="7.5" width="416" height="750"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="peT-M6-l8c">
+                                            <rect key="frame" x="0.0" y="0.0" width="416" height="750"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image06" translatesAutoresizingMaskIntoConstraints="NO" id="iTY-IX-iw7">
+                                                    <rect key="frame" x="0.0" y="0.0" width="416" height="750"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="750" id="3az-z4-V1i"/>
+                                                        <constraint firstAttribute="width" constant="416" id="dVB-xo-pBD"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="iTY-IX-iw7" secondAttribute="trailing" id="WhD-EW-6tZ"/>
+                                                <constraint firstItem="iTY-IX-iw7" firstAttribute="top" secondItem="peT-M6-l8c" secondAttribute="top" id="bLt-Ga-dMq"/>
+                                                <constraint firstItem="iTY-IX-iw7" firstAttribute="leading" secondItem="peT-M6-l8c" secondAttribute="leading" id="iKt-Ox-2u0"/>
+                                                <constraint firstAttribute="bottom" secondItem="iTY-IX-iw7" secondAttribute="bottom" id="yt1-GM-GLX"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="IJc-xx-GSB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IJc-xx-GSB" firstAttribute="trailing" secondItem="LQH-Sx-Qmw" secondAttribute="trailing" id="FhN-xJ-UIk"/>
+                            <constraint firstItem="LQH-Sx-Qmw" firstAttribute="top" secondItem="uhe-M9-e3q" secondAttribute="bottom" constant="15" id="GA3-9l-nnF"/>
+                            <constraint firstItem="IJc-xx-GSB" firstAttribute="bottom" secondItem="LQH-Sx-Qmw" secondAttribute="bottom" id="Iqj-rc-N7T"/>
+                            <constraint firstItem="LQH-Sx-Qmw" firstAttribute="leading" secondItem="IJc-xx-GSB" secondAttribute="leading" id="QXv-9K-bVN"/>
+                            <constraint firstItem="uhe-M9-e3q" firstAttribute="leading" secondItem="IJc-xx-GSB" secondAttribute="leading" constant="20" id="eyK-tJ-l5f"/>
+                            <constraint firstItem="uhe-M9-e3q" firstAttribute="top" secondItem="IJc-xx-GSB" secondAttribute="top" constant="5" id="jvz-CZ-FOX"/>
+                            <constraint firstItem="IJc-xx-GSB" firstAttribute="trailing" secondItem="uhe-M9-e3q" secondAttribute="trailing" constant="20" id="nRg-RC-MIe"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="P87-fH-cg0"/>
+                    <connections>
+                        <outlet property="fullPicGalleryCollection" destination="LQH-Sx-Qmw" id="3Ri-TG-jZx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1L-qE-CYV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -631,6 +693,7 @@
         <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image04" width="413" height="621"/>
+        <image name="image06" width="408" height="625"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
