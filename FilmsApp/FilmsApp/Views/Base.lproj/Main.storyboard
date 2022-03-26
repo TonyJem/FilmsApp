@@ -387,8 +387,8 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FAG-3p-Nm6">
                                 <rect key="frame" x="20" y="73" width="374" height="735"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZCt-qK-STO">
-                                    <size key="itemSize" width="128" height="128"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="40" minimumInteritemSpacing="10" id="ZCt-qK-STO">
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -433,6 +433,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m6g-So-tgF"/>
+                    <connections>
+                        <outlet property="filmPicsCollectionView" destination="FAG-3p-Nm6" id="wEX-By-c2p"/>
+                        <outlet property="picsNumberLabel" destination="uqk-Kn-MZt" id="TqZ-xb-atH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vCo-b3-Jqf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
