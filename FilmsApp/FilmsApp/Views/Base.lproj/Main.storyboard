@@ -374,8 +374,63 @@
                     <view key="view" contentMode="scaleToFill" id="fQZ-Yb-Egf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$КОЛ-ВО$ кадров" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uqk-Kn-MZt">
+                                <rect key="frame" x="20" y="30" width="374" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="8Qq-ff-BGT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FAG-3p-Nm6">
+                                <rect key="frame" x="20" y="73" width="374" height="735"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZCt-qK-STO">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FilmPicCell" id="fmg-QJ-3tn">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="GR6-VT-oxk">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image04" translatesAutoresizingMaskIntoConstraints="NO" id="PRU-Ta-ugT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="ewf-F5-3oO"/>
+                                                        <constraint firstAttribute="height" constant="100" id="fFu-zB-as7"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="PRU-Ta-ugT" secondAttribute="trailing" id="KdB-wy-TB0"/>
+                                                <constraint firstItem="PRU-Ta-ugT" firstAttribute="leading" secondItem="GR6-VT-oxk" secondAttribute="leading" id="Yy5-UZ-fQz"/>
+                                                <constraint firstItem="PRU-Ta-ugT" firstAttribute="top" secondItem="GR6-VT-oxk" secondAttribute="top" id="bvw-v4-h94"/>
+                                                <constraint firstAttribute="bottom" secondItem="PRU-Ta-ugT" secondAttribute="bottom" id="sH7-9v-lzg"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="8qP-Zo-Rnk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8qP-Zo-Rnk" firstAttribute="trailing" secondItem="FAG-3p-Nm6" secondAttribute="trailing" constant="20" id="0Ia-UR-LH4"/>
+                            <constraint firstItem="uqk-Kn-MZt" firstAttribute="top" secondItem="8qP-Zo-Rnk" secondAttribute="top" constant="30" id="FMw-5R-koK"/>
+                            <constraint firstItem="8qP-Zo-Rnk" firstAttribute="trailing" secondItem="uqk-Kn-MZt" secondAttribute="trailing" constant="20" id="IDA-fd-Q08"/>
+                            <constraint firstItem="uqk-Kn-MZt" firstAttribute="leading" secondItem="8qP-Zo-Rnk" secondAttribute="leading" constant="20" id="Ktw-Ib-0h0"/>
+                            <constraint firstItem="FAG-3p-Nm6" firstAttribute="leading" secondItem="8qP-Zo-Rnk" secondAttribute="leading" constant="20" id="VmB-JX-bwq"/>
+                            <constraint firstItem="FAG-3p-Nm6" firstAttribute="top" secondItem="uqk-Kn-MZt" secondAttribute="bottom" constant="20" id="chS-1j-Lt1"/>
+                            <constraint firstItem="8qP-Zo-Rnk" firstAttribute="bottom" secondItem="FAG-3p-Nm6" secondAttribute="bottom" id="fS6-YH-SF3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="m6g-So-tgF"/>
                 </viewController>
