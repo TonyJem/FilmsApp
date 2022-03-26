@@ -273,10 +273,6 @@
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="Brc-pL-8pe" id="m6N-bT-kpE"/>
-                                    <outlet property="delegate" destination="Brc-pL-8pe" id="LHk-tl-73B"/>
-                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaX-Se-Xqn">
                                 <rect key="frame" x="20" y="636" width="374" height="24"/>

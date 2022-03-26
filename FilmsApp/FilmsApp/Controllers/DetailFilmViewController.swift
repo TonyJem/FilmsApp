@@ -29,6 +29,9 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        galleryCollection.dataSource = self
+        galleryCollection.delegate = self
+        
         if model.testArray[receivedIndex].isLiked == true {
             likeButton.alpha = 1
             likeButton.tintColor = .black
