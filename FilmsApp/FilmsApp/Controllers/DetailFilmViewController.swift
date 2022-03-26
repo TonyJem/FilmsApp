@@ -32,6 +32,9 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
         galleryCollection.dataSource = self
         galleryCollection.delegate = self
         
+        galleryCollection.layer.borderWidth = 2.4
+        galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
+        
         if model.testArray[receivedIndex].isLiked == true {
             likeButton.alpha = 1
             likeButton.tintColor = .black
