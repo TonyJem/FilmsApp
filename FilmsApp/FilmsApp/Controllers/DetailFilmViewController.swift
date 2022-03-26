@@ -1,6 +1,15 @@
 import UIKit
 
-class DetailFilmViewController: UIViewController {
+class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath)
+        return cell
+    }
     
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet private weak var posterImageView: UIImageView!
