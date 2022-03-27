@@ -113,9 +113,16 @@
                             <constraint firstItem="EqT-82-FXC" firstAttribute="bottom" secondItem="MwC-6t-rC4" secondAttribute="bottom" id="xUT-Ra-sDj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Fav Films" id="kyg-7d-np7"/>
+                    <navigationItem key="navigationItem" title="Fav Films" id="kyg-7d-np7">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.clockwise" catalog="system" id="Z4A-s3-153">
+                            <connections>
+                                <action selector="updateButtonPressed:" destination="bBQ-5J-vku" id="Gi8-1C-ucF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="favoriteFilmsCollectionView" destination="EqT-82-FXC" id="IhQ-LC-I9S"/>
+                        <outlet property="updateButton" destination="Z4A-s3-153" id="1wM-o8-fmy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvH-eF-jvk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -689,6 +696,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="arrow.down" catalog="system" width="120" height="128"/>
         <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>

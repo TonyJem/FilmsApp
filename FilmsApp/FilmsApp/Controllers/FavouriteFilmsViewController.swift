@@ -1,8 +1,10 @@
 import UIKit
+import RealmSwift
 
 class FavoriteFilmsViewController: UIViewController {
     
     @IBOutlet weak var favoriteFilmsCollectionView: UICollectionView!
+    @IBOutlet weak var updateButton: UIBarButtonItem!
     
     let model = Model()
     
@@ -21,22 +23,25 @@ class FavoriteFilmsViewController: UIViewController {
         favoriteFilmsCollectionView.reloadData()
     }
     
+    @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
+        favoriteFilmsCollectionView.reloadData()
+    }
 }
 
 extension FavoriteFilmsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.likedTestArray.count
+        return model.likedFilmObjects?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = favoriteFilmsCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFilmCell", for: indexPath) as? FavoriteFilmViewCell else {
+        guard let cell = favoriteFilmsCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFilmCell", for: indexPath) as? FavoriteFilmViewCell,
+              let likedItem = model.likedFilmObjects?[indexPath.row]  else {
             return UICollectionViewCell()
         }
         
-        cell.data = self.model.likedTestArray[indexPath.item]
-        
+        cell.data = likedItem
         return cell
     }
     
@@ -46,7 +51,7 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate, UICollectionVie
             return
         }
         
-        destinationVC.receivedIndex = model.likedTestArray[indexPath.row].id ?? 0
+        destinationVC.receivedIndex = model.likedFilmObjects?[indexPath.row].id ?? 0
         navigationController?.pushViewController(destinationVC, animated: true)
     }
     
