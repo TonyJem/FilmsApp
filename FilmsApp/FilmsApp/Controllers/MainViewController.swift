@@ -74,7 +74,7 @@ extension MainViewController: UICollectionViewDelegate {
 
 // MARK: - SearchBar Methods
 
-extension MainViewController {
+extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
