@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -12,12 +13,12 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet private weak var posterImageView: UIImageView!
-    @IBOutlet private weak var filmTitleLabel: UILabel!
-    @IBOutlet private weak var releaseYearLabel: UILabel!
-    @IBOutlet private weak var ratingLabel: UILabel!
-    @IBOutlet private weak var galleryCollection: UICollectionView!
-    @IBOutlet private weak var descriptionTextView: UITextView!
+    @IBOutlet weak var posterImageView: UIImageView!
+    @IBOutlet weak var filmTitleLabel: UILabel!
+    @IBOutlet weak var releaseYearLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var galleryCollection: UICollectionView!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     var cameFromFav: Bool = Bool()
     var receivedIndex: Int = Int()
@@ -35,7 +36,7 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
         galleryCollection.layer.borderWidth = 2.4
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
-        if model.testArray[receivedIndex].isLiked == true {
+        if model.filmObjects?[receivedIndex].isLikedByUser == true {
             likeButton.alpha = 1
             likeButton.tintColor = .black
         } else {
@@ -43,10 +44,10 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
             likeButton.tintColor = .gray
         }
         
-        posterImageView.image = UIImage(named: model.testArray[receivedIndex].testPic ?? "image01")
-        filmTitleLabel.text = model.testArray[receivedIndex].testTitle
-        releaseYearLabel.text = String(model.testArray[receivedIndex].testYear ?? 0)
-        ratingLabel.text = String(model.testArray[receivedIndex].testRating ?? 0.0)
+        posterImageView.image = UIImage(named: model.filmObjects?[receivedIndex].filmPic ?? "image01")
+        filmTitleLabel.text = model.filmObjects?[receivedIndex].filmTitle
+        releaseYearLabel.text = String(model.filmObjects?[receivedIndex].releaseYear ?? 0)
+        ratingLabel.text = String(model.filmObjects?[receivedIndex].filmRating ?? 0.0)
     }
     
     // MARK: - Override methods
@@ -63,6 +64,16 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         print("🟢 likeButtonPressed in DetailFilmViewController")
+        
+        model.updateLike(at: receivedIndex)
+        
+        if likeButton.alpha == 1 {
+            likeButton.alpha = 0.45
+            likeButton.tintColor = .gray
+        } else {
+            likeButton.alpha = 1
+            likeButton.tintColor = .black
+        }
     }
     
     @IBAction func tapGestureAction(_ sender: Any) {
