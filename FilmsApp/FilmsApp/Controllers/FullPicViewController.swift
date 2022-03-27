@@ -1,8 +1,11 @@
 import UIKit
+import RealmSwift
 
 class FullPicViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var fullPicGalleryCollection: UICollectionView!
+    
+    let model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
