@@ -1,4 +1,5 @@
 import UIKit
+import RealmSwift
 
 class MainViewController: UIViewController {
     
@@ -16,15 +17,14 @@ class MainViewController: UIViewController {
     }
     
     let model = Model()
+    let realm = try? Realm()
     
     var searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model.readRealmData()
-        
-        model.newTestArray = model.testArray
+        model.ratingSort()
         
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
@@ -37,7 +37,6 @@ class MainViewController: UIViewController {
         
         let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
         mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "CustomFilmCell")
-        model.ratingSort()
         mainCollectionView.reloadData()
     }
 }
@@ -47,21 +46,16 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        guard let filmObjectsNumber = model.filmObjects?.count else {
-            return Int()
-        }
-        
-        return filmObjectsNumber
+        return model.arrayHelper?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell else {
+        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell,
+              let item = model.arrayHelper?[indexPath.row] else {
             return UICollectionViewCell()
         }
         
-        cell.data = self.model.filmObjects?[indexPath.item]
-        
+        cell.data = item
         return cell
     }
 }
@@ -73,14 +67,9 @@ extension MainViewController: UICollectionViewDelegate {
         guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController else {
             return
         }
-        destinationVC.receivedIndex = model.newTestArray[indexPath.row].id ?? 0
+        destinationVC.receivedIndex = model.arrayHelper?[indexPath.row].id ?? 0
         navigationController?.pushViewController(destinationVC, animated: true)
     }
-}
-
-// MARK: - UISearchBarDelegate
-
-extension MainViewController: UISearchBarDelegate {
 }
 
 // MARK: - SearchBar Methods
@@ -88,12 +77,26 @@ extension MainViewController: UISearchBarDelegate {
 extension MainViewController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        model.arrayHelper = model.filmObjects
         model.search(searchTextValue: searchText)
+        
+        if searchBar.text?.count == 0 {
+            model.arrayHelper = model.filmObjects
+            model.ratingSort()
+        }
         mainCollectionView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        model.newTestArray = model.testArray
+        model.arrayHelper = model.filmObjects
+        
+        if searchBar.text?.count == 0 {
+            model.arrayHelper = model.filmObjects
+            model.ratingSort()
+        }
+        
+        model.ratingSort()
         mainCollectionView.reloadData()
     }
 }
