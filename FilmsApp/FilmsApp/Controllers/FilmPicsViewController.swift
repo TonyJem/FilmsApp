@@ -1,9 +1,12 @@
 import UIKit
+import RealmSwift
 
 class FilmPicsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var picsNumberLabel: UILabel!
     @IBOutlet weak var filmPicsCollectionView: UICollectionView!
+    
+    let model = Model()
     
     override func viewDidLoad() {
         super.viewDidLoad()
