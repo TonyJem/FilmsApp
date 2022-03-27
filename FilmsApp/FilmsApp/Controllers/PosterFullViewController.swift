@@ -1,5 +1,5 @@
-import Foundation
 import UIKit
+import RealmSwift
 
 final class PosterFullViewController: UIViewController {
     
@@ -33,6 +33,6 @@ final class PosterFullViewController: UIViewController {
     
     private func setupViews() {
         closeButton.clipsToBounds = true
-        fullPosterImageView.image = UIImage(named: model.testArray[detailIndexPath].testPic ?? "image01")
+        fullPosterImageView.image = UIImage(named: model.filmObjects?[detailIndexPath].filmPic ?? "image01")
     }
 }
