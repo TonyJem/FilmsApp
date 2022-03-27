@@ -7,7 +7,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    var data: Item? {
+    var data: FilmObject? {
         
         didSet {
             
@@ -15,10 +15,10 @@ class FilmCollectionViewCell: UICollectionViewCell {
                 return
             }
             
-            posterImageView.image = UIImage(named: data?.testPic ?? "image01")
-            filmTitleLabel.text = data?.testTitle
-            yearLabel.text = String(data?.testYear ?? 0)
-            ratingLabel.text = String(data?.testRating ?? 0.0)
+            posterImageView.image = UIImage(named: data?.filmPic ?? "image01")
+            filmTitleLabel.text = data?.filmTitle
+            yearLabel.text = String(data?.releaseYear ?? 0)
+            ratingLabel.text = String(data?.filmRating ?? 0.0)
         }
     }
 }

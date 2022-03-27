@@ -22,6 +22,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        model.readRealmData()
+        
         model.newTestArray = model.testArray
         
         mainCollectionView.delegate = self
@@ -34,7 +36,7 @@ class MainViewController: UIViewController {
         navigationItem.hidesSearchBarWhenScrolling = false
         
         let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
-        mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "FilmCell")
+        mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "CustomFilmCell")
         model.ratingSort()
         mainCollectionView.reloadData()
     }
@@ -45,15 +47,20 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.newTestArray.count
+        
+        guard let filmObjectsNumber = model.filmObjects?.count else {
+            return Int()
+        }
+        
+        return filmObjectsNumber
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "FilmCell", for: indexPath) as? FilmCollectionViewCell else {
+        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell else {
             return UICollectionViewCell()
         }
         
-        cell.data = self.model.newTestArray[indexPath.item]
+        cell.data = self.model.filmObjects?[indexPath.item]
         
         return cell
     }

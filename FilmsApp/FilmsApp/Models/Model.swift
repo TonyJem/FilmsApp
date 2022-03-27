@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import RealmSwift
 
 class Item {
     var id: Int?
@@ -20,6 +21,11 @@ class Item {
 }
 
 class Model {
+    
+    let realm = try? Realm()
+    
+    var filmObjects: Results<FilmObject>?
+    
     var testArray: [Item] = [
         Item(id: 0, testPic: "image01", testTitle: "Film 01", testYear: 2001, testRating: 4.1, isliked: true),
         Item(id: 1, testPic: "image02", testTitle: "Film 02", testYear: 2002, testRating: 4.2, isliked: false),
@@ -41,6 +47,10 @@ class Model {
     var newTestArray: [Item] = []
     var likedTestArray: [Item] = []
     var sortAscending: Bool = true
+    
+    func readRealmData() {
+        filmObjects = realm?.objects(FilmObject.self)
+    }
     
     func ratingSort() {
         self.testArray.sort {
