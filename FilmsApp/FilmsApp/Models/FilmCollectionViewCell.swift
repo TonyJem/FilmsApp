@@ -11,14 +11,12 @@ class FilmCollectionViewCell: UICollectionViewCell {
         
         didSet {
             
-            guard data != nil else {
-                return
-            }
+            guard let unwrData = data else { return }
             
-            posterImageView.image = UIImage(named: data?.filmPic ?? "image01")
-            filmTitleLabel.text = data?.filmTitle
-            yearLabel.text = String(data?.releaseYear ?? 0)
-            ratingLabel.text = String(data?.filmRating ?? 0.0)
+            posterImageView.image = UIImage(named: unwrData.filmPic)
+            filmTitleLabel.text = unwrData.filmTitle
+            yearLabel.text = String(unwrData.releaseYear)
+            ratingLabel.text = String(unwrData.filmRating)
         }
     }
 }
