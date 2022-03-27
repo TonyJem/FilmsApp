@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 class MainViewController: UIViewController {
     
@@ -22,19 +21,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let realm = try? Realm()
-        let filmObject = FilmObject()
-        
-        print(realm?.configuration.fileURL ?? "🔴 No realm file URL")
-        
-        do {
-            try realm?.write {
-                realm?.add(filmObject)
-            }
-        } catch {
-            print("🔴 \(error.localizedDescription)")
-        }
         
         model.newTestArray = model.testArray
         
