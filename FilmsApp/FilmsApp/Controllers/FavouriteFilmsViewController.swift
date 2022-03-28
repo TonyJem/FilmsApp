@@ -17,14 +17,18 @@ class FavoriteFilmsViewController: UIViewController {
         favoriteFilmsCollectionView.dataSource = self
         
         let xibFavCell = UINib(nibName: "FavoriteFilmViewCell", bundle: nil)
-        
         favoriteFilmsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "FavoriteFilmCell")
         
-        favoriteFilmsCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.favoriteFilmsCollectionView.reloadData()
+        }
+        
     }
     
     @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
-        favoriteFilmsCollectionView.reloadData()
+        DispatchQueue.main.async {
+            self.favoriteFilmsCollectionView.reloadData()
+        }
     }
 }
 
