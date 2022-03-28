@@ -30,7 +30,7 @@ enum ApiRequest: String {
 
 class URLService {
     
-    let apiKey: String = ""
+    let apiKey: String = "a7e7734795f96137ff3605cc57a01ddb"
     let urlBase: String = "https://api.themoviedb.org/3/movie/"
     let session = URLSession.shared
     
