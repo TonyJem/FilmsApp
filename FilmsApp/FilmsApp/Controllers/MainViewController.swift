@@ -46,7 +46,8 @@ class MainViewController: UIViewController {
             self.mainCollectionView.reloadData()
         }
         
-        service.dataRequest()
+        service.dataRequest(request: .popular)
+        
     }
 }
 
