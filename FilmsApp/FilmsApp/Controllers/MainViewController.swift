@@ -13,7 +13,10 @@ class MainViewController: UIViewController {
         model.sortAscending = !model.sortAscending
         sortingButton.image = model.sortAscending ? arrowUp : arrowDown
         model.ratingSort()
-        mainCollectionView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
     
     let model = Model()
@@ -37,7 +40,10 @@ class MainViewController: UIViewController {
         
         let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
         mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "CustomFilmCell")
-        mainCollectionView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
 }
 
@@ -85,7 +91,10 @@ extension MainViewController: UISearchBarDelegate {
             model.arrayHelper = model.filmObjects
             model.ratingSort()
         }
-        mainCollectionView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -97,6 +106,9 @@ extension MainViewController: UISearchBarDelegate {
         }
         
         model.ratingSort()
-        mainCollectionView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
 }
