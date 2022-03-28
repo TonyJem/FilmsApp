@@ -36,18 +36,22 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
         galleryCollection.layer.borderWidth = 2.4
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
-        if model.filmObjects?[receivedIndex].isLikedByUser == true {
-            likeButton.alpha = 1
-            likeButton.tintColor = .black
-        } else {
-            likeButton.alpha = 0.45
-            likeButton.tintColor = .gray
+        DispatchQueue.main.async {
+            if self.model.filmObjects?[self.receivedIndex].isLikedByUser == true {
+                self.likeButton.alpha = 1
+                self.likeButton.tintColor = .black
+            } else {
+                self.likeButton.alpha = 0.45
+                self.likeButton.tintColor = .gray
+            }
+            
+            self.posterImageView.image = UIImage(named: self.model.filmObjects?[self.receivedIndex].filmPic ?? "image01")
+            self.filmTitleLabel.text = self.model.filmObjects?[self.receivedIndex].filmTitle
+            self.releaseYearLabel.text = String(self.model.filmObjects?[self.receivedIndex].releaseYear ?? 0)
+            self.ratingLabel.text = String(self.model.filmObjects?[self.receivedIndex].filmRating ?? 0.0)
         }
         
-        posterImageView.image = UIImage(named: model.filmObjects?[receivedIndex].filmPic ?? "image01")
-        filmTitleLabel.text = model.filmObjects?[receivedIndex].filmTitle
-        releaseYearLabel.text = String(model.filmObjects?[receivedIndex].releaseYear ?? 0)
-        ratingLabel.text = String(model.filmObjects?[receivedIndex].filmRating ?? 0.0)
+        
     }
     
     // MARK: - Override methods
