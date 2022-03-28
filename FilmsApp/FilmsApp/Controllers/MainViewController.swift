@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     
     let model = Model()
     let realm = try? Realm()
+    let service = URLService()
     
     var searchController = UISearchController()
     
@@ -44,6 +45,8 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
         }
+        
+        service.dataRequest()
     }
 }
 

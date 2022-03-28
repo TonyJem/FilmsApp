@@ -28,6 +28,7 @@
 		3AD6EFEE27EF6BD00052F9C8 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 3AD6EFED27EF6BD00052F9C8 /* Realm */; };
 		3AD6EFF027EF6BD00052F9C8 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3AD6EFEF27EF6BD00052F9C8 /* RealmSwift */; };
 		3AD6EFF227EF6C4D0052F9C8 /* FilmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6EFF127EF6C4D0052F9C8 /* FilmObject.swift */; };
+		3AD6EFF527F21EBF0052F9C8 /* URLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD6EFF427F21EBF0052F9C8 /* URLService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		3AAAFA2227EA4D1100839670 /* FavoriteFilmViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteFilmViewCell.xib; sourceTree = "<group>"; };
 		3AAAFA2627EBAA7C00839670 /* FilmCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewCell.xib; sourceTree = "<group>"; };
 		3AD6EFF127EF6C4D0052F9C8 /* FilmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmObject.swift; sourceTree = "<group>"; };
+		3AD6EFF427F21EBF0052F9C8 /* URLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				3AAAFA1327E508B800839670 /* Models */,
 				3AAAFA1527E5097500839670 /* Views */,
 				3AAAFA1227E5071800839670 /* Controllers */,
+				3AD6EFF327F21E9A0052F9C8 /* Service */,
 				3AAAFA1627E509B500839670 /* Resources */,
 			);
 			path = FilmsApp;
@@ -148,6 +151,14 @@
 				3A38A03026CC0084003E9A33 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		3AD6EFF327F21E9A0052F9C8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3AD6EFF427F21EBF0052F9C8 /* URLService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +253,7 @@
 				3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */,
 				3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */,
 				3A38A03F26CC03FD003E9A33 /* FullPicViewController.swift in Sources */,
+				3AD6EFF527F21EBF0052F9C8 /* URLService.swift in Sources */,
 				3A38A03926CC0355003E9A33 /* DetailFilmViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
