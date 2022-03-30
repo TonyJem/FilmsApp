@@ -33,6 +33,7 @@ class URLService {
     let apiKey: String = "a7e7734795f96137ff3605cc57a01ddb"
     let urlBase: String = "https://api.themoviedb.org/3/movie/"
     let session = URLSession.shared
+    let paser = JSONParsingService()
     
     func dataRequest(request: ApiRequest) {
         
@@ -42,13 +43,11 @@ class URLService {
         
         let task = session.dataTask(with: apiURL) { data, response, error in
             guard let unwrData = data,
-                  let dataString = String(data: unwrData, encoding: .utf8),
                   (response as? HTTPURLResponse)?.statusCode == 200,
                   error == nil else {
                 return
             }
-            print("🟢 dataString for request \(request.rawValue):")
-            print(dataString)
+            self.paser.parseJSON(parseData: unwrData, parseError: error)
         }
         task.resume()
     }
