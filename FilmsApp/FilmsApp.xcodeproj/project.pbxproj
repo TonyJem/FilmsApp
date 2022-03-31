@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A27CA6527F5FF74003808A9 /* LikedFilmObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A27CA6427F5FF74003808A9 /* LikedFilmObject.swift */; };
 		3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */; };
 		3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02226CC0082003E9A33 /* AppDelegate.swift */; };
 		3A38A02526CC0082003E9A33 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A02426CC0082003E9A33 /* SceneDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A27CA6427F5FF74003808A9 /* LikedFilmObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedFilmObject.swift; sourceTree = "<group>"; };
 		3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A38A01F26CC0082003E9A33 /* FilmsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilmsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A38A02226CC0082003E9A33 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				3AAAFA1C27E9047A00839670 /* Model.swift */,
 				3AD6EFF127EF6C4D0052F9C8 /* FilmObject.swift */,
+				3A27CA6427F5FF74003808A9 /* LikedFilmObject.swift */,
 				3A38A04726CC0642003E9A33 /* JSONModel.swift */,
 				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 				3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */,
@@ -259,6 +262,7 @@
 				3A38A03F26CC03FD003E9A33 /* FullPicViewController.swift in Sources */,
 				3AD6EFF527F21EBF0052F9C8 /* URLService.swift in Sources */,
 				3A38A03926CC0355003E9A33 /* DetailFilmViewController.swift in Sources */,
+				3A27CA6527F5FF74003808A9 /* LikedFilmObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

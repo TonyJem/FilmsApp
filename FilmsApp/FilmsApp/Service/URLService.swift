@@ -56,7 +56,10 @@ class URLService {
     func getSetPosters(withURL url: URL, imageView: UIImageView) {
         
         let downloadingTask = session.dataTask(with: url) { pictures, response, failure in
-            guard let picture = try? Data(contentsOf: url) else { return }
+            guard let picture = try? Data(contentsOf: url) else {
+                print("🔴 Can't set picture")
+                return
+            }
             
             DispatchQueue.main.async {
                 imageView.image = UIImage(data: picture)

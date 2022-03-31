@@ -8,7 +8,7 @@ class FilmCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     
     let urlService = URLService()
-    var urlBase = "http://image.tmdb.org/t/p/w500"
+    let urlBase = "https://image.tmdb.org/t/p/w500"
     
     var data: FilmObject? {
         

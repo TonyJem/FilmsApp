@@ -8,16 +8,20 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteRatingLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
+    let urlService = URLService()
+    let urlBase = "https://image.tmdb.org/t/p/w500"
     let model = Model()
-    
-    var cellIndex: Int?
     
     var data: FilmObject? {
         
         didSet {
-            guard let likedData = data else { return }
+            guard let likedData = data,
+                  let url = URL(string: urlBase + likedData.filmPic) else {
+                      return
+                  }
             
-            favoritePosterImageView.image = UIImage(named: likedData.filmPic)
+            urlService.getSetPosters(withURL: url, imageView: favoritePosterImageView)
+            
             favoriteFilmTitleLabel.text = likedData.filmTitle
             favoriteYearLabel.text = String(likedData.releaseYear)
             favoriteRatingLabel.text = String(likedData.filmRating)

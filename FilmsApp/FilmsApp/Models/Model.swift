@@ -10,7 +10,7 @@ class Model {
         return realm?.objects(FilmObject.self)
     }
     
-    var likedFilmObjects: Results<FilmObject>?
+    var likedFilmObjects: Results<LikedFilmObject>?
     var arrayHelper: Results<FilmObject>?
     var sortAscending: Bool = true
     
@@ -23,10 +23,6 @@ class Model {
         arrayHelper = filmObjects?.filter(predicate)
     }
     
-    func showLikedFilms() {
-        let likeFilter = NSPredicate(format: "isLikedByUser = true")
-        likedFilmObjects = filmObjects?.filter(likeFilter)
-    }
     func updateLike(at item: Int) {
         if let film = filmObjects?[item] {
             do {
