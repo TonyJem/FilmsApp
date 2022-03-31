@@ -15,6 +15,7 @@
 
 
 import Foundation
+import UIKit
 
 enum ApiRequest: String {
     case latest = "latest"
@@ -45,10 +46,22 @@ class URLService {
             guard let unwrData = data,
                   (response as? HTTPURLResponse)?.statusCode == 200,
                   error == nil else {
-                return
-            }
+                      return
+                  }
             self.paser.parseJSON(parseData: unwrData, parseError: error)
         }
         task.resume()
+    }
+    
+    func getSetPosters(withURL url: URL, imageView: UIImageView) {
+        
+        let downloadingTask = session.dataTask(with: url) { pictures, response, failure in
+            guard let picture = try? Data(contentsOf: url) else { return }
+            
+            DispatchQueue.main.async {
+                imageView.image = UIImage(data: picture)
+            }
+        }
+        downloadingTask.resume()
     }
 }
