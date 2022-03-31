@@ -28,8 +28,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model.ratingSort()
-        
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
         
