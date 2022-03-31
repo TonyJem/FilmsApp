@@ -7,13 +7,20 @@ class FilmCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
+    let urlService = URLService()
+    var urlBase = "http://image.tmdb.org/t/p/w500"
+    
     var data: FilmObject? {
         
         didSet {
             
-            guard let unwrData = data else { return }
+            guard let unwrData = data,
+                  let url = URL(string: urlBase + unwrData.filmPic) else {
+                return
+            }
             
-            posterImageView.image = UIImage(named: unwrData.filmPic)
+            urlService.getSetPosters(withURL: url, imageView: posterImageView)
+            
             filmTitleLabel.text = unwrData.filmTitle
             yearLabel.text = String(unwrData.releaseYear)
             ratingLabel.text = String(unwrData.filmRating)
