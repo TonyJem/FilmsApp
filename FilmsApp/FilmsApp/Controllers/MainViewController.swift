@@ -43,11 +43,10 @@ class MainViewController: UIViewController {
         mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "CustomFilmCell")
         
         DispatchQueue.main.async {
-            self.mainCollectionView.reloadData()
+            self.service.dataRequest(request: .popular)
         }
         
-        service.dataRequest(request: .popular)
-        
+        mainCollectionView.reloadData()
     }
 }
 
