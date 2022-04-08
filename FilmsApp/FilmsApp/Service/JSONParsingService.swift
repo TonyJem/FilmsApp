@@ -25,7 +25,7 @@ class JSONParsingService {
                     object.about = item.overview
                     object.releaseYear = Int(item.releaseDate.prefix(4)) ?? 0
                     object.filmRating = item.voteAverage
-                    object.screens = item.backdropPath
+                    object.screenshots = item.backdropPath
                     object.isLikedByUser = false
                     
                     // Update objects, so do not re-create them again

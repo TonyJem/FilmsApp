@@ -1,3 +1,4 @@
+import Foundation
 import RealmSwift
 
 class FilmObject: Object {
@@ -7,7 +8,7 @@ class FilmObject: Object {
     @Persisted var about: String = ""
     @Persisted var releaseYear: Int = 0
     @Persisted var filmRating: Double = 0.0
-    @Persisted var screens: String = ""
+    @Persisted var screenshots: List<String> = List<String>()
     @Persisted var isLikedByUser: Bool = false
     
     override class func primaryKey() -> String? {

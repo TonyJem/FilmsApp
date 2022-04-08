@@ -127,9 +127,9 @@
 		3AAAFA1327E508B800839670 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3AAAFA1C27E9047A00839670 /* Model.swift */,
 				3AD6EFF127EF6C4D0052F9C8 /* FilmObject.swift */,
 				3A27CA6427F5FF74003808A9 /* LikedFilmObject.swift */,
+				3AAAFA1C27E9047A00839670 /* Model.swift */,
 				3A38A04726CC0642003E9A33 /* JSONModel.swift */,
 				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 				3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */,
