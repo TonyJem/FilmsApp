@@ -4,8 +4,8 @@ import Foundation
 struct MovieList: Codable {
     let page: Int
     let results: [Result]
-    let totalPages: Int
-    let totalResults: Int
+    let totalPages: Int?
+    let totalResults: Int?
     
     enum CodingKeys: String, CodingKey {
         case page
@@ -17,13 +17,13 @@ struct MovieList: Codable {
 
 // MARK: - Result
 struct Result: Codable {
-    let id: Int
-    let posterPath: String
-    let originalTitle: String
-    let overview: String
-    let releaseDate: String
-    let voteAverage: Double
-    let backdropPath: String
+    let id: Int?
+    let posterPath: String?
+    let originalTitle: String?
+    let overview: String?
+    let releaseDate: String?
+    let voteAverage: Double?
+    let backdropPath: String?
     
     enum CodingKeys: String, CodingKey {
         case id
