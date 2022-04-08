@@ -8,7 +8,7 @@ class LikedFilmObject: Object {
     @Persisted var about: String = ""
     @Persisted var releaseYear: Int = 0
     @Persisted var filmRating: Double = 0.0
-    @Persisted var screens: List<String> = List<String>()
+    @Persisted var screenshots: List<String> = List<String>()
     @Persisted var isLikedByUser: Bool = true
     
     override class func primaryKey() -> String? {
