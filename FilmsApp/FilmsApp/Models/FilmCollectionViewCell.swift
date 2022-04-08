@@ -13,7 +13,6 @@ class FilmCollectionViewCell: UICollectionViewCell {
     var data: FilmObject? {
         
         didSet {
-            
             guard let unwrData = data,
                   let url = URL(string: urlBase + unwrData.filmPic) else {
                 return

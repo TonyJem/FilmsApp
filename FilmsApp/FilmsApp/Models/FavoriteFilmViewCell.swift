@@ -12,6 +12,8 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     let urlBase = "https://image.tmdb.org/t/p/w500"
     let model = Model()
     
+    var cellIndex: Int = Int()
+    
     var data: FilmObject? {
         
         didSet {
@@ -29,9 +31,8 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     }
     
     @IBAction func deleteFromFavPressed(_ sender: UIButton) {
-        guard let likedData = data else { return }
         
-        model.updateLike(at: likedData.id)
+        model.updateLike(at: cellIndex)
         
         if alpha == 0.55 {
             alpha = 1
