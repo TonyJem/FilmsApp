@@ -55,7 +55,11 @@
                                 <segue destination="bBQ-5J-vku" kind="show" id="G4x-IO-NUB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.down" catalog="system" id="q5N-6i-9GH"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.down" catalog="system" id="q5N-6i-9GH">
+                            <connections>
+                                <action selector="sortingButtonPressed:" destination="BYZ-38-t0r" id="met-fp-ntl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mainCollectionView" destination="zOV-d3-ZVG" id="4DN-d2-JaL"/>

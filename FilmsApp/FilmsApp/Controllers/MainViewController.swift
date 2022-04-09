@@ -6,6 +6,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var sortingButton: UIBarButtonItem!
     
+    let model = Model()
+    let realm = try? Realm()
+    let service = URLService()
+    
+    private var searchController = UISearchController()
+    
+    // MARK: - Actions
     @IBAction func sortingButtonPressed(_ sender: UIBarButtonItem) {
         let arrowUp = UIImage(systemName: "arrow.up")
         let arrowDown = UIImage(systemName: "arrow.down")
@@ -19,12 +26,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    let model = Model()
-    let realm = try? Realm()
-    let service = URLService()
-    
-    var searchController = UISearchController()
-    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
