@@ -35,7 +35,7 @@ class URLService {
     let urlBase: String = "https://api.themoviedb.org/3/movie/"
     let session = URLSession.shared
     let parser = JSONParsingService()
-    let model = Model()
+    let model = Core.model
     
     func dataRequest(request: ApiRequest) {
         

@@ -10,7 +10,7 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     
     let urlService = URLService()
     let urlBase = "https://image.tmdb.org/t/p/w500"
-    let model = Model()
+    let model = Core.model
     
     var cellIndex: Int = Int()
     

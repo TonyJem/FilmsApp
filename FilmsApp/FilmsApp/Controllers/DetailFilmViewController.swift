@@ -23,7 +23,7 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     var cameFromFav: Bool = Bool()
     var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
-    var model = Model()
+    var model = Core.model
     var service = URLService()
     var address = "https://image.tmdb.org/t/p/w500"
     

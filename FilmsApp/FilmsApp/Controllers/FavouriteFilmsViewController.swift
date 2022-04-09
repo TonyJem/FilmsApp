@@ -6,7 +6,7 @@ class FavoriteFilmsViewController: UIViewController {
     @IBOutlet weak var favoriteFilmsCollectionView: UICollectionView!
     @IBOutlet weak var updateButton: UIBarButtonItem!
     
-    let model = Model()
+    let model = Core.model
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -6,7 +6,7 @@ class FilmPicsViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet weak var picsNumberLabel: UILabel!
     @IBOutlet weak var filmPicsCollectionView: UICollectionView!
     
-    let model = Model()
+    let model = Core.model
     
     override func viewDidLoad() {
         super.viewDidLoad()

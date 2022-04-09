@@ -5,7 +5,7 @@ class FullPicViewController: UIViewController, UICollectionViewDataSource, UICol
     
     @IBOutlet weak var fullPicGalleryCollection: UICollectionView!
     
-    let model = Model()
+    let model = Core.model
     
     override func viewDidLoad() {
         super.viewDidLoad()
