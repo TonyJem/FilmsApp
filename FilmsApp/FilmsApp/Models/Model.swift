@@ -19,7 +19,7 @@ class Model {
     var sortAscending: Bool = true
     
     func ratingSort() {
-        arrayHelper = filmObjects?.sorted(byKeyPath: "filmRating", ascending: <#T##Bool#>)
+        arrayHelper = filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
     }
     
     func search(searchTextValue: String) {
