@@ -24,6 +24,8 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
     var model = Model()
+    var service = URLService()
+    var address = "https://image.tmdb.org/t/p/w500"
     
     // MARK: - LifeCycle
     
@@ -37,21 +39,43 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
         DispatchQueue.main.async {
-            if self.model.filmObjects?[self.receivedIndex].isLikedByUser == true {
-                self.likeButton.alpha = 1
-                self.likeButton.tintColor = .black
-            } else {
+            if self.cameFromFav == false {
+                guard let unwrFilmPic = self.model.filmObjects?[self.receivedIndex].filmPic,
+                      let posterURL = URL(string: self.address + unwrFilmPic) else {
+                    return
+                }
+                
+                self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
+                
+                self.filmTitleLabel.text = self.model.filmObjects?[self.receivedIndex].filmTitle
+                self.releaseYearLabel.text = String(self.model.filmObjects?[self.receivedIndex].releaseYear ?? 0000)
+                self.ratingLabel.text = String(self.model.filmObjects?[self.receivedIndex].filmRating ?? 0)
+                
+                self.descriptionTextView.text = self.model.filmObjects?[self.receivedIndex].about
+                
                 self.likeButton.alpha = 0.45
                 self.likeButton.tintColor = .gray
+                
+            } else if self.cameFromFav == true {
+                guard let unwrFilmPic = self.model.likedFilmObjects?[self.receivedIndex].filmPic,
+                      let posterURL = URL(string: self.address + unwrFilmPic) else {
+                    return
+                }
+                
+                self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
+                
+                self.filmTitleLabel.text = self.model.likedFilmObjects?[self.receivedIndex].filmTitle
+                self.releaseYearLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].releaseYear ?? 0000)
+                self.ratingLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].filmRating ?? 0)
+                
+                self.descriptionTextView.text = self.model.likedFilmObjects?[self.receivedIndex].about
+                
+                if self.model.likedFilmObjects?[self.receivedIndex].isLikedByUser == true {
+                    self.likeButton.alpha = 1
+                    self.likeButton.tintColor = .black
+                }
             }
-            
-            self.posterImageView.image = UIImage(named: self.model.filmObjects?[self.receivedIndex].filmPic ?? "image01")
-            self.filmTitleLabel.text = self.model.filmObjects?[self.receivedIndex].filmTitle
-            self.releaseYearLabel.text = String(self.model.filmObjects?[self.receivedIndex].releaseYear ?? 0)
-            self.ratingLabel.text = String(self.model.filmObjects?[self.receivedIndex].filmRating ?? 0.0)
         }
-        
-        
     }
     
     // MARK: - Override methods
@@ -59,6 +83,7 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? PosterFullViewController else { return }
         destinationVC.detailIndexPath = receivedIndex
+        destinationVC.isFavorited = cameFromFav
         
         destinationVC.transitioningDelegate = self
         destinationVC.modalPresentationStyle = .custom

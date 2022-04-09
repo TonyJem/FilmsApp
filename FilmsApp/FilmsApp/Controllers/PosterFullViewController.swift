@@ -10,6 +10,7 @@ final class PosterFullViewController: UIViewController {
     
     let model = Model()
     var detailIndexPath: Int = Int()
+    var isFavorited: Bool = Bool()
     
     // MARK: - LifeCycle
     
