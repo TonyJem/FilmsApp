@@ -49,16 +49,15 @@ class MainViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.arrayHelper?.count ?? 0
+        return model.filmObjects?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell,
-              let item = model.arrayHelper?[indexPath.row] else {
+              let item = model.filmObjects?[indexPath.row] else {
             return UICollectionViewCell()
         }
         
@@ -68,19 +67,18 @@ extension MainViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController else {
             return
         }
-        destinationVC.receivedIndex = model.arrayHelper?[indexPath.row].id ?? 0
+        destinationVC.cameFromFav = false
+        destinationVC.receivedIndex = indexPath.row
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
 
 // MARK: - SearchBar Methods
-
 extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

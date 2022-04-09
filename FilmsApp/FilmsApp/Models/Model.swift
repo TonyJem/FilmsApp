@@ -18,6 +18,10 @@ class Model {
     
     var sortAscending: Bool = true
     
+    func ratingSort() {
+        arrayHelper = filmObjects?.sorted(byKeyPath: "filmRating", ascending: <#T##Bool#>)
+    }
+    
     func search(searchTextValue: String) {
         let predicate = NSPredicate(format: "filmTitle CONTAINS [c]%@", searchTextValue)
         arrayHelper = filmObjects?.filter(predicate)
@@ -36,7 +40,6 @@ class Model {
                         }
                     }
                 }
-                
             })
         } catch {
             print("Error saving done status, \(error)")

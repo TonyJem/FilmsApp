@@ -22,8 +22,7 @@ class RoundingTransition: NSObject {
     private var round = UIView()
 }
 
-// MARK: - UIViewControllerAnimatedTransitioning
-
+// MARK: - UIViewController AnimatedTransitioning
 extension RoundingTransition: UIViewControllerAnimatedTransitioning {
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return time
