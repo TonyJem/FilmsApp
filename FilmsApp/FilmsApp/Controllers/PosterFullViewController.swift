@@ -9,6 +9,9 @@ final class PosterFullViewController: UIViewController {
     // MARK: - Properties
     
     let model = Model()
+    let service = URLService()
+    let address = "https://image.tmdb.org/t/p/w500"
+    
     var detailIndexPath: Int = Int()
     var isFavorited: Bool = Bool()
     
@@ -17,7 +20,21 @@ final class PosterFullViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
+        if isFavorited == false {
+            guard let unwrFilmPic = self.model.filmObjects?[self.detailIndexPath].filmPic,
+                  let posterURL = URL(string: self.address + unwrFilmPic) else {
+                return
+            }
+            service.getSetPosters(withURL: posterURL, imageView: fullPosterImageView)
+            
+        } else if isFavorited == true {
+            guard let unwrFilmPic = self.model.likedFilmObjects?[self.detailIndexPath].filmPic,
+                  let posterURL = URL(string: self.address + unwrFilmPic) else {
+                return
+            }
+            
+            service.getSetPosters(withURL: posterURL, imageView: fullPosterImageView)
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -28,12 +45,5 @@ final class PosterFullViewController: UIViewController {
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    // MARK: - Private methods
-    
-    private func setupViews() {
-        closeButton.clipsToBounds = true
-        fullPosterImageView.image = UIImage(named: model.filmObjects?[detailIndexPath].filmPic ?? "image01")
     }
 }
