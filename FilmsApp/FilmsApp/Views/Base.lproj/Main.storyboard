@@ -55,7 +55,7 @@
                                 <segue destination="bBQ-5J-vku" kind="show" id="G4x-IO-NUB"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.down" catalog="system" id="q5N-6i-9GH">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.up" catalog="system" id="q5N-6i-9GH">
                             <connections>
                                 <action selector="sortingButtonPressed:" destination="BYZ-38-t0r" id="met-fp-ntl"/>
                             </connections>
@@ -551,7 +551,7 @@
     </scenes>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
-        <image name="arrow.down" catalog="system" width="120" height="128"/>
+        <image name="arrow.up" catalog="system" width="120" height="128"/>
         <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image04" width="413" height="621"/>

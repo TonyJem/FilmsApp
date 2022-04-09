@@ -6,7 +6,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var sortingButton: UIBarButtonItem!
     
-    let model = Model()
+    let model = Core.model
     let realm = try? Realm()
     let service = URLService()
     
