@@ -3,12 +3,11 @@ import RealmSwift
 
 class JSONParsingService {
     
-    //    let model = Model()
+    let model = Model()
     
     func parseJSON(parseData: Data, parseError: Error?) {
         do {
             let filmObject = try JSONDecoder().decode(MovieList.self, from: parseData)
-            print("🟢 Object with films - \(filmObject.results[0].originalTitle)")
             
             let jsonObjects = filmObject.results
             let realm = try? Realm()
@@ -19,16 +18,23 @@ class JSONParsingService {
                 for item in jsonObjects {
                     let object = FilmObject()
                     
-                    object.id = item.id
-                    object.filmPic = item.posterPath
-                    object.filmTitle = item.originalTitle
-                    object.about = item.overview
-                    object.releaseYear = Int(item.releaseDate.prefix(4)) ?? 0
-                    object.filmRating = item.voteAverage
-                    object.screenshots = item.backdropPath
-                    object.isLikedByUser = false
-                    
-                    // Update objects, so do not re-create them again
+                    if let unwrID = item.id,
+                       let unwrPoster = item.posterPath,
+                       let unwrOrigTitle = item.originalTitle,
+                       let unwrAbout = item.overview,
+                       let unwrReleaseYear = item.releaseDate,
+                       let unwrFilmRating = item.voteAverage {
+                        
+                        object.id = unwrID
+                        object.filmPic = unwrPoster
+                        object.filmTitle = unwrOrigTitle
+                        object.about = unwrAbout
+                        object.releaseYear = Int(unwrReleaseYear.prefix(4)) ?? 0000
+                        object.filmRating = unwrFilmRating
+                        
+                        //object.screenshots = item.backdrop_path ?? "N/A"
+                        //object.isLikedByUser = newOne.isLikedByUser
+                    }
                     realm?.add(object, update: .all)
                 }
             })
