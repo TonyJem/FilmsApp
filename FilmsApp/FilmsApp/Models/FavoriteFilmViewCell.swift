@@ -14,7 +14,7 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     
     var cellIndex: Int = Int()
     
-    var data: FilmObject? {
+    var data: LikedFilmObject? {
         
         didSet {
             guard let likedData = data,

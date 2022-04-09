@@ -11,8 +11,6 @@ class FavoriteFilmsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        model.showLikedFilms()
-        
         favoriteFilmsCollectionView.delegate = self
         favoriteFilmsCollectionView.dataSource = self
         
@@ -22,7 +20,6 @@ class FavoriteFilmsViewController: UIViewController {
         DispatchQueue.main.async {
             self.favoriteFilmsCollectionView.reloadData()
         }
-        
     }
     
     @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
@@ -41,11 +38,13 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = favoriteFilmsCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFilmCell", for: indexPath) as? FavoriteFilmViewCell,
-              let likedItem = model.likedFilmObjects?[indexPath.row]  else {
+              let likedItem = model.likedFilmObjects?[indexPath.item] else {
             return UICollectionViewCell()
         }
         
         cell.data = likedItem
+        cell.cellIndex = indexPath.row
+        
         return cell
     }
     
@@ -55,7 +54,8 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate, UICollectionVie
             return
         }
         
-        destinationVC.receivedIndex = model.likedFilmObjects?[indexPath.row].id ?? 0
+        destinationVC.cameFromFav = true
+        destinationVC.receivedIndex = indexPath.row
         navigationController?.pushViewController(destinationVC, animated: true)
     }
     
