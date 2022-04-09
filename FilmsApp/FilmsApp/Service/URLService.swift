@@ -34,7 +34,8 @@ class URLService {
     let apiKey: String = "a7e7734795f96137ff3605cc57a01ddb"
     let urlBase: String = "https://api.themoviedb.org/3/movie/"
     let session = URLSession.shared
-    let paser = JSONParsingService()
+    let parser = JSONParsingService()
+    let model = Model()
     
     func dataRequest(request: ApiRequest) {
         
@@ -48,7 +49,7 @@ class URLService {
                   error == nil else {
                       return
                   }
-            self.paser.parseJSON(parseData: unwrData, parseError: error)
+            self.parser.parseJSON(parseData: unwrData, parseError: error)
         }
         task.resume()
     }
