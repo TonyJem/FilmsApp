@@ -12,19 +12,7 @@ class MainViewController: UIViewController {
     
     private var searchController = UISearchController()
     
-    // MARK: - Actions
-    @IBAction func sortingButtonPressed(_ sender: UIBarButtonItem) {
-        let arrowUp = UIImage(systemName: "arrow.up")
-        let arrowDown = UIImage(systemName: "arrow.down")
-        
-        model.sortAscending = !model.sortAscending
-        sortingButton.image = model.sortAscending ? arrowUp : arrowDown
-        model.ratingSort()
-        
-        DispatchQueue.main.async {
-            self.mainCollectionView.reloadData()
-        }
-    }
+    
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -47,6 +35,20 @@ class MainViewController: UIViewController {
         }
         
         mainCollectionView.reloadData()
+    }
+    
+    // MARK: - Actions
+    @IBAction func sortingButtonPressed(_ sender: UIBarButtonItem) {
+        let arrowUp = UIImage(systemName: "arrow.up")
+        let arrowDown = UIImage(systemName: "arrow.down")
+        
+        model.sortAscending = !model.sortAscending
+        sortingButton.image = model.sortAscending ? arrowUp : arrowDown
+        model.ratingSort()
+        
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
 }
 
