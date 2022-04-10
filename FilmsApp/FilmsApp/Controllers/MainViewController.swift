@@ -12,8 +12,6 @@ class MainViewController: UIViewController {
     
     private var searchController = UISearchController()
     
-    
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +28,8 @@ class MainViewController: UIViewController {
         let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
         mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "CustomFilmCell")
         
+        setupSortingButton()
+        
         DispatchQueue.main.async {
             self.service.dataRequest(request: .popular)
         }
@@ -39,16 +39,19 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func sortingButtonPressed(_ sender: UIBarButtonItem) {
-        let arrowUp = UIImage(systemName: "arrow.up")
-        let arrowDown = UIImage(systemName: "arrow.down")
-        
         model.sortAscending = !model.sortAscending
-        sortingButton.image = model.sortAscending ? arrowUp : arrowDown
-        model.ratingSort()
+        setupSortingButton()
         
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
         }
+    }
+    
+    // MARK: - Private Methods
+    private func setupSortingButton() {
+        let arrowUpImage = UIImage(systemName: "arrow.up")
+        let arrowDownImage = UIImage(systemName: "arrow.down")
+        sortingButton.image = model.sortAscending ? arrowUpImage : arrowDownImage
     }
 }
 
@@ -56,12 +59,12 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.filmObjects?.count ?? 0
+        return model.filmObjectsSorted?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell,
-              let item = model.filmObjects?[indexPath.row] else {
+        let item = model.filmObjectsSorted?[indexPath.row] else {
             return UICollectionViewCell()
         }
         
@@ -92,7 +95,7 @@ extension MainViewController: UISearchBarDelegate {
         
         if searchBar.text?.count == 0 {
             model.arrayHelper = model.filmObjects
-            model.ratingSort()
+//            model.ratingSort()
         }
         
         DispatchQueue.main.async {
@@ -105,10 +108,10 @@ extension MainViewController: UISearchBarDelegate {
         
         if searchBar.text?.count == 0 {
             model.arrayHelper = model.filmObjects
-            model.ratingSort()
+//            model.ratingSort()
         }
         
-        model.ratingSort()
+//        model.ratingSort()
         
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()

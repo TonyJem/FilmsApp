@@ -6,22 +6,22 @@ class Model {
     
     let realm = try? Realm()
     
+    var arrayHelper: Results<FilmObject>?
+    var sortAscending: Bool = false
+    
     var filmObjects: Results<FilmObject>? {
         return realm?.objects(FilmObject.self)
+    }
+    
+    var filmObjectsSorted: Results<FilmObject>? {
+        return filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
     }
     
     var likedFilmObjects: Results<LikedFilmObject>? {
         return realm?.objects(LikedFilmObject.self)
     }
     
-    var arrayHelper: Results<FilmObject>?
-    
-    var sortAscending: Bool = true
-    
-    func ratingSort() {
-        arrayHelper = filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
-    }
-    
+    // MARK: - Public Methods
     func search(searchTextValue: String) {
         let predicate = NSPredicate(format: "filmTitle CONTAINS [c]%@", searchTextValue)
         arrayHelper = filmObjects?.filter(predicate)
