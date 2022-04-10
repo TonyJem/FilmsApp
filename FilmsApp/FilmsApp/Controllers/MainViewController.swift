@@ -4,7 +4,7 @@ import RealmSwift
 class MainViewController: UIViewController {
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
-    @IBOutlet weak var sortingButton: UIBarButtonItem!
+    @IBOutlet weak var sortButton: UIBarButtonItem!
     
     let model = Core.model
     let realm = try? Realm()
@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
         let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
         mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "CustomFilmCell")
         
-        setupSortingButton()
+        setupSortButton()
         
         DispatchQueue.main.async {
             self.service.dataRequest(request: .popular)
@@ -38,9 +38,9 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func sortingButtonPressed(_ sender: UIBarButtonItem) {
-        model.isSortedAscending = !model.isSortedAscending
-        setupSortingButton()
+    @IBAction func sortButtonDidTap(_ sender: UIBarButtonItem) {
+        model.changeSortDirection()
+        setupSortButton()
         
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
@@ -48,10 +48,9 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    private func setupSortingButton() {
-        let arrowUpImage = UIImage(systemName: "arrow.up")
-        let arrowDownImage = UIImage(systemName: "arrow.down")
-        sortingButton.image = model.isSortedAscending ? arrowUpImage : arrowDownImage
+    private func setupSortButton() {
+        let sortButtonImageName = model.isSortedAscending ? "arrow.up" : "arrow.down"
+        sortButton.image = UIImage(systemName: sortButtonImageName)
     }
 }
 

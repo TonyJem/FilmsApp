@@ -8,14 +8,8 @@ class Model {
     
     var isSortedAscending: Bool = false
     
-    var filmObjects: Results<FilmObject>? {
-        return realm?.objects(FilmObject.self)
-    }
-    
-    private var searchTextValue: String?
-    
     var films: Results<FilmObject>? {
-        let filmsSorted = filmObjects?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
+        let filmsSorted = fetchedFilms?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
         
         guard let searchText = searchTextValue else {
             return filmsSorted
@@ -28,6 +22,12 @@ class Model {
         return realm?.objects(LikedFilmObject.self)
     }
     
+    private var searchTextValue: String?
+    
+    private var fetchedFilms: Results<FilmObject>? {
+        return realm?.objects(FilmObject.self)
+    }
+    
     // MARK: - Public Methods
     func search(searchTextValue: String?) {
         self.searchTextValue = searchTextValue
@@ -35,6 +35,10 @@ class Model {
     
     func cancelSearch() {
         self.searchTextValue = nil
+    }
+    
+    func changeSortDirection() {
+        isSortedAscending = !isSortedAscending
     }
     
     func deleteLikedItem(at item: Int) {
@@ -60,8 +64,8 @@ class Model {
     func updateLike(at item: Int) {
         var localChecker: [FilmObject] = []
         // сделали optional binding для объекта
-        if let film = filmObjects?[item],
-           let array = filmObjects{
+        if let film = fetchedFilms?[item],
+           let array = fetchedFilms{
             // блок do/catch
             let object = LikedFilmObject()
             do {

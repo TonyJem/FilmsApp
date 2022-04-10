@@ -63,7 +63,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mainCollectionView" destination="zOV-d3-ZVG" id="4DN-d2-JaL"/>
-                        <outlet property="sortingButton" destination="q5N-6i-9GH" id="T0Z-YJ-8mC"/>
+                        <outlet property="sortButton" destination="q5N-6i-9GH" id="T0Z-YJ-8mC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
