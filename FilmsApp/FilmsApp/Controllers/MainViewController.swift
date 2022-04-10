@@ -63,7 +63,7 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell,
-        let item = model.films?[indexPath.row] else {
+              let item = model.films?[indexPath.row] else {
             return UICollectionViewCell()
         }
         

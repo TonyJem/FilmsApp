@@ -57,7 +57,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.up" catalog="system" id="q5N-6i-9GH">
                             <connections>
-                                <action selector="sortingButtonPressed:" destination="BYZ-38-t0r" id="met-fp-ntl"/>
+                                <action selector="sortButtonDidTap:" destination="BYZ-38-t0r" id="R36-Mz-F8u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
