@@ -59,12 +59,12 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.filmObjectsSorted?.count ?? 0
+        return model.films?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell,
-        let item = model.filmObjectsSorted?[indexPath.row] else {
+        let item = model.films?[indexPath.row] else {
             return UICollectionViewCell()
         }
         

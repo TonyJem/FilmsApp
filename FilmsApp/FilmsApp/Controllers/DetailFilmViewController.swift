@@ -40,18 +40,18 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
         
         DispatchQueue.main.async {
             if self.cameFromFav == false {
-                guard let unwrFilmPic = self.model.filmObjectsSorted?[self.receivedIndex].filmPic,
+                guard let unwrFilmPic = self.model.films?[self.receivedIndex].filmPic,
                       let posterURL = URL(string: self.address + unwrFilmPic) else {
                     return
                 }
                 
                 self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
                 
-                self.filmTitleLabel.text = self.model.filmObjectsSorted?[self.receivedIndex].filmTitle
-                self.releaseYearLabel.text = String(self.model.filmObjectsSorted?[self.receivedIndex].releaseYear ?? 0000)
-                self.ratingLabel.text = String(self.model.filmObjectsSorted?[self.receivedIndex].filmRating ?? 0)
+                self.filmTitleLabel.text = self.model.films?[self.receivedIndex].filmTitle
+                self.releaseYearLabel.text = String(self.model.films?[self.receivedIndex].releaseYear ?? 0000)
+                self.ratingLabel.text = String(self.model.films?[self.receivedIndex].filmRating ?? 0)
                 
-                self.descriptionTextView.text = self.model.filmObjectsSorted?[self.receivedIndex].about
+                self.descriptionTextView.text = self.model.films?[self.receivedIndex].about
                 
                 self.likeButton.alpha = 0.45
                 self.likeButton.tintColor = .gray

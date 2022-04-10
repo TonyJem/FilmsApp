@@ -21,7 +21,7 @@ final class PosterFullViewController: UIViewController {
         super.viewDidLoad()
         
         if isFavorited == false {
-            guard let unwrFilmPic = self.model.filmObjectsSorted?[self.detailIndexPath].filmPic,
+            guard let unwrFilmPic = self.model.films?[self.detailIndexPath].filmPic,
                   let posterURL = URL(string: self.address + unwrFilmPic) else {
                 return
             }

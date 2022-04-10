@@ -14,7 +14,7 @@ class Model {
     
     private var searchTextValue: String?
     
-    var filmObjectsSorted: Results<FilmObject>? {
+    var films: Results<FilmObject>? {
         let filmsSorted = filmObjects?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
         
         guard let searchText = searchTextValue else {
