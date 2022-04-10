@@ -89,20 +89,18 @@ extension MainViewController: UICollectionViewDelegate {
 
 // MARK: - SearchBar Methods
 extension MainViewController: UISearchBarDelegate {
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count != 0 {
             model.search(searchTextValue: searchText)
+        } else {
+            model.cancelSearch()
         }
-        
         reloadCollectionViewData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
         searchController.searchBar.text = ""
         model.cancelSearch()
-        
         reloadCollectionViewData()
     }
 }
