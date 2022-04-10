@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func sortingButtonPressed(_ sender: UIBarButtonItem) {
-        model.sortAscending = !model.sortAscending
+        model.isSortedAscending = !model.isSortedAscending
         setupSortingButton()
         
         DispatchQueue.main.async {
@@ -51,7 +51,7 @@ class MainViewController: UIViewController {
     private func setupSortingButton() {
         let arrowUpImage = UIImage(systemName: "arrow.up")
         let arrowDownImage = UIImage(systemName: "arrow.down")
-        sortingButton.image = model.sortAscending ? arrowUpImage : arrowDownImage
+        sortingButton.image = model.isSortedAscending ? arrowUpImage : arrowDownImage
     }
 }
 

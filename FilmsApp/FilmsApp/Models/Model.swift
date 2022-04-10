@@ -6,7 +6,7 @@ class Model {
     
     let realm = try? Realm()
     
-    var sortAscending: Bool = false
+    var isSortedAscending: Bool = false
     
     var filmObjects: Results<FilmObject>? {
         return realm?.objects(FilmObject.self)
@@ -16,9 +16,9 @@ class Model {
     
     var filmObjectsSorted: Results<FilmObject>? {
         if searchTextValue == "" {
-            return filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
+            return filmObjects?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
         } else {
-            var tempArray = filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
+            var tempArray = filmObjects?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
             let predicate = NSPredicate(format: "filmTitle CONTAINS [c]%@", searchTextValue)
             tempArray = tempArray?.filter(predicate)
             return tempArray
