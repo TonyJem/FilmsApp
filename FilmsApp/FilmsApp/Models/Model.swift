@@ -6,15 +6,23 @@ class Model {
     
     let realm = try? Realm()
     
-    var arrayHelper: Results<FilmObject>?
     var sortAscending: Bool = false
     
     var filmObjects: Results<FilmObject>? {
         return realm?.objects(FilmObject.self)
     }
     
+    var searchTextValue = ""
+    
     var filmObjectsSorted: Results<FilmObject>? {
-        return filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
+        if searchTextValue == "" {
+            return filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
+        } else {
+            var tempArray = filmObjects?.sorted(byKeyPath: "filmRating", ascending: sortAscending)
+            let predicate = NSPredicate(format: "filmTitle CONTAINS [c]%@", searchTextValue)
+            tempArray = tempArray?.filter(predicate)
+            return tempArray
+        }
     }
     
     var likedFilmObjects: Results<LikedFilmObject>? {
@@ -23,8 +31,7 @@ class Model {
     
     // MARK: - Public Methods
     func search(searchTextValue: String) {
-        let predicate = NSPredicate(format: "filmTitle CONTAINS [c]%@", searchTextValue)
-        arrayHelper = filmObjects?.filter(predicate)
+        self.searchTextValue = searchTextValue
     }
     
     func deleteLikedItem(at item: Int) {

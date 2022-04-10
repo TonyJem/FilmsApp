@@ -89,13 +89,8 @@ extension MainViewController: UICollectionViewDelegate {
 extension MainViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        model.arrayHelper = model.filmObjects
-        model.search(searchTextValue: searchText)
-        
-        if searchBar.text?.count == 0 {
-            model.arrayHelper = model.filmObjects
-//            model.ratingSort()
+        if searchBar.text?.count != 0 {
+            model.search(searchTextValue: searchText)
         }
         
         DispatchQueue.main.async {
@@ -104,14 +99,9 @@ extension MainViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        model.arrayHelper = model.filmObjects
         
-        if searchBar.text?.count == 0 {
-            model.arrayHelper = model.filmObjects
-//            model.ratingSort()
-        }
-        
-//        model.ratingSort()
+        searchController.searchBar.text = ""
+        model.searchTextValue = ""
         
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()
