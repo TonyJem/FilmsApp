@@ -41,16 +41,19 @@ class MainViewController: UIViewController {
     @IBAction func sortButtonDidTap(_ sender: UIBarButtonItem) {
         model.changeSortDirection()
         setupSortButton()
-        
-        DispatchQueue.main.async {
-            self.mainCollectionView.reloadData()
-        }
+        reloadCollectionViewData()
     }
     
     // MARK: - Private Methods
     private func setupSortButton() {
         let sortButtonImageName = model.isSortedAscending ? "arrow.up" : "arrow.down"
         sortButton.image = UIImage(systemName: sortButtonImageName)
+    }
+    
+    private func reloadCollectionViewData() {
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
 }
 
@@ -92,9 +95,7 @@ extension MainViewController: UISearchBarDelegate {
             model.search(searchTextValue: searchText)
         }
         
-        DispatchQueue.main.async {
-            self.mainCollectionView.reloadData()
-        }
+        reloadCollectionViewData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -102,8 +103,6 @@ extension MainViewController: UISearchBarDelegate {
         searchController.searchBar.text = ""
         model.cancelSearch()
         
-        DispatchQueue.main.async {
-            self.mainCollectionView.reloadData()
-        }
+        reloadCollectionViewData()
     }
 }
