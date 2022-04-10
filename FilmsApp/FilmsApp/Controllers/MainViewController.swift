@@ -101,7 +101,7 @@ extension MainViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
         searchController.searchBar.text = ""
-        model.searchTextValue = ""
+        model.cancelSearch()
         
         DispatchQueue.main.async {
             self.mainCollectionView.reloadData()

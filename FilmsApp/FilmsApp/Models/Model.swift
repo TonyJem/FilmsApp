@@ -12,17 +12,16 @@ class Model {
         return realm?.objects(FilmObject.self)
     }
     
-    var searchTextValue = ""
+    private var searchTextValue: String?
     
     var filmObjectsSorted: Results<FilmObject>? {
-        if searchTextValue == "" {
-            return filmObjects?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
-        } else {
-            var tempArray = filmObjects?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
-            let predicate = NSPredicate(format: "filmTitle CONTAINS [c]%@", searchTextValue)
-            tempArray = tempArray?.filter(predicate)
-            return tempArray
+        let filmsSorted = filmObjects?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
+        
+        guard let searchText = searchTextValue else {
+            return filmsSorted
         }
+        let predicate = NSPredicate(format: "filmTitle CONTAINS [c]%@", searchText)
+        return filmsSorted?.filter(predicate)
     }
     
     var likedFilmObjects: Results<LikedFilmObject>? {
@@ -30,8 +29,12 @@ class Model {
     }
     
     // MARK: - Public Methods
-    func search(searchTextValue: String) {
+    func search(searchTextValue: String?) {
         self.searchTextValue = searchTextValue
+    }
+    
+    func cancelSearch() {
+        self.searchTextValue = nil
     }
     
     func deleteLikedItem(at item: Int) {
