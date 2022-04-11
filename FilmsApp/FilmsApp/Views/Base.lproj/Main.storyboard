@@ -303,14 +303,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Yx-bMp">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6f3-Yx-bMp">
                                 <rect key="frame" x="354" y="64" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="HBP-AL-8x1"/>
                                     <constraint firstAttribute="width" constant="40" id="YuD-Ff-Xbc"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="heart.fill" catalog="system"/>
                                 <connections>
                                     <action selector="likeButtonPressed:" destination="Brc-pL-8pe" eventType="touchUpInside" id="tmz-nc-O8p"/>
                                 </connections>
@@ -553,7 +552,6 @@
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="arrow.up" catalog="system" width="120" height="128"/>
         <image name="bolt.heart.fill" catalog="system" width="128" height="109"/>
-        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image04" width="413" height="621"/>
         <image name="image06" width="408" height="625"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>

@@ -32,6 +32,9 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        likeButton.clipsToBounds = true
+        likeButton.contentMode = .scaleAspectFill
+        
         galleryCollection.dataSource = self
         galleryCollection.delegate = self
         
@@ -92,16 +95,17 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: - Actions
     
     @IBAction func likeButtonPressed(_ sender: UIButton) {
-        print("🟢 likeButtonPressed in DetailFilmViewController")
         
         model.updateLike(at: receivedIndex)
         
         if likeButton.alpha == 1 {
             likeButton.alpha = 0.45
-            likeButton.tintColor = .gray
+            print("🔴 heart_gray")
+            likeButton.setBackgroundImage(UIImage(named: "heart_red"), for: .normal)
         } else {
             likeButton.alpha = 1
-            likeButton.tintColor = .black
+            print("🟢 heart_red")
+            likeButton.setBackgroundImage(UIImage(named: "heart_gray"), for: .normal)
         }
     }
     
