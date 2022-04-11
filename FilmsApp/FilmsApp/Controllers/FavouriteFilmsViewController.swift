@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 class FavoriteFilmsViewController: UIViewController {
     
@@ -58,5 +57,4 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate, UICollectionVie
         destinationVC.receivedIndex = indexPath.row
         navigationController?.pushViewController(destinationVC, animated: true)
     }
-    
 }

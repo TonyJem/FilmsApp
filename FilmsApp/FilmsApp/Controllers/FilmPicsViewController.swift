@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 class FilmPicsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     

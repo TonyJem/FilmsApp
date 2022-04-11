@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 class DetailFilmViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!

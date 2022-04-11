@@ -1,5 +1,4 @@
 import UIKit
-import RealmSwift
 
 class MainViewController: UIViewController {
     
@@ -7,7 +6,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var sortButton: UIBarButtonItem!
     
     let model = Core.model
-    let realm = try? Realm()
     let service = URLService()
     
     private var searchController = UISearchController()
