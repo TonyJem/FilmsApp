@@ -71,35 +71,35 @@ class DetailFilmViewController: UIViewController {
     }
     
     private func showNormalFilms() {
-        guard let unwrFilmPic = self.model.films?[self.receivedIndex].filmPic,
-              let posterURL = URL(string: self.address + unwrFilmPic) else {
+        guard let unwrFilmPic = model.films?[receivedIndex].filmPic,
+              let posterURL = URL(string: address + unwrFilmPic) else {
             return
         }
         
-        self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
+        service.getSetPosters(withURL: posterURL, imageView: posterImageView)
         
-        self.filmTitleLabel.text = self.model.films?[self.receivedIndex].filmTitle
-        self.releaseYearLabel.text = String(self.model.films?[self.receivedIndex].releaseYear ?? 0000)
-        self.ratingLabel.text = String(self.model.films?[self.receivedIndex].filmRating ?? 0)
+        filmTitleLabel.text = model.films?[receivedIndex].filmTitle
+        releaseYearLabel.text = String(model.films?[receivedIndex].releaseYear ?? 0000)
+        ratingLabel.text = String(model.films?[receivedIndex].filmRating ?? 0)
         
-        self.descriptionTextView.text = self.model.films?[self.receivedIndex].about
+        descriptionTextView.text = model.films?[receivedIndex].about
     }
     
     private func showFavouriteFilms() {
-        guard let unwrFilmPic = self.model.likedFilmObjects?[self.receivedIndex].filmPic,
-              let posterURL = URL(string: self.address + unwrFilmPic) else {
+        guard let unwrFilmPic = model.likedFilmObjects?[receivedIndex].filmPic,
+              let posterURL = URL(string: address + unwrFilmPic) else {
             return
         }
         
-        self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
+        service.getSetPosters(withURL: posterURL, imageView: posterImageView)
         
-        self.filmTitleLabel.text = self.model.likedFilmObjects?[self.receivedIndex].filmTitle
-        self.releaseYearLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].releaseYear ?? 0000)
-        self.ratingLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].filmRating ?? 0)
+        filmTitleLabel.text = model.likedFilmObjects?[receivedIndex].filmTitle
+        releaseYearLabel.text = String(model.likedFilmObjects?[receivedIndex].releaseYear ?? 0000)
+        ratingLabel.text = String(model.likedFilmObjects?[receivedIndex].filmRating ?? 0)
         
-        self.descriptionTextView.text = self.model.likedFilmObjects?[self.receivedIndex].about
+        descriptionTextView.text = model.likedFilmObjects?[receivedIndex].about
         
-        if self.model.likedFilmObjects?[self.receivedIndex].isLikedByUser == true {
+        if model.likedFilmObjects?[receivedIndex].isLikedByUser == true {
         }
     }
     
