@@ -369,7 +369,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRE-mW-tha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pFI-es-95N">
                     <connections>
-                        <action selector="tapGestureAction:" destination="Brc-pL-8pe" id="iPC-Er-Tl4"/>
                         <outlet property="delegate" destination="kx0-o0-Z2N" id="eHa-iK-HkW"/>
                         <segue destination="I36-pQ-rDp" kind="presentation" identifier="modalTap" id="pbp-qK-JMV"/>
                     </connections>

@@ -96,9 +96,6 @@ class DetailFilmViewController: UIViewController {
         }
     }
     
-    @IBAction func tapGestureAction(_ sender: Any) {
-    }
-    
     @IBAction func goToGAlleryButtonAction(_ sender: UIButton) {
         print("🟢🟢🟢 goToGAlleryButtonAction in DetailFilmViewController")
     }
