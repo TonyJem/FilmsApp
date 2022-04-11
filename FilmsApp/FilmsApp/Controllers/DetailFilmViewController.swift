@@ -34,37 +34,7 @@ class DetailFilmViewController: UIViewController {
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
         DispatchQueue.main.async {
-            if self.cameFromFav == false {
-                guard let unwrFilmPic = self.model.films?[self.receivedIndex].filmPic,
-                      let posterURL = URL(string: self.address + unwrFilmPic) else {
-                    return
-                }
-                
-                self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
-                
-                self.filmTitleLabel.text = self.model.films?[self.receivedIndex].filmTitle
-                self.releaseYearLabel.text = String(self.model.films?[self.receivedIndex].releaseYear ?? 0000)
-                self.ratingLabel.text = String(self.model.films?[self.receivedIndex].filmRating ?? 0)
-                
-                self.descriptionTextView.text = self.model.films?[self.receivedIndex].about
-                
-            } else if self.cameFromFav == true {
-                guard let unwrFilmPic = self.model.likedFilmObjects?[self.receivedIndex].filmPic,
-                      let posterURL = URL(string: self.address + unwrFilmPic) else {
-                    return
-                }
-                
-                self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
-                
-                self.filmTitleLabel.text = self.model.likedFilmObjects?[self.receivedIndex].filmTitle
-                self.releaseYearLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].releaseYear ?? 0000)
-                self.ratingLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].filmRating ?? 0)
-                
-                self.descriptionTextView.text = self.model.likedFilmObjects?[self.receivedIndex].about
-                
-                if self.model.likedFilmObjects?[self.receivedIndex].isLikedByUser == true {
-                }
-            }
+            self.cameFromFav ? self.showFavouriteFilms() : self.showNormalFilms()
         }
     }
     
@@ -99,6 +69,40 @@ class DetailFilmViewController: UIViewController {
         }
         isLiked = !isLiked
     }
+    
+    private func showNormalFilms() {
+        guard let unwrFilmPic = self.model.films?[self.receivedIndex].filmPic,
+              let posterURL = URL(string: self.address + unwrFilmPic) else {
+            return
+        }
+        
+        self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
+        
+        self.filmTitleLabel.text = self.model.films?[self.receivedIndex].filmTitle
+        self.releaseYearLabel.text = String(self.model.films?[self.receivedIndex].releaseYear ?? 0000)
+        self.ratingLabel.text = String(self.model.films?[self.receivedIndex].filmRating ?? 0)
+        
+        self.descriptionTextView.text = self.model.films?[self.receivedIndex].about
+    }
+    
+    private func showFavouriteFilms() {
+        guard let unwrFilmPic = self.model.likedFilmObjects?[self.receivedIndex].filmPic,
+              let posterURL = URL(string: self.address + unwrFilmPic) else {
+            return
+        }
+        
+        self.service.getSetPosters(withURL: posterURL, imageView: self.posterImageView)
+        
+        self.filmTitleLabel.text = self.model.likedFilmObjects?[self.receivedIndex].filmTitle
+        self.releaseYearLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].releaseYear ?? 0000)
+        self.ratingLabel.text = String(self.model.likedFilmObjects?[self.receivedIndex].filmRating ?? 0)
+        
+        self.descriptionTextView.text = self.model.likedFilmObjects?[self.receivedIndex].about
+        
+        if self.model.likedFilmObjects?[self.receivedIndex].isLikedByUser == true {
+        }
+    }
+    
 }
 
 // MARK: - UICollectionView DataSource
