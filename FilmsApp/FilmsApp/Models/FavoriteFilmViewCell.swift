@@ -8,7 +8,7 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteRatingLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
-    let urlService = URLService()
+    let service = Core.urlService
     let urlBase = "https://image.tmdb.org/t/p/w500"
     let model = Core.model
     
@@ -22,7 +22,7 @@ class FavoriteFilmViewCell: UICollectionViewCell {
                       return
                   }
             
-            urlService.getSetPosters(withURL: url, imageView: favoritePosterImageView)
+            service.getSetPosters(withURL: url, imageView: favoritePosterImageView)
             
             favoriteFilmTitleLabel.text = likedData.filmTitle
             favoriteYearLabel.text = String(likedData.releaseYear)

@@ -14,7 +14,7 @@ class DetailFilmViewController: UIViewController {
     var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
     var model = Core.model
-    var service = URLService()
+    var service = Core.urlService
     var address = "https://image.tmdb.org/t/p/w500"
     
     // MARK: - LifeCycle

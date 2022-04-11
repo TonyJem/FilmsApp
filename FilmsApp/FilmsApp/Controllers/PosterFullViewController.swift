@@ -8,7 +8,7 @@ final class PosterFullViewController: UIViewController {
     // MARK: - Properties
     
     let model = Core.model
-    let service = URLService()
+    let service = Core.urlService
     let address = "https://image.tmdb.org/t/p/w500"
     
     var detailIndexPath: Int = Int()

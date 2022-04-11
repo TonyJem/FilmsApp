@@ -6,7 +6,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var sortButton: UIBarButtonItem!
     
     let model = Core.model
-    let service = URLService()
+    let service = Core.urlService
     
     private var searchController = UISearchController()
     
