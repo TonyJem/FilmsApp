@@ -10,6 +10,7 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    var isLiked: Bool = false
     var cameFromFav: Bool = Bool()
     var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
@@ -23,6 +24,8 @@ class DetailFilmViewController: UIViewController {
         
         likeButton.clipsToBounds = true
         likeButton.contentMode = .scaleAspectFill
+        
+        setLikeButtonImage()
         
         galleryCollection.dataSource = self
         galleryCollection.delegate = self
@@ -45,9 +48,6 @@ class DetailFilmViewController: UIViewController {
                 
                 self.descriptionTextView.text = self.model.films?[self.receivedIndex].about
                 
-                self.likeButton.alpha = 0.45
-                self.likeButton.tintColor = .gray
-                
             } else if self.cameFromFav == true {
                 guard let unwrFilmPic = self.model.likedFilmObjects?[self.receivedIndex].filmPic,
                       let posterURL = URL(string: self.address + unwrFilmPic) else {
@@ -63,8 +63,6 @@ class DetailFilmViewController: UIViewController {
                 self.descriptionTextView.text = self.model.likedFilmObjects?[self.receivedIndex].about
                 
                 if self.model.likedFilmObjects?[self.receivedIndex].isLikedByUser == true {
-                    self.likeButton.alpha = 1
-                    self.likeButton.tintColor = .black
                 }
             }
         }
@@ -83,21 +81,23 @@ class DetailFilmViewController: UIViewController {
     // MARK: - Actions
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         
-        model.updateLike(at: receivedIndex)
+        //        model.updateLike(at: receivedIndex)
         
-        if likeButton.alpha == 1 {
-            likeButton.alpha = 0.45
-            print("🔴 heart_gray")
-            likeButton.setBackgroundImage(UIImage(named: "heart_red"), for: .normal)
-        } else {
-            likeButton.alpha = 1
-            print("🟢 heart_red")
-            likeButton.setBackgroundImage(UIImage(named: "heart_gray"), for: .normal)
-        }
+        setLikeButtonImage()
     }
     
     @IBAction func goToGAlleryButtonAction(_ sender: UIButton) {
         print("🟢🟢🟢 goToGAlleryButtonAction in DetailFilmViewController")
+    }
+    
+    // MARK: - Private methods
+    private func setLikeButtonImage() {
+        if isLiked {
+            likeButton.setBackgroundImage(UIImage(named: "heart_red"), for: .normal)
+        } else {
+            likeButton.setBackgroundImage(UIImage(named: "heart_gray"), for: .normal)
+        }
+        isLiked = !isLiked
     }
 }
 
