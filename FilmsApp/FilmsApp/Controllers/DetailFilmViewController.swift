@@ -1,17 +1,7 @@
 import UIKit
 import RealmSwift
 
-class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath)
-        return cell
-    }
-    
+class DetailFilmViewController: UIViewController {
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var filmTitleLabel: UILabel!
@@ -28,7 +18,6 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     var address = "https://image.tmdb.org/t/p/w500"
     
     // MARK: - LifeCycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,7 +71,6 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     // MARK: - Override methods
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? PosterFullViewController else { return }
         destinationVC.detailIndexPath = receivedIndex
@@ -93,7 +81,6 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     // MARK: - Actions
-    
     @IBAction func likeButtonPressed(_ sender: UIButton) {
         
         model.updateLike(at: receivedIndex)
@@ -115,11 +102,27 @@ class DetailFilmViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBAction func goToGAlleryButtonAction(_ sender: UIButton) {
         print("🟢🟢🟢 goToGAlleryButtonAction in DetailFilmViewController")
     }
+}
+
+// MARK: - UICollectionView DataSource
+extension DetailFilmViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath)
+        return cell
+    }
+    
+}
+
+// MARK: - UICollectionView Delegate
+extension DetailFilmViewController: UICollectionViewDelegate {
     
 }
 
 // MARK: - UIViewControllerTransitioningDelegate
-
 extension DetailFilmViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionProfile = .show
