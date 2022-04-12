@@ -18,14 +18,14 @@ final class PosterFullViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if isFavorited == false {
+        if !isFavorited {
             guard let unwrFilmPic = self.model.films?[self.detailIndexPath].filmPic,
                   let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
                 return
             }
             service.getSetPosters(withURL: posterURL, imageView: fullPosterImageView)
             
-        } else if isFavorited == true {
+        } else {
             guard let unwrFilmPic = self.model.likedFilmObjects?[self.detailIndexPath].filmPic,
                   let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
                 return
