@@ -9,7 +9,6 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     @IBOutlet weak var deleteButton: UIButton!
     
     let service = Core.urlService
-    let urlBase = "https://image.tmdb.org/t/p/w500"
     let model = Core.model
     
     var cellIndex: Int = Int()
@@ -18,7 +17,7 @@ class FavoriteFilmViewCell: UICollectionViewCell {
         
         didSet {
             guard let likedData = data,
-                  let url = URL(string: urlBase + likedData.filmPic) else {
+                  let url = URL(string: Constants.urlBase + likedData.filmPic) else {
                       return
                   }
             

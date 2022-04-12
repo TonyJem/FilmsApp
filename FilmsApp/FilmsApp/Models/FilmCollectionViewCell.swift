@@ -8,13 +8,12 @@ class FilmCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     
     let service = Core.urlService
-    let urlBase = "https://image.tmdb.org/t/p/w500"
     
     var data: FilmObject? {
         
         didSet {
             guard let unwrData = data,
-                  let url = URL(string: urlBase + unwrData.filmPic) else {
+                  let url = URL(string: Constants.urlBase + unwrData.filmPic) else {
                 return
             }
             

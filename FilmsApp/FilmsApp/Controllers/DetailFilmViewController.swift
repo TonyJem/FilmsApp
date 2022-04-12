@@ -15,7 +15,6 @@ class DetailFilmViewController: UIViewController {
     var transition: RoundingTransition = RoundingTransition()
     var model = Core.model
     var service = Core.urlService
-    var address = "https://image.tmdb.org/t/p/w500"
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -71,7 +70,7 @@ class DetailFilmViewController: UIViewController {
     
     private func showNormalFilms() {
         guard let unwrFilmPic = model.films?[receivedIndex].filmPic,
-              let posterURL = URL(string: address + unwrFilmPic) else {
+              let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
             return
         }
         
@@ -86,7 +85,7 @@ class DetailFilmViewController: UIViewController {
     
     private func showFavouriteFilms() {
         guard let unwrFilmPic = model.likedFilmObjects?[receivedIndex].filmPic,
-              let posterURL = URL(string: address + unwrFilmPic) else {
+              let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
             return
         }
         

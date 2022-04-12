@@ -9,7 +9,6 @@ final class PosterFullViewController: UIViewController {
     
     let model = Core.model
     let service = Core.urlService
-    let address = "https://image.tmdb.org/t/p/w500"
     
     var detailIndexPath: Int = Int()
     var isFavorited: Bool = Bool()
@@ -21,14 +20,14 @@ final class PosterFullViewController: UIViewController {
         
         if isFavorited == false {
             guard let unwrFilmPic = self.model.films?[self.detailIndexPath].filmPic,
-                  let posterURL = URL(string: self.address + unwrFilmPic) else {
+                  let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
                 return
             }
             service.getSetPosters(withURL: posterURL, imageView: fullPosterImageView)
             
         } else if isFavorited == true {
             guard let unwrFilmPic = self.model.likedFilmObjects?[self.detailIndexPath].filmPic,
-                  let posterURL = URL(string: self.address + unwrFilmPic) else {
+                  let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
                 return
             }
             
