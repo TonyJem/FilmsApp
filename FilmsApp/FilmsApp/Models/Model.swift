@@ -62,10 +62,14 @@ class Model {
             let id = likedFilm.id
             let predicate = NSPredicate(format: "id = \(id)")
             let films = films.filter(predicate)
+            
             if !films.isEmpty {
+                
+                let film = films[0]
+                
                 do {
                     try realm?.write ({
-                        films[.zero].isLikedByUser = true
+                        film.isLikedByUser = true
                     })
                 } catch {
                     print("🔴 Can't refresh Like status for film due error: \(error)")
