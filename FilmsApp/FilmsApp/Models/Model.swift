@@ -43,10 +43,25 @@ class Model {
         do {
             try realm?.write ({
                 film.isLikedByUser = !film.isLikedByUser
+                addToLikedFilms(film: film)
             })
         } catch {
-            print("🔴 Error saving done status, \(error)")
+            print("🔴 Can't update Like status for film due error: \(error)")
         }
+    }
+    
+    // MARK: - Private Methods
+    private func addToLikedFilms(film: FilmObject) {
+        let newLikedFilm = LikedFilmObject()
+        
+        newLikedFilm.id = film.id
+        newLikedFilm.filmPic = film.filmPic
+        newLikedFilm.filmTitle = film.filmTitle
+        newLikedFilm.about = film.about
+        newLikedFilm.releaseYear = film.releaseYear
+        newLikedFilm.filmRating = film.filmRating
+        newLikedFilm.isLikedByUser = true
+        realm?.add(newLikedFilm, update: .all)
     }
     
     
