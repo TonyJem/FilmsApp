@@ -64,7 +64,7 @@ class Model {
         realm?.add(newLikedFilm, update: .all)
     }
     
-    func updateLikesFromLikedFilms() {
+    func fetchLikesFromLikedFilms() {
         
         guard let films = self.films else { return }
         guard let likedFilms = self.likedFilms else { return }

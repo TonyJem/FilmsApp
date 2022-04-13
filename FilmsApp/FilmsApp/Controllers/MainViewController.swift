@@ -28,17 +28,9 @@ class MainViewController: UIViewController {
         
         setupSortButton()
         
-        DispatchQueue.main.async {
-            self.service.dataRequest(request: .popular)
-        }
+        service.dataRequest(request: .popular)
+        model.fetchLikesFromLikedFilms()
         
-        mainCollectionView.reloadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.model.updateLikesFromLikedFilms()
         mainCollectionView.reloadData()
     }
     
