@@ -31,13 +31,13 @@ class FavoriteFilmsViewController: UIViewController {
 extension FavoriteFilmsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.likedFilmObjects?.count ?? 0
+        return model.likedFilms?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = favoriteFilmsCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFilmCell", for: indexPath) as? FavoriteFilmViewCell,
-              let likedItem = model.likedFilmObjects?[indexPath.item] else {
+              let likedItem = model.likedFilms?[indexPath.item] else {
             return UICollectionViewCell()
         }
         

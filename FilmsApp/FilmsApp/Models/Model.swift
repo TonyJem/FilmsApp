@@ -8,7 +8,9 @@ class Model {
     var isSortedAscending: Bool = false
     
     var films: Results<FilmObject>? {
-        let filmsSorted = fetchedFilms?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
+        
+        let allFilmsFromDB = realm?.objects(FilmObject.self)
+        let filmsSorted = allFilmsFromDB?.sorted(byKeyPath: "filmRating", ascending: isSortedAscending)
         
         guard let searchText = searchTextValue else {
             return filmsSorted
@@ -17,15 +19,12 @@ class Model {
         return filmsSorted?.filter(predicate)
     }
     
-    var likedFilmObjects: Results<LikedFilmObject>? {
+    var likedFilms: Results<LikedFilmObject>? {
         return realm?.objects(LikedFilmObject.self)
     }
     
     private var searchTextValue: String?
     
-    private var fetchedFilms: Results<FilmObject>? {
-        return realm?.objects(FilmObject.self)
-    }
     
     // MARK: - Public Methods
     func search(searchTextValue: String?) {
@@ -58,7 +57,7 @@ class Model {
         do {
             try realm?.write({
                 
-                if let likedArray = likedFilmObjects, let likedObject = likedFilmObjects?[item] {
+                if let likedArray = likedFilms, let likedObject = likedFilms?[item] {
                     likedObject.isLikedByUser = !likedObject.isLikedByUser
                     
                     for i in likedArray {

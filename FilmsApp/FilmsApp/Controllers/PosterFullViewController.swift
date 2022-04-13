@@ -26,7 +26,7 @@ final class PosterFullViewController: UIViewController {
             service.getSetPosters(withURL: posterURL, imageView: fullPosterImageView)
             
         } else {
-            guard let unwrFilmPic = self.model.likedFilmObjects?[self.detailIndexPath].filmPic,
+            guard let unwrFilmPic = self.model.likedFilms?[self.detailIndexPath].filmPic,
                   let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
                 return
             }

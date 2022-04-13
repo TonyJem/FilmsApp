@@ -79,20 +79,20 @@ class DetailFilmViewController: UIViewController {
     }
     
     private func showFavouriteFilms() {
-        guard let unwrFilmPic = model.likedFilmObjects?[receivedIndex].filmPic,
+        guard let unwrFilmPic = model.likedFilms?[receivedIndex].filmPic,
               let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
             return
         }
         
         service.getSetPosters(withURL: posterURL, imageView: posterImageView)
         
-        filmTitleLabel.text = model.likedFilmObjects?[receivedIndex].filmTitle
-        releaseYearLabel.text = String(model.likedFilmObjects?[receivedIndex].releaseYear ?? 0000)
-        ratingLabel.text = String(model.likedFilmObjects?[receivedIndex].filmRating ?? 0)
+        filmTitleLabel.text = model.likedFilms?[receivedIndex].filmTitle
+        releaseYearLabel.text = String(model.likedFilms?[receivedIndex].releaseYear ?? 0000)
+        ratingLabel.text = String(model.likedFilms?[receivedIndex].filmRating ?? 0)
         
-        descriptionTextView.text = model.likedFilmObjects?[receivedIndex].about
+        descriptionTextView.text = model.likedFilms?[receivedIndex].about
         
-        if model.likedFilmObjects?[receivedIndex].isLikedByUser == true {
+        if model.likedFilms?[receivedIndex].isLikedByUser == true {
         }
     }
     
