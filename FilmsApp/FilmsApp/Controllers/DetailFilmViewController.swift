@@ -9,7 +9,6 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var isLiked: Bool = false
     var cameFromFav: Bool = Bool()
     var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
@@ -59,12 +58,9 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Private methods
     private func setLikeButtonImage() {
-        if isLiked {
-            likeButton.setBackgroundImage(UIImage(named: "heart_red"), for: .normal)
-        } else {
-            likeButton.setBackgroundImage(UIImage(named: "heart_gray"), for: .normal)
-        }
-        isLiked = !isLiked
+        guard let film = model.films?[receivedIndex] else { return }
+        let imageName = film.isLikedByUser ? "heart_red" : "heart_gray"
+        likeButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
     
     private func showNormalFilms() {
