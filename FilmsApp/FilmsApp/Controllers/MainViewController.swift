@@ -80,6 +80,11 @@ extension MainViewController: UICollectionViewDelegate {
             return
         }
         destinationVC.cameFromFav = false
+        
+        if let unwrFilms = model.films {
+            destinationVC.isLiked = unwrFilms[indexPath.row].isLikedByUser
+        }
+        
         destinationVC.receivedIndex = indexPath.row
         navigationController?.pushViewController(destinationVC, animated: true)
     }

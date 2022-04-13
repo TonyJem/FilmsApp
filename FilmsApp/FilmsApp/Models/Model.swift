@@ -59,40 +59,15 @@ class Model {
         }
     }
     
-    // объявили функцию с входным параметром
-    func updateLike(at item: Int) {
-        var localChecker: [FilmObject] = []
-        // сделали optional binding для объекта
-        if let film = fetchedFilms?[item],
-           let array = fetchedFilms{
-            // блок do/catch
-            let object = LikedFilmObject()
+    func updateLikeFor(item: Int) {
+        
+        if let film = fetchedFilms?[item] {
             do {
-                // запись в объект по "индексу" item
                 try realm?.write ({
-                    // переворачиваем первоначальное значение лайка
                     film.isLikedByUser = !film.isLikedByUser
-                    
-                    for i in array {
-                        if i.isLikedByUser == true {
-                            localChecker.append(i)
-                        }
-                    }
-                    
-                    for el in localChecker {
-                        object.id = el.id
-                        object.filmPic = el.filmPic
-                        object.filmTitle = el.filmTitle
-                        object.about = el.about
-                        object.releaseYear = el.releaseYear
-                        object.filmRating = el.filmRating
-                        
-                        realm?.add(object, update: .all)
-                    }
                 })
             } catch {
-                // обрабатываем ошибки
-                print("Error saving done status, \(error)")
+                print("🔴 Error saving done status, \(error)")
             }
         }
     }

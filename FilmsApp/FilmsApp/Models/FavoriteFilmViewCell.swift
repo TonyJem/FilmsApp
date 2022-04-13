@@ -31,7 +31,7 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     
     @IBAction func deleteFromFavPressed(_ sender: UIButton) {
         
-        model.updateLike(at: cellIndex)
+        model.updateLikeFor(item: cellIndex)
         
         if alpha == 0.55 {
             alpha = 1
