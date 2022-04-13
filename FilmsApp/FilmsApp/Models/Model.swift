@@ -40,6 +40,20 @@ class Model {
         isSortedAscending = !isSortedAscending
     }
     
+    func updateLikeFor(film: FilmObject) {
+        do {
+            try realm?.write ({
+                film.isLikedByUser = !film.isLikedByUser
+            })
+        } catch {
+            print("🔴 Error saving done status, \(error)")
+        }
+    }
+    
+    
+    
+    
+    // MARK: - OLD Public Methods (need to Refactor it)
     func deleteLikedItem(at item: Int) {
         do {
             try realm?.write({
@@ -61,17 +75,5 @@ class Model {
     
     func updateLikeFor(item: Int) {
         print("🟢 updateLikeFor Did Tap in Model")
-        
-    }
-    
-    func updateLikeFor(film: FilmObject) {
-        do {
-            try realm?.write ({
-                film.isLikedByUser = !film.isLikedByUser
-            })
-        } catch {
-            print("🔴 Error saving done status, \(error)")
-        }
-        
     }
 }
