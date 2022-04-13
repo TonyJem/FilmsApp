@@ -43,10 +43,34 @@ class Model {
         do {
             try realm?.write ({
                 film.isLikedByUser = !film.isLikedByUser
-                addToLikedFilms(film: film)
+                if film.isLikedByUser {
+                    addToLikedFilms(film: film)
+                }
             })
         } catch {
             print("🔴 Can't update Like status for film due error: \(error)")
+        }
+    }
+    
+    func fetchLikesFromLikedFilms() {
+        guard let films = self.films,
+              let likedFilms = self.likedFilms else {
+            return
+        }
+        
+        for likedFilm in likedFilms {
+            let id = likedFilm.id
+            let predicate = NSPredicate(format: "id = \(id)")
+            let films = films.filter(predicate)
+            if !films.isEmpty {
+                do {
+                    try realm?.write ({
+                        films[.zero].isLikedByUser = true
+                    })
+                } catch {
+                    print("🔴 Can't refresh Like status for film due error: \(error)")
+                }
+            }
         }
     }
     
@@ -61,31 +85,8 @@ class Model {
         newLikedFilm.releaseYear = film.releaseYear
         newLikedFilm.filmRating = film.filmRating
         newLikedFilm.isLikedByUser = true
+        
         realm?.add(newLikedFilm, update: .all)
-    }
-    
-    func fetchLikesFromLikedFilms() {
-        
-        guard let films = self.films else { return }
-        guard let likedFilms = self.likedFilms else { return }
-        
-        for likedFilm in likedFilms {
-            let id = likedFilm.id
-            let predicate = NSPredicate(format: "id = \(id)")
-            let films = films.filter(predicate)
-            if !films.isEmpty {
-                
-                let film = films[0]
-                
-                do {
-                    try realm?.write ({
-                        film.isLikedByUser = true
-                    })
-                } catch {
-                    print("🔴 Can't refresh Like status for film due error: \(error)")
-                }
-            }
-        }
     }
     
     
