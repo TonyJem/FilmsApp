@@ -46,7 +46,7 @@ class DetailFilmViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func likeButtonPressed(_ sender: UIButton) {
+    @IBAction func likeButtonDidTap(_ sender: UIButton) {
         guard let film = model.films?[receivedIndex] else { return }
         model.updateLikeFor(film: film)
         setLikeButtonImage()

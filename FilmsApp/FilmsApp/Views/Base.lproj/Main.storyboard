@@ -312,7 +312,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" backgroundImage="heart_gray"/>
                                 <connections>
-                                    <action selector="likeButtonPressed:" destination="Brc-pL-8pe" eventType="touchUpInside" id="tmz-nc-O8p"/>
+                                    <action selector="likeButtonDidTap:" destination="Brc-pL-8pe" eventType="touchUpInside" id="0ua-AX-lUz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7BS-1a-bxz">
