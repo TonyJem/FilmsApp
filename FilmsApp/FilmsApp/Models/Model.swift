@@ -60,15 +60,18 @@ class Model {
     }
     
     func updateLikeFor(item: Int) {
+        print("🟢 updateLikeFor Did Tap in Model")
         
-        if let film = fetchedFilms?[item] {
-            do {
-                try realm?.write ({
-                    film.isLikedByUser = !film.isLikedByUser
-                })
-            } catch {
-                print("🔴 Error saving done status, \(error)")
-            }
+    }
+    
+    func updateLikeFor(film: FilmObject) {
+        do {
+            try realm?.write ({
+                film.isLikedByUser = !film.isLikedByUser
+            })
+        } catch {
+            print("🔴 Error saving done status, \(error)")
         }
+        
     }
 }
