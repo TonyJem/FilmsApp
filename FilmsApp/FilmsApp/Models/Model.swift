@@ -53,20 +53,12 @@ class Model {
     }
     
     func fetchLikesFromLikedFilms() {
-        guard let films = self.films,
-              let likedFilms = self.likedFilms else {
-            return
-        }
+        guard let likedFilms = self.likedFilms else { return }
         
         for likedFilm in likedFilms {
             let id = likedFilm.id
-            let predicate = NSPredicate(format: "id = \(id)")
-            let films = films.filter(predicate)
             
-            if !films.isEmpty {
-                
-                let film = films[0]
-                
+            if let film = realm?.object(ofType: FilmObject.self, forPrimaryKey: id) {
                 do {
                     try realm?.write ({
                         film.isLikedByUser = true
