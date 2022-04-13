@@ -35,6 +35,13 @@ class MainViewController: UIViewController {
         mainCollectionView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.model.updateLikesFromLikedFilms()
+        mainCollectionView.reloadData()
+    }
+    
     // MARK: - Actions
     @IBAction func sortButtonDidTap(_ sender: UIBarButtonItem) {
         model.changeSortDirection()

@@ -64,6 +64,30 @@ class Model {
         realm?.add(newLikedFilm, update: .all)
     }
     
+    func updateLikesFromLikedFilms() {
+        
+        guard let films = self.films else { return }
+        guard let likedFilms = self.likedFilms else { return }
+        
+        for likedFilm in likedFilms {
+            let id = likedFilm.id
+            let predicate = NSPredicate(format: "id = \(id)")
+            let films = films.filter(predicate)
+            if !films.isEmpty {
+                
+                let film = films[0]
+                
+                do {
+                    try realm?.write ({
+                        film.isLikedByUser = true
+                    })
+                } catch {
+                    print("🔴 Can't refresh Like status for film due error: \(error)")
+                }
+            }
+        }
+    }
+    
     
     
     
