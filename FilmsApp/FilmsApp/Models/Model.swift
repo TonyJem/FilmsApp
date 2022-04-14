@@ -52,20 +52,16 @@ class Model {
         }
     }
     
-    func fetchLikesFromLikedFilms() {
-        guard let likedFilms = self.likedFilms else { return }
+    func updateLikeIfNeededForFilmWith(id: Int) {
+        guard let likedFilm = realm?.object(ofType: LikedFilmObject.self, forPrimaryKey: id) else { return }
         
-        for likedFilm in likedFilms {
-            let id = likedFilm.id
-            
-            if let film = realm?.object(ofType: FilmObject.self, forPrimaryKey: id) {
-                do {
-                    try realm?.write ({
-                        film.isLikedByUser = true
-                    })
-                } catch {
-                    print("🔴 Can't refresh Like status for film due error: \(error)")
-                }
+        if let film = realm?.object(ofType: FilmObject.self, forPrimaryKey: id) {
+            do {
+                try realm?.write ({
+                    film.isLikedByUser = likedFilm.isLikedByUser
+                })
+            } catch {
+                print("🔴 Can't refresh Like status for film due error: \(error)")
             }
         }
     }

@@ -8,7 +8,7 @@ struct Film {
     let about: String
     let releaseYear: Int
     let filmRating: Double
-    var isLikedByUser: Bool
+    let isLikedByUser: Bool
     
     init(from film: FilmObject) {
         id = film.id

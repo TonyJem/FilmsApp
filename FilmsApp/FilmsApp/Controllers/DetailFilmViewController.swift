@@ -15,6 +15,8 @@ class DetailFilmViewController: UIViewController {
     var model = Core.model
     var service = Core.urlService
     
+    var film: Film?
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,18 +66,21 @@ class DetailFilmViewController: UIViewController {
     }
     
     private func showNormalFilms() {
-        guard let unwrFilmPic = model.films?[receivedIndex].filmPic,
-              let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
+        
+        guard let film = self.film else { return }
+        
+        let unwrFilmPic = film.filmPic
+        
+        guard let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
             return
         }
         
         service.getSetPosters(withURL: posterURL, imageView: posterImageView)
         
-        filmTitleLabel.text = model.films?[receivedIndex].filmTitle
-        releaseYearLabel.text = String(model.films?[receivedIndex].releaseYear ?? 0000)
-        ratingLabel.text = String(model.films?[receivedIndex].filmRating ?? 0)
-        
-        descriptionTextView.text = model.films?[receivedIndex].about
+        filmTitleLabel.text = film.filmTitle
+        releaseYearLabel.text = String(film.releaseYear)
+        ratingLabel.text = String(film.filmRating)
+        descriptionTextView.text = film.about
     }
     
     private func showFavouriteFilms() {

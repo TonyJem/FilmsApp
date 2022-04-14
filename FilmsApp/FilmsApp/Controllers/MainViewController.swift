@@ -28,8 +28,9 @@ class MainViewController: UIViewController {
         
         setupSortButton()
         
-        service.dataRequest(request: .popular)
-        model.fetchLikesFromLikedFilms()
+        DispatchQueue.main.async {
+            self.service.dataRequest(request: .popular)
+        }
         
         mainCollectionView.reloadData()
     }
@@ -78,8 +79,24 @@ extension MainViewController: UICollectionViewDelegate {
         guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController else {
             return
         }
+        
         destinationVC.cameFromFav = false
         destinationVC.receivedIndex = indexPath.row
+        
+        
+        
+        guard let selectedFilmId = model.films?[indexPath.row].id else { return }
+        
+        model.updateLikeIfNeededForFilmWith(id: selectedFilmId)
+        
+        guard let filmFromModel = model.films?[indexPath.row] else { return }
+        
+        
+        
+        let film = Film(from: filmFromModel)
+        
+        destinationVC.film = film
+        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
