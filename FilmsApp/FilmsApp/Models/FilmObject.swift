@@ -15,3 +15,23 @@ class FilmObject: Object {
         return "id"
     }
 }
+
+struct Film {
+    let id: Int
+    let filmPic: String
+    let filmTitle: String
+    let about: String
+    let releaseYear: Int
+    let filmRating: Double
+    var isLikedByUser: Bool
+    
+    init(from film: FilmObject) {
+        id = film.id
+        filmPic = film.filmPic
+        filmTitle = film.filmTitle
+        about = film.about
+        releaseYear = film.releaseYear
+        filmRating = film.filmRating
+        isLikedByUser = film.isLikedByUser
+    }
+}
