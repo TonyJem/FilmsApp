@@ -45,6 +45,8 @@ class Model {
                 film.isLikedByUser = !film.isLikedByUser
                 if film.isLikedByUser {
                     addToLikedFilms(film: film)
+                } else {
+                    removeFromLikedFilmWith(id: film.id)
                 }
             })
         } catch {
@@ -81,7 +83,10 @@ class Model {
         realm?.add(newLikedFilm, update: .all)
     }
     
-    
+    private func removeFromLikedFilmWith(id: Int) {
+        guard let likedFilm = realm?.object(ofType: LikedFilmObject.self, forPrimaryKey: id) else { return }
+        realm?.delete(likedFilm)
+    }
     
     
     // MARK: - OLD Public Methods (need to Refactor it)

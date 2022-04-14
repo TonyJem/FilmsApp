@@ -83,15 +83,11 @@ extension MainViewController: UICollectionViewDelegate {
         destinationVC.cameFromFav = false
         destinationVC.receivedIndex = indexPath.row
         
-        
-        
         guard let selectedFilmId = model.films?[indexPath.row].id else { return }
         
         model.updateLikeIfNeededForFilmWith(id: selectedFilmId)
         
         guard let filmFromModel = model.films?[indexPath.row] else { return }
-        
-        
         
         let film = Film(from: filmFromModel)
         
