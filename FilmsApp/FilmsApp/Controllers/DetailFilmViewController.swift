@@ -9,7 +9,6 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var cameFromFav: Bool = Bool()
     var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
     var model = Core.model
@@ -33,7 +32,7 @@ class DetailFilmViewController: UIViewController {
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
         DispatchQueue.main.async {
-            self.cameFromFav ? self.showFavouriteFilms() : self.showNormalFilms()
+            self.showNormalFilms()
         }
     }
     
@@ -82,25 +81,6 @@ class DetailFilmViewController: UIViewController {
         ratingLabel.text = String(film.filmRating)
         descriptionTextView.text = film.about
     }
-    
-    private func showFavouriteFilms() {
-        guard let unwrFilmPic = model.likedFilms?[receivedIndex].filmPic,
-              let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
-            return
-        }
-        
-        service.getSetPosters(withURL: posterURL, imageView: posterImageView)
-        
-        filmTitleLabel.text = model.likedFilms?[receivedIndex].filmTitle
-        releaseYearLabel.text = String(model.likedFilms?[receivedIndex].releaseYear ?? 0000)
-        ratingLabel.text = String(model.likedFilms?[receivedIndex].filmRating ?? 0)
-        
-        descriptionTextView.text = model.likedFilms?[receivedIndex].about
-        
-        if model.likedFilms?[receivedIndex].isLikedByUser == true {
-        }
-    }
-    
 }
 
 // MARK: - UICollectionView DataSource

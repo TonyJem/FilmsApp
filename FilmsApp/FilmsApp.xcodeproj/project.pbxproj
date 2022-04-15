@@ -119,10 +119,10 @@
 			isa = PBXGroup;
 			children = (
 				3A38A02626CC0082003E9A33 /* MainViewController.swift */,
+				3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */,
 				3A38A03826CC0355003E9A33 /* DetailFilmViewController.swift */,
 				3A38A03B26CC03ED003E9A33 /* FilmPicsViewController.swift */,
 				3A38A03E26CC03FD003E9A33 /* FullPicViewController.swift */,
-				3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */,
 				3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */,
 			);
 			path = Controllers;

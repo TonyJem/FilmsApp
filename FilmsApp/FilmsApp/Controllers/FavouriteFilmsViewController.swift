@@ -53,8 +53,14 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate, UICollectionVie
             return
         }
         
-        destinationVC.cameFromFav = true
         destinationVC.receivedIndex = indexPath.row
+        
+        guard let selectedFilm = model.likedFilms?[indexPath.row] else { return }
+        
+        let film = Film(from: selectedFilm)
+        
+        destinationVC.film = film
+        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
