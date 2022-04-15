@@ -42,10 +42,9 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func likeButtonDidTap(_ sender: UIButton) {
-        guard let film = self.film else { return }
+        guard let id = self.film?.id else { return }
         
-        Core.model.updateLikeForFilmWith(id: film.id)
-        
+        Core.model.updateLikeForFilmWith(id: id)
         setLikeButtonImage()
     }
     
@@ -55,13 +54,13 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Private methods
     private func setLikeButtonImage() {
-        guard let film = self.film else { return }
-        let imageName = film.isLikedByUser ? "heart_red" : "heart_gray"
+        guard let isFilmLiked = self.film?.isLikedByUser else { return }
+        
+        let imageName = isFilmLiked ? "heart_red" : "heart_gray"
         likeButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
     
     private func showNormalFilms() {
-        
         guard let film = self.film else { return }
         let pictureStringURL = film.pictureStringURL
         
