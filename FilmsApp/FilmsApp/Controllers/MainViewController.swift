@@ -80,10 +80,9 @@ extension MainViewController: UICollectionViewDelegate {
             return
         }
         
-        
         guard let selectedFilmId = model.films?[indexPath.row].id else { return }
         
-        model.updateLikeIfNeededForFilmWith(id: selectedFilmId)
+        model.setupLikedForFilmWith(id: selectedFilmId)
         
         guard let filmFromModel = model.films?[indexPath.row] else { return }
         
