@@ -10,7 +10,12 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var film: Film?
-    var transition: RoundingTransition = RoundingTransition()
+    
+    private var posterImage: UIImage? {
+        posterImageView.image
+    }
+    
+    private var transition: RoundingTransition = RoundingTransition()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -38,6 +43,7 @@ class DetailFilmViewController: UIViewController {
         
         destinationVC.transitioningDelegate = self
         destinationVC.modalPresentationStyle = .custom
+        destinationVC.posterImage = posterImage
     }
     
     // MARK: - Actions
