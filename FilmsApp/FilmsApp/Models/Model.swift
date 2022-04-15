@@ -25,7 +25,6 @@ class Model {
     
     private var searchTextValue: String?
     
-    
     // MARK: - Public Methods
     func search(searchTextValue: String?) {
         self.searchTextValue = searchTextValue

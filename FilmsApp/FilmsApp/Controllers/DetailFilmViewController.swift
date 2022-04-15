@@ -9,11 +9,8 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var transition: RoundingTransition = RoundingTransition()
-    var model = Core.model
-    var service = Core.urlService
-    
     var film: Film?
+    var transition: RoundingTransition = RoundingTransition()
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -47,7 +44,7 @@ class DetailFilmViewController: UIViewController {
     @IBAction func likeButtonDidTap(_ sender: UIButton) {
         guard let film = self.film else { return }
         
-        model.updateLikeForFilmWith(id: film.id)
+        Core.model.updateLikeForFilmWith(id: film.id)
         
         setLikeButtonImage()
     }
@@ -66,14 +63,11 @@ class DetailFilmViewController: UIViewController {
     private func showNormalFilms() {
         
         guard let film = self.film else { return }
+        let pictureStringURL = film.pictureStringURL
         
-        let unwrFilmPic = film.filmPic
+        guard let posterURL = URL(string: Constants.urlBase + pictureStringURL) else { return }
         
-        guard let posterURL = URL(string: Constants.urlBase + unwrFilmPic) else {
-            return
-        }
-        
-        service.getSetPosters(withURL: posterURL, imageView: posterImageView)
+        Core.urlService.getSetPosters(withURL: posterURL, imageView: posterImageView)
         
         filmTitleLabel.text = film.filmTitle
         releaseYearLabel.text = String(film.releaseYear)
@@ -92,15 +86,13 @@ extension DetailFilmViewController: UICollectionViewDataSource {
         let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath)
         return cell
     }
-    
 }
 
 // MARK: - UICollectionView Delegate
 extension DetailFilmViewController: UICollectionViewDelegate {
-    
 }
 
-// MARK: - UIViewControllerTransitioningDelegate
+// MARK: - UIViewController TransitioningDelegate
 extension DetailFilmViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transition.transitionProfile = .show

@@ -3,7 +3,7 @@ import RealmSwift
 
 struct Film {
     let id: Int
-    let filmPic: String
+    let pictureStringURL: String
     let filmTitle: String
     let about: String
     let releaseYear: Int
@@ -12,7 +12,7 @@ struct Film {
     
     init(from film: ParentFilmObject) {
         id = film.id
-        filmPic = film.filmPic
+        pictureStringURL = film.filmPic
         filmTitle = film.filmTitle
         about = film.about
         releaseYear = film.releaseYear
