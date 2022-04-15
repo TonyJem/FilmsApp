@@ -76,20 +76,16 @@ extension MainViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController else {
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController,
+              let selectedFilmId = model.films?[indexPath.row].id else {
             return
         }
-        
-        guard let selectedFilmId = model.films?[indexPath.row].id else { return }
         
         model.setupLikedForFilmWith(id: selectedFilmId)
         
         guard let filmFromModel = model.films?[indexPath.row] else { return }
-        
         let film = Film(from: filmFromModel)
-        
         destinationVC.film = film
-        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
