@@ -28,7 +28,7 @@ class DetailFilmViewController: UIViewController {
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
         DispatchQueue.main.async {
-            self.showNormalFilms()
+            self.setupFilmDetails()
         }
     }
     
@@ -60,7 +60,7 @@ class DetailFilmViewController: UIViewController {
         likeButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
     
-    private func showNormalFilms() {
+    private func setupFilmDetails() {
         guard let film = self.film else { return }
         let pictureStringURL = film.pictureStringURL
         
