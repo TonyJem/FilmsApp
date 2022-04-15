@@ -35,7 +35,6 @@ class FavoriteFilmsViewController: UIViewController {
 
 // MARK: - UICollectionViewDataSource
 extension FavoriteFilmsViewController:  UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return model.likedFilms?.count ?? 0
     }
@@ -58,14 +57,12 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
 extension FavoriteFilmsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController else {
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController,
+              let selectedFilm = model.likedFilms?[indexPath.row] else {
             return
         }
         
-        guard let selectedFilm = model.likedFilms?[indexPath.row] else { return }
-        
         let film = Film(from: selectedFilm)
-        
         destinationVC.film = film
         
         navigationController?.pushViewController(destinationVC, animated: true)
