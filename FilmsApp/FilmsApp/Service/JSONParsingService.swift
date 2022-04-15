@@ -3,8 +3,6 @@ import RealmSwift
 
 class JSONParsingService {
     
-    let model = Core.model
-    
     func parseJSON(parseData: Data, parseError: Error?) {
         do {
             let filmObject = try JSONDecoder().decode(MovieList.self, from: parseData)
