@@ -1,18 +1,24 @@
 import UIKit
 
-class FullPicViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FullPicViewController: UIViewController {
     
     @IBOutlet weak var fullPicGalleryCollection: UICollectionView!
-    
-    let model = Core.model
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupDelegates()
+    }
+    
+    // MARK: - Private methods
+    private func setupDelegates() {
         fullPicGalleryCollection.dataSource = self
         fullPicGalleryCollection.delegate = self
     }
-    
+}
+
+// MARK: - UICollectionViewDataSource
+extension FullPicViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
@@ -21,4 +27,8 @@ class FullPicViewController: UIViewController, UICollectionViewDataSource, UICol
         let cell = fullPicGalleryCollection.dequeueReusableCell(withReuseIdentifier: "FullPicCell", for: indexPath)
         return cell
     }
+}
+
+// MARK: - UICollectionViewDelegate
+extension FullPicViewController: UICollectionViewDelegate {
 }
