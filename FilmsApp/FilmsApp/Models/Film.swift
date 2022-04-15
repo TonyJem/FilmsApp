@@ -21,7 +21,6 @@ struct Film {
     }
 }
 
-
 class ParentFilmObject: Object {
     @Persisted var id: Int = 0
     @Persisted var filmPic: String = ""

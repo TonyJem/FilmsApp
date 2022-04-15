@@ -39,7 +39,9 @@ class Model {
         isSortedAscending = !isSortedAscending
     }
     
-    func updateLikeFor(film: FilmObject) {
+    func updateLikeForFilmWith(id: Int) {
+        guard let film = realm?.object(ofType: FilmObject.self, forPrimaryKey: id) else { return }
+        
         do {
             try realm?.write ({
                 film.isLikedByUser = !film.isLikedByUser

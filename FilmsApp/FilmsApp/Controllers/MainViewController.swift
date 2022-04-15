@@ -80,7 +80,6 @@ extension MainViewController: UICollectionViewDelegate {
             return
         }
         
-        destinationVC.receivedIndex = indexPath.row
         
         guard let selectedFilmId = model.films?[indexPath.row].id else { return }
         

@@ -9,7 +9,6 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var receivedIndex: Int = Int()
     var transition: RoundingTransition = RoundingTransition()
     var model = Core.model
     var service = Core.urlService
@@ -39,8 +38,6 @@ class DetailFilmViewController: UIViewController {
     // MARK: - Override methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? PosterFullViewController else { return }
-        destinationVC.detailIndexPath = receivedIndex
-        destinationVC.isFavorited = cameFromFav
         
         destinationVC.transitioningDelegate = self
         destinationVC.modalPresentationStyle = .custom
@@ -48,8 +45,10 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func likeButtonDidTap(_ sender: UIButton) {
-        guard let film = model.films?[receivedIndex] else { return }
-        model.updateLikeFor(film: film)
+        guard let film = self.film else { return }
+        
+        model.updateLikeForFilmWith(id: film.id)
+        
         setLikeButtonImage()
     }
     
@@ -59,7 +58,7 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Private methods
     private func setLikeButtonImage() {
-        guard let film = model.films?[receivedIndex] else { return }
+        guard let film = self.film else { return }
         let imageName = film.isLikedByUser ? "heart_red" : "heart_gray"
         likeButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
