@@ -8,30 +8,24 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteRatingLabel: UILabel!
     @IBOutlet weak var deleteButton: UIButton!
     
-    let service = Core.urlService
     let model = Core.model
     
-    var cellIndex: Int = Int()
-    
-    var data: LikedFilmObject? {
-        
+    var likedFilm: LikedFilmObject? {
         didSet {
-            guard let likedData = data,
-                  let url = URL(string: Constants.urlBase + likedData.filmPic) else {
-                      return
-                  }
+            guard let likedFilm = self.likedFilm,
+                  let url = URL(string: Constants.urlBase + likedFilm.filmPic) else {
+                return
+            }
             
-            service.getSetPosters(withURL: url, imageView: favoritePosterImageView)
+            Core.urlService.getSetPosters(withURL: url, imageView: favoritePosterImageView)
             
-            favoriteFilmTitleLabel.text = likedData.filmTitle
-            favoriteYearLabel.text = String(likedData.releaseYear)
-            favoriteRatingLabel.text = String(likedData.filmRating)
+            favoriteFilmTitleLabel.text = likedFilm.filmTitle
+            favoriteYearLabel.text = String(likedFilm.releaseYear)
+            favoriteRatingLabel.text = String(likedFilm.filmRating)
         }
     }
     
     @IBAction func deleteFromFavPressed(_ sender: UIButton) {
-        
-//        model.updateLikeFor(item: cellIndex)
         
         if alpha == 0.55 {
             alpha = 1
