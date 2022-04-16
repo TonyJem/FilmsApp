@@ -9,6 +9,8 @@ class DetailFilmViewController: UIViewController {
     @IBOutlet weak var galleryCollection: UICollectionView!
     @IBOutlet weak var descriptionTextView: UITextView!
     
+    let model = Core.model
+    
     var film: Film?
     
     private var posterImage: UIImage? {
@@ -50,7 +52,7 @@ class DetailFilmViewController: UIViewController {
     @IBAction func likeButtonDidTap(_ sender: UIButton) {
         guard let id = self.film?.id else { return }
         
-        Core.model.updateLikeForFilmWith(id: id)
+        model.updateLikeForFilmWith(id: id)
         setLikeButtonImage()
     }
     
@@ -60,8 +62,9 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Private methods
     private func setLikeButtonImage() {
-        guard let isFilmLiked = self.film?.isLikedByUser else { return }
+        guard let id = self.film?.id else { return }
         
+        let isFilmLiked = model.isLikedBy(id: id)
         let imageName = isFilmLiked ? "heart_red" : "heart_gray"
         likeButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }

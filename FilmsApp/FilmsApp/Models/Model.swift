@@ -69,6 +69,13 @@ class Model {
         }
     }
     
+    func isLikedBy(id: Int) -> Bool {
+        guard let film = realm?.object(ofType: FilmObject.self, forPrimaryKey: id) else {
+            return false
+        }
+        return film.isLikedByUser
+    }
+    
     // MARK: - Private Methods
     private func addToLikedFilms(film: FilmObject) {
         let newLikedFilm = LikedFilmObject()
