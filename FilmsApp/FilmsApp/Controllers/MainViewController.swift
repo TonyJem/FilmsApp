@@ -83,9 +83,8 @@ extension MainViewController: UICollectionViewDelegate {
         
         model.setupLikedForFilmWith(id: selectedFilmId)
         
-        guard let filmFromModel = model.films?[indexPath.row] else { return }
-        let film = Film(from: filmFromModel)
-        destinationVC.film = film
+        guard let film = model.films?[indexPath.row] else { return }
+        destinationVC.film = Film(from: film)
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
