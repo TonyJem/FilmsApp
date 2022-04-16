@@ -40,17 +40,17 @@ class FavoriteFilmsViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension FavoriteFilmsViewController:  UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.likedFilms?.count ?? 0
+        return model.likedFilms?.count ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = favoriteFilmsCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFilmCell", for: indexPath) as? FavoriteFilmViewCell,
-              let likedItem = model.likedFilms?[indexPath.item] else {
+              let likedFilm = model.likedFilms?[indexPath.item] else {
             return UICollectionViewCell()
         }
         
-        cell.data = likedItem
+        cell.data = likedFilm
         cell.cellIndex = indexPath.row
         
         return cell
