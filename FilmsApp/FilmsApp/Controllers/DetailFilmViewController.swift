@@ -1,6 +1,7 @@
 import UIKit
 
 class DetailFilmViewController: UIViewController {
+    
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var filmTitleLabel: UILabel!

@@ -6,10 +6,8 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteFilmTitleLabel: UILabel!
     @IBOutlet weak var favoriteYearLabel: UILabel!
     @IBOutlet weak var favoriteRatingLabel: UILabel!
-    @IBOutlet weak var deleteButton: UIButton!
     
-    let model = Core.model
-    
+    // MARK: - Properties
     var likedFilm: LikedFilmObject? {
         didSet {
             guard let likedFilm = self.likedFilm,
@@ -25,12 +23,14 @@ class FavoriteFilmViewCell: UICollectionViewCell {
         }
     }
     
-    @IBAction func deleteFromFavPressed(_ sender: UIButton) {
-        
-        if alpha == 0.55 {
-            alpha = 1
-        } else if alpha == 1 {
-            alpha = 0.55
+    private var isSelectedToDelete: Bool = false {
+        didSet {
+            alpha = isSelectedToDelete ? 0.55 : 1.0
         }
+    }
+    
+    // MARK: - Actions
+    @IBAction private func deleteButtonDidTap(_ sender: UIButton) {
+        isSelectedToDelete = !isSelectedToDelete
     }
 }

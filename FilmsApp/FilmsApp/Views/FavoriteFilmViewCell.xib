@@ -28,7 +28,7 @@
                             <imageReference key="image" image="trash-solid" symbolScale="large"/>
                         </state>
                         <connections>
-                            <action selector="deleteFromFavPressed:" destination="b92-3h-anf" eventType="touchUpInside" id="iCV-8z-H6m"/>
+                            <action selector="deleteButtonDidTap:" destination="-1" eventType="touchUpInside" id="0Tc-mj-oz0"/>
                         </connections>
                     </button>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="P54-Ju-Mzy">
@@ -86,7 +86,6 @@
             <color key="backgroundColor" red="0.84556620114221359" green="0.94347796608380419" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <size key="customSize" width="172" height="359"/>
             <connections>
-                <outlet property="deleteButton" destination="3z3-ba-ROo" id="f6n-1s-hBU"/>
                 <outlet property="favoriteFilmTitleLabel" destination="a93-Q8-c7q" id="Fuz-yZ-wpu"/>
                 <outlet property="favoritePosterImageView" destination="T2N-PJ-Gqh" id="JLS-Ww-w7w"/>
                 <outlet property="favoriteRatingLabel" destination="0rK-gm-xBR" id="9xh-aY-aJW"/>
