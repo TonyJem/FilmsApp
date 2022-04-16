@@ -26,8 +26,6 @@ class DetailFilmViewController: UIViewController {
         likeButton.clipsToBounds = true
         likeButton.contentMode = .scaleAspectFill
         
-        setLikeButtonImage()
-        
         galleryCollection.dataSource = self
         galleryCollection.delegate = self
         
@@ -51,9 +49,8 @@ class DetailFilmViewController: UIViewController {
     // MARK: - Actions
     @IBAction func likeButtonDidTap(_ sender: UIButton) {
         guard let id = self.film?.id else { return }
-        
         model.updateLikeForFilmWith(id: id)
-        setLikeButtonImage()
+        setLikeButtonImageForFilmWith(id: id)
     }
     
     @IBAction func goToGAlleryButtonAction(_ sender: UIButton) {
@@ -61,10 +58,8 @@ class DetailFilmViewController: UIViewController {
     }
     
     // MARK: - Private methods
-    private func setLikeButtonImage() {
-        guard let id = self.film?.id else { return }
-        
-        let isFilmLiked = model.isLikedBy(id: id)
+    private func setLikeButtonImageForFilmWith(id: Int) {
+        let isFilmLiked = model.isInLikedFilmsBy(id: id)
         let imageName = isFilmLiked ? "heart_red" : "heart_gray"
         likeButton.setBackgroundImage(UIImage(named: imageName), for: .normal)
     }
@@ -81,6 +76,7 @@ class DetailFilmViewController: UIViewController {
         releaseYearLabel.text = String(film.releaseYear)
         ratingLabel.text = String(film.filmRating)
         descriptionTextView.text = film.about
+        setLikeButtonImageForFilmWith(id: film.id)
     }
 }
 
