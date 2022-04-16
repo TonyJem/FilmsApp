@@ -7,21 +7,19 @@ class FilmCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    let service = Core.urlService
-    
     var data: FilmObject? {
         
         didSet {
-            guard let unwrData = data,
-                  let url = URL(string: Constants.urlBase + unwrData.filmPic) else {
+            guard let data = self.data,
+                  let url = URL(string: Constants.urlBase + data.filmPic) else {
                 return
             }
             
-            service.getSetPosters(withURL: url, imageView: posterImageView)
+            Core.urlService.getSetPosters(withURL: url, imageView: posterImageView)
             
-            filmTitleLabel.text = unwrData.filmTitle
-            yearLabel.text = String(unwrData.releaseYear)
-            ratingLabel.text = String(unwrData.filmRating)
+            filmTitleLabel.text = data.filmTitle
+            yearLabel.text = String(data.releaseYear)
+            ratingLabel.text = String(data.filmRating)
         }
     }
 }
