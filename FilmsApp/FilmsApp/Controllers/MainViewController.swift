@@ -59,16 +59,16 @@ class MainViewController: UIViewController {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.films?.count ?? 0
+        return model.films?.count ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell,
-              let item = model.films?[indexPath.row] else {
+              let modelFilm = model.films?[indexPath.row] else {
             return UICollectionViewCell()
         }
         
-        cell.data = item
+        cell.film = Film(from: modelFilm)
         return cell
     }
 }
@@ -92,7 +92,7 @@ extension MainViewController: UICollectionViewDelegate {
 // MARK: - SearchBar Methods
 extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchBar.text?.count != 0 {
+        if searchBar.text?.count != .zero {
             model.search(searchTextValue: searchText)
         } else {
             model.cancelSearch()
