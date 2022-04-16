@@ -23,14 +23,14 @@ class FavoriteFilmViewCell: UICollectionViewCell {
         }
     }
     
-    private var isSelectedToDelete: Bool = false {
+    private var isSelectedToRemoveFromLikedFilms: Bool = false {
         didSet {
-            alpha = isSelectedToDelete ? 0.55 : 1.0
+            alpha = isSelectedToRemoveFromLikedFilms ? 0.55 : 1.0
         }
     }
     
     // MARK: - Actions
     @IBAction private func deleteButtonDidTap(_ sender: UIButton) {
-        isSelectedToDelete = !isSelectedToDelete
+        isSelectedToRemoveFromLikedFilms = !isSelectedToRemoveFromLikedFilms
     }
 }
