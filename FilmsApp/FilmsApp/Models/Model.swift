@@ -64,7 +64,7 @@ class Model {
                     film.isLikedByUser = true
                 })
             } catch {
-                print("🔴 Can't refresh Like status for film due error: \(error)")
+                print("🔴 Can't setup Like status for film due error: \(error)")
             }
         }
     }
@@ -72,7 +72,6 @@ class Model {
     // MARK: - Private Methods
     private func addToLikedFilms(film: FilmObject) {
         let newLikedFilm = LikedFilmObject()
-        
         newLikedFilm.id = film.id
         newLikedFilm.filmPic = film.filmPic
         newLikedFilm.filmTitle = film.filmTitle
@@ -87,30 +86,5 @@ class Model {
     private func removeFromLikedFilmWith(id: Int) {
         guard let likedFilm = realm?.object(ofType: LikedFilmObject.self, forPrimaryKey: id) else { return }
         realm?.delete(likedFilm)
-    }
-    
-    
-    // MARK: - OLD Public Methods (need to Refactor it)
-    func deleteLikedItem(at item: Int) {
-        do {
-            try realm?.write({
-                
-                if let likedArray = likedFilms, let likedObject = likedFilms?[item] {
-                    likedObject.isLikedByUser = !likedObject.isLikedByUser
-                    
-                    for i in likedArray {
-                        if i.isLikedByUser == false {
-                            realm?.delete(i)
-                        }
-                    }
-                }
-            })
-        } catch {
-            print("Error saving done status, \(error)")
-        }
-    }
-    
-    func updateLikeFor(item: Int) {
-        print("🟢 updateLikeFor Did Tap in Model")
     }
 }
