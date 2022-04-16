@@ -2,11 +2,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    @IBOutlet weak var mainCollectionView: UICollectionView!
-    @IBOutlet weak var sortButton: UIBarButtonItem!
+    @IBOutlet private weak var mainCollectionView: UICollectionView!
+    @IBOutlet private weak var sortButton: UIBarButtonItem!
     
-    let model = Core.model
-    let service = Core.urlService
+    private let model = Core.model
     
     private var searchController = UISearchController()
     
@@ -29,7 +28,7 @@ class MainViewController: UIViewController {
         setupSortButton()
         
         DispatchQueue.main.async {
-            self.service.dataRequest(request: .popular)
+            Core.urlService.dataRequest(request: .popular)
         }
         
         mainCollectionView.reloadData()
