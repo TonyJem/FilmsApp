@@ -50,7 +50,7 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.likedFilm = likedFilm
+        cell.likedFilm = Film(from: likedFilm)
         
         return cell
     }

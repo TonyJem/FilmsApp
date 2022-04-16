@@ -8,10 +8,10 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteRatingLabel: UILabel!
     
     // MARK: - Properties
-    var likedFilm: LikedFilmObject? {
+    var likedFilm: Film? {
         didSet {
             guard let likedFilm = self.likedFilm,
-                  let url = URL(string: Constants.urlBase + likedFilm.filmPic) else {
+                  let url = URL(string: Constants.urlBase + likedFilm.pictureStringURL) else {
                 return
             }
             
