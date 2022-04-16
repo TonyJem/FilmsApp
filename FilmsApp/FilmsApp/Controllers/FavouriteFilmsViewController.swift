@@ -11,8 +11,7 @@ class FavoriteFilmsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        favoriteFilmsCollectionView.delegate = self
-        favoriteFilmsCollectionView.dataSource = self
+        setupDelegates()
         
         let xibFavCell = UINib(nibName: "FavoriteFilmViewCell", bundle: nil)
         favoriteFilmsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "FavoriteFilmCell")
@@ -30,6 +29,11 @@ class FavoriteFilmsViewController: UIViewController {
         DispatchQueue.main.async {
             self.favoriteFilmsCollectionView.reloadData()
         }
+    }
+    
+    private func setupDelegates() {
+        favoriteFilmsCollectionView.delegate = self
+        favoriteFilmsCollectionView.dataSource = self
     }
 }
 
