@@ -1,7 +1,7 @@
 import UIKit
 
 protocol LikedFilmViewCellDelegate: AnyObject {
-    func deleteButtonDidTap()
+    func deleteButtonDidTapOnFilmWith(id: Int)
 }
 
 class FavoriteFilmViewCell: UICollectionViewCell {
@@ -39,6 +39,8 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     // MARK: - Actions
     @IBAction private func deleteButtonDidTap(_ sender: UIButton) {
         isSelectedToRemoveFromLikedFilms = !isSelectedToRemoveFromLikedFilms
-        likedFilmViewCellDelegate?.deleteButtonDidTap()
+        
+        guard let likedFilm = self.likedFilm else { return }
+        likedFilmViewCellDelegate?.deleteButtonDidTapOnFilmWith(id: likedFilm.id)
     }
 }
