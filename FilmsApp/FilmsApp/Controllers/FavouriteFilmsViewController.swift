@@ -20,11 +20,22 @@ class FavoriteFilmsViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
+        guard !filmsSelectedToRemoveFromLikedFilms.isEmpty else { return }
+        
+        for id in filmsSelectedToRemoveFromLikedFilms {
+            model.removeFromLikedBy(id: id)
+        }
+        
         filmsSelectedToRemoveFromLikedFilms = []
         reloadCollectionViewData()
     }
     
     @objc private func leftBarButtonAction() {
+        guard !filmsSelectedToRemoveFromLikedFilms.isEmpty else {
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        
         showAlert(title: "Warning", message: "Selected items will be removed from liked films") {
             self.dismiss(animated: true)
             self.navigationController?.popViewController(animated: true)

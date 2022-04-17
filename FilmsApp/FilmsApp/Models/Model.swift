@@ -55,6 +55,19 @@ class Model {
         }
     }
     
+    
+    func removeFromLikedBy(id: Int) {
+        guard let film = realm?.object(ofType: LikedFilmObject.self, forPrimaryKey: id) else { return }
+        
+        do {
+            try realm?.write ({
+                removeFromLikedFilmWith(id: film.id)
+            })
+        } catch {
+            print("🔴 Can't Remove Liked film due error: \(error)")
+        }
+    }
+    
     func setupLikedForFilmWith(id: Int) {
         guard (realm?.object(ofType: LikedFilmObject.self, forPrimaryKey: id)) != nil else { return }
         
