@@ -22,11 +22,7 @@ class FavoriteFilmsViewController: UIViewController {
     @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
         guard !filmsSelectedToRemoveFromLikedFilms.isEmpty else { return }
         
-        for id in filmsSelectedToRemoveFromLikedFilms {
-            model.removeFromLikedBy(id: id)
-        }
-        
-        filmsSelectedToRemoveFromLikedFilms = []
+        removeSelectedFilmsFromLikedFilms()
         reloadCollectionViewData()
     }
     
@@ -38,11 +34,19 @@ class FavoriteFilmsViewController: UIViewController {
         
         showAlert(title: "Warning", message: "Selected items will be removed from liked films") {
             self.dismiss(animated: true)
+            self.removeSelectedFilmsFromLikedFilms()
             self.navigationController?.popViewController(animated: true)
         }
     }
     
     // MARK: - Private Methods
+    private func removeSelectedFilmsFromLikedFilms() {
+        for id in filmsSelectedToRemoveFromLikedFilms {
+            model.removeFromLikedBy(id: id)
+        }
+        filmsSelectedToRemoveFromLikedFilms = []
+    }
+    
     private func setupNavigationBackButton() {
         navigationItem.hidesBackButton = true
         let navBackButton = UIBarButtonItem(title: "FilmsApp",
