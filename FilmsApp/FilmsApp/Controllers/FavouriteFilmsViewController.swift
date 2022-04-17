@@ -20,6 +20,7 @@ class FavoriteFilmsViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
+        filmsSelectedToRemoveFromLikedFilms = []
         reloadCollectionViewData()
     }
     
