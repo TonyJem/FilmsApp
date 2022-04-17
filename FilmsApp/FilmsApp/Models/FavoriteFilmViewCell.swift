@@ -27,19 +27,13 @@ class FavoriteFilmViewCell: UICollectionViewCell {
             favoriteFilmTitleLabel.text = likedFilm.filmTitle
             favoriteYearLabel.text = String(likedFilm.releaseYear)
             favoriteRatingLabel.text = String(likedFilm.filmRating)
-        }
-    }
-    
-    private var isSelectedToRemoveFromLikedFilms: Bool = false {
-        didSet {
-            alpha = isSelectedToRemoveFromLikedFilms ? 0.55 : 1.0
+            
+            alpha = likedFilm.isSelectedToRemoveFromLikedFilms ? 0.55 : 1.0
         }
     }
     
     // MARK: - Actions
     @IBAction private func deleteButtonDidTap(_ sender: UIButton) {
-        isSelectedToRemoveFromLikedFilms = !isSelectedToRemoveFromLikedFilms
-        
         guard let likedFilm = self.likedFilm else { return }
         likedFilmViewCellDelegate?.deleteButtonDidTapOnFilmWith(id: likedFilm.id)
     }

@@ -9,6 +9,7 @@ struct Film {
     let releaseYear: Int
     let filmRating: Double
     let isLikedByUser: Bool
+    var isSelectedToRemoveFromLikedFilms: Bool = false
     
     init(from film: ParentFilmObject) {
         id = film.id

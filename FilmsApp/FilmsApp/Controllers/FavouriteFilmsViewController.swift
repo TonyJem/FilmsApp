@@ -6,6 +6,7 @@ class FavoriteFilmsViewController: UIViewController {
     @IBOutlet weak var updateButton: UIBarButtonItem!
     
     let model = Core.model
+    private var filmsSelectedToRemoveFromLikedFilms: [Int] = []
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -80,7 +81,11 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.likedFilm = Film(from: likedFilm)
+        cell.likedFilmViewCellDelegate = self
+        
+        var film = Film(from: likedFilm)
+        film.isSelectedToRemoveFromLikedFilms = filmsSelectedToRemoveFromLikedFilms.contains(film.id)
+        cell.likedFilm = film
         
         return cell
     }
@@ -99,5 +104,21 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate {
         destinationVC.film = film
         
         navigationController?.pushViewController(destinationVC, animated: true)
+    }
+}
+
+// MARK: - LikedFilmViewCellDelegate
+extension FavoriteFilmsViewController: LikedFilmViewCellDelegate {
+    func deleteButtonDidTapOnFilmWith(id: Int) {
+        print("🟢 deleteButtonDidTapOnFilmWith")
+        
+        if let index = filmsSelectedToRemoveFromLikedFilms.firstIndex(of: id) {
+            filmsSelectedToRemoveFromLikedFilms.remove(at: index)
+        } else {
+            filmsSelectedToRemoveFromLikedFilms.append(id)
+        }
+        
+        print("🟢🟢 ALL filmsSelectedToRemoveFromLikedFilms : \(filmsSelectedToRemoveFromLikedFilms)")
+        reloadCollectionViewData()
     }
 }
