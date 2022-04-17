@@ -13,10 +13,7 @@ class FavoriteFilmsViewController: UIViewController {
         
         setupNavigationBackButton()
         setupDelegates()
-        
-        let xibFavCell = UINib(nibName: "FavoriteFilmViewCell", bundle: nil)
-        favoriteFilmsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "FavoriteFilmCell")
-        
+        registerCells()
         reloadCollectionViewData()
     }
     
@@ -26,32 +23,27 @@ class FavoriteFilmsViewController: UIViewController {
     }
     
     @objc private func leftBarButtonAction() {
-        showAlertMessage(title: "Warning", message: "Selected items will be removed from liked films") {
+        showAlert(title: "Warning", message: "Selected items will be removed from liked films") {
             self.dismiss(animated: true)
             self.navigationController?.popViewController(animated: true)
         }
     }
     
     // MARK: - Private Methods
-    private func reloadCollectionViewData() {
-        DispatchQueue.main.async {
-            self.favoriteFilmsCollectionView.reloadData()
-        }
+    private func setupNavigationBackButton() {
+        navigationItem.hidesBackButton = true
+        let navBackButton = UIBarButtonItem(title: "FilmsApp",
+                                            style: UIBarButtonItem.Style.plain,
+                                            target: self,
+                                            action: #selector(leftBarButtonAction))
+        navigationItem.leftBarButtonItem = navBackButton
     }
     
-    private func setupDelegates() {
-        favoriteFilmsCollectionView.delegate = self
-        favoriteFilmsCollectionView.dataSource = self
-    }
-    
-    private func showAlertMessage(title: String, message: String?, completionHandler: @escaping () -> Void) {
+    private func showAlert(title: String, message: String?, completionHandler: @escaping () -> Void) {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        let ok = UIAlertAction(title: "OK", style: .default) { _ in
-            completionHandler()
-        }
-        
+        let ok = UIAlertAction(title: "OK", style: .default) { _ in completionHandler() }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         
         alertController.addAction(ok)
@@ -60,13 +52,20 @@ class FavoriteFilmsViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    private func setupNavigationBackButton() {
-        navigationItem.hidesBackButton = true
-        let navBackButton = UIBarButtonItem(title: "FilmsApp",
-                                            style: UIBarButtonItem.Style.plain,
-                                            target: self,
-                                            action: #selector(leftBarButtonAction))
-        navigationItem.leftBarButtonItem = navBackButton
+    private func setupDelegates() {
+        favoriteFilmsCollectionView.delegate = self
+        favoriteFilmsCollectionView.dataSource = self
+    }
+    
+    private func registerCells() {
+        let xibFavCell = UINib(nibName: "FavoriteFilmViewCell", bundle: nil)
+        favoriteFilmsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "FavoriteFilmCell")
+    }
+    
+    private func reloadCollectionViewData() {
+        DispatchQueue.main.async {
+            self.favoriteFilmsCollectionView.reloadData()
+        }
     }
 }
 
