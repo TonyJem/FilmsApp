@@ -110,7 +110,6 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate {
 // MARK: - LikedFilmViewCellDelegate
 extension FavoriteFilmsViewController: LikedFilmViewCellDelegate {
     func deleteButtonDidTapOnFilmWith(id: Int) {
-        print("🟢 deleteButtonDidTapOnFilmWith")
         
         if let index = filmsSelectedToRemoveFromLikedFilms.firstIndex(of: id) {
             filmsSelectedToRemoveFromLikedFilms.remove(at: index)
@@ -118,7 +117,7 @@ extension FavoriteFilmsViewController: LikedFilmViewCellDelegate {
             filmsSelectedToRemoveFromLikedFilms.append(id)
         }
         
-        print("🟢🟢 ALL filmsSelectedToRemoveFromLikedFilms : \(filmsSelectedToRemoveFromLikedFilms)")
-        reloadCollectionViewData()
+        print("🟢 filmsSelectedToRemoveFromLikedFilms : \(filmsSelectedToRemoveFromLikedFilms)")
+        
     }
 }
