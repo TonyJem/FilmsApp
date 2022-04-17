@@ -1,5 +1,9 @@
 import UIKit
 
+protocol LikedFilmViewCellDelegate: AnyObject {
+    func deleteButtonDidTap()
+}
+
 class FavoriteFilmViewCell: UICollectionViewCell {
     
     @IBOutlet weak var favoritePosterImageView: UIImageView!
@@ -8,6 +12,9 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     @IBOutlet weak var favoriteRatingLabel: UILabel!
     
     // MARK: - Properties
+    
+    weak var likedFilmViewCellDelegate: LikedFilmViewCellDelegate?
+    
     var likedFilm: Film? {
         didSet {
             guard let likedFilm = self.likedFilm,
@@ -32,5 +39,6 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     // MARK: - Actions
     @IBAction private func deleteButtonDidTap(_ sender: UIButton) {
         isSelectedToRemoveFromLikedFilms = !isSelectedToRemoveFromLikedFilms
+        likedFilmViewCellDelegate?.deleteButtonDidTap()
     }
 }
