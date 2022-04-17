@@ -25,8 +25,7 @@ class FavoriteFilmsViewController: UIViewController {
         reloadCollectionViewData()
     }
     
-    @objc private func navBackButtonAction() {
-
+    @objc private func leftBarButtonAction() {
         showAlertMessage(title: "Warning", message: "Selected items will be removed from liked films") {
             self.dismiss(animated: true)
             self.navigationController?.popViewController(animated: true)
@@ -62,9 +61,12 @@ class FavoriteFilmsViewController: UIViewController {
     }
     
     private func setupNavigationBackButton() {
-        self.navigationItem.hidesBackButton = true
-        let navBackButton = UIBarButtonItem(title: "FilmsApp", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navBackButtonAction))
-                self.navigationItem.leftBarButtonItem = navBackButton
+        navigationItem.hidesBackButton = true
+        let navBackButton = UIBarButtonItem(title: "FilmsApp",
+                                            style: UIBarButtonItem.Style.plain,
+                                            target: self,
+                                            action: #selector(leftBarButtonAction))
+        navigationItem.leftBarButtonItem = navBackButton
     }
 }
 
