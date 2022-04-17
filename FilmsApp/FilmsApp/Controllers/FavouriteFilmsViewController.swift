@@ -11,6 +11,7 @@ class FavoriteFilmsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationBackButton()
         setupDelegates()
         
         let xibFavCell = UINib(nibName: "FavoriteFilmViewCell", bundle: nil)
@@ -21,10 +22,14 @@ class FavoriteFilmsViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
-//        reloadCollectionViewData()
+        reloadCollectionViewData()
+    }
+    
+    @objc private func navBackButtonAction() {
+
         showAlertMessage(title: "Warning", message: "Selected items will be removed from liked films") {
-            print("🟢 Ok button did Tap")
             self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
@@ -54,6 +59,12 @@ class FavoriteFilmsViewController: UIViewController {
         alertController.addAction(cancel)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    private func setupNavigationBackButton() {
+        self.navigationItem.hidesBackButton = true
+        let navBackButton = UIBarButtonItem(title: "FilmsApp", style: UIBarButtonItem.Style.plain, target: self, action: #selector(navBackButtonAction))
+                self.navigationItem.leftBarButtonItem = navBackButton
     }
 }
 
