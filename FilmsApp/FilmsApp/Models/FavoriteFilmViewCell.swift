@@ -27,6 +27,9 @@ class FavoriteFilmViewCell: UICollectionViewCell {
             favoriteFilmTitleLabel.text = likedFilm.filmTitle
             favoriteYearLabel.text = String(likedFilm.releaseYear)
             favoriteRatingLabel.text = String(likedFilm.filmRating)
+            
+            let isSelected = likedFilm.isSelectedToRemoveFromLikedFilms
+            backgroundColor = isSelected ? .selectedCellBackground : .likedFilmCellBackground
         }
     }
     
