@@ -32,7 +32,7 @@ class FavoriteFilmsViewController: UIViewController {
             return
         }
         
-        showAlert(title: "Warning", message: "Selected items will be removed from liked films") {
+        showAlert(title: "Warning", message: "All selected items will be removed from liked films!") {
             self.dismiss(animated: true)
             self.removeSelectedFilmsFromLikedFilms()
             self.navigationController?.popViewController(animated: true)
@@ -111,14 +111,24 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
 extension FavoriteFilmsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController,
-              let selectedFilm = model.likedFilms?[indexPath.row] else {
-            return
-        }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController else { return }
         
+        if filmsSelectedToRemoveFromLikedFilms.isEmpty {
+            showLikedFilmSelectedAt(indexPath: indexPath, in: destinationVC)
+        } else {
+            showAlert(title: "Warning", message: "All recently selected items will be unselected!") {
+                self.dismiss(animated: true)
+                self.showLikedFilmSelectedAt(indexPath: indexPath, in: destinationVC)
+                self.filmsSelectedToRemoveFromLikedFilms = []
+                self.reloadCollectionViewData()
+            }
+        }
+    }
+    
+    private func showLikedFilmSelectedAt(indexPath: IndexPath, in destinationVC: DetailFilmViewController) {
+        guard let selectedFilm = model.likedFilms?[indexPath.row] else { return }
         let film = Film(from: selectedFilm)
         destinationVC.film = film
-        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
