@@ -14,6 +14,8 @@ class DetailFilmViewController: UIViewController {
     
     var film: Film?
     
+    var shouldHideLikeButton: Bool = false
+    
     private var posterImage: UIImage? {
         posterImageView.image
     }
@@ -26,6 +28,7 @@ class DetailFilmViewController: UIViewController {
         
         likeButton.clipsToBounds = true
         likeButton.contentMode = .scaleAspectFill
+        likeButton.isHidden = shouldHideLikeButton
         
         galleryCollection.dataSource = self
         galleryCollection.delegate = self

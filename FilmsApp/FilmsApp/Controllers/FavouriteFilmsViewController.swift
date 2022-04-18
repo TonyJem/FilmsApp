@@ -129,6 +129,7 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate {
         guard let selectedFilm = model.likedFilms?[indexPath.row] else { return }
         let film = Film(from: selectedFilm)
         destinationVC.film = film
+        destinationVC.shouldHideLikeButton = true
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
