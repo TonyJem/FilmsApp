@@ -104,7 +104,9 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
         cell.likedFilm = film
         
         if film.isSelectedToRemoveFromLikedFilms {
-            cell.backgroundColor = .systemPink
+            cell.backgroundColor = .selectedCellBackground
+        } else {
+            cell.backgroundColor = .likedFilmCellBackground
         }
         
         return cell
