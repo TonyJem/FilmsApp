@@ -32,8 +32,18 @@ class FavoriteFilmViewCell: UICollectionViewCell {
     
     private var isSelectedToRemoveFromLikedFilms: Bool = false {
         didSet {
-            alpha = isSelectedToRemoveFromLikedFilms ? 0.55 : 1.0
+            backgroundColor = isSelectedToRemoveFromLikedFilms ? .systemPink : .none
         }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        print("🟢🟢🟢 awakeFromNib")
+        guard let likedFilm = self.likedFilm else { return }
+        
+        isSelectedToRemoveFromLikedFilms = likedFilm.isSelectedToRemoveFromLikedFilms
+        
     }
     
     // MARK: - Actions
@@ -41,6 +51,6 @@ class FavoriteFilmViewCell: UICollectionViewCell {
         guard let likedFilm = self.likedFilm else { return }
         likedFilmViewCellDelegate?.deleteButtonDidTapOnFilmWith(id: likedFilm.id)
         
-        isSelectedToRemoveFromLikedFilms = !likedFilm.isSelectedToRemoveFromLikedFilms
+//        isSelectedToRemoveFromLikedFilms = !likedFilm.isSelectedToRemoveFromLikedFilms
     }
 }
