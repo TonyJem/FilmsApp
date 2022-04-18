@@ -2,13 +2,13 @@ import UIKit
 
 class DetailFilmViewController: UIViewController {
     
-    @IBOutlet weak var likeButton: UIButton!
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var filmTitleLabel: UILabel!
-    @IBOutlet weak var releaseYearLabel: UILabel!
-    @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var galleryCollection: UICollectionView!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet private weak var likeButton: UIButton!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var filmTitleLabel: UILabel!
+    @IBOutlet private weak var releaseYearLabel: UILabel!
+    @IBOutlet private weak var ratingLabel: UILabel!
+    @IBOutlet private weak var galleryCollection: UICollectionView!
+    @IBOutlet private weak var descriptionTextView: UITextView!
     
     let model = Core.model
     

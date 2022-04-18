@@ -2,8 +2,8 @@ import UIKit
 
 class FavoriteFilmsViewController: UIViewController {
     
-    @IBOutlet weak var favoriteFilmsCollectionView: UICollectionView!
-    @IBOutlet weak var updateButton: UIBarButtonItem!
+    @IBOutlet private weak var favoriteFilmsCollectionView: UICollectionView!
+    @IBOutlet private weak var updateButton: UIBarButtonItem!
     
     let model = Core.model
     private var filmsSelectedToRemoveFromLikedFilms: [Int] = []

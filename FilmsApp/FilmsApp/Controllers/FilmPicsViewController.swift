@@ -2,8 +2,8 @@ import UIKit
 
 class FilmPicsViewController: UIViewController {
     
-    @IBOutlet weak var picsNumberLabel: UILabel!
-    @IBOutlet weak var filmPicsCollectionView: UICollectionView!
+    @IBOutlet private weak var picsNumberLabel: UILabel!
+    @IBOutlet private weak var filmPicsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

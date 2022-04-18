@@ -2,7 +2,7 @@ import UIKit
 
 class FullPicViewController: UIViewController {
     
-    @IBOutlet weak var fullPicGalleryCollection: UICollectionView!
+    @IBOutlet private weak var fullPicGalleryCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
