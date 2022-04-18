@@ -41,8 +41,6 @@ struct Result: Codable {
 //
 //   let screenShots = try? newJSONDecoder().decode(ScreenShots.self, from: jsonData)
 
-// https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=<<api_key>>&language=en-US
-
 // MARK: - ScreenShots
 struct ScreenShots: Codable {
     let id: Int
