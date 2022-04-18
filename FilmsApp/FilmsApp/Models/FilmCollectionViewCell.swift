@@ -18,6 +18,8 @@ class FilmCollectionViewCell: UICollectionViewCell {
             filmTitleLabel.text = film.filmTitle
             yearLabel.text = String(film.releaseYear)
             ratingLabel.text = String(film.filmRating)
+            
+            backgroundColor = .backgroundFilmCell
         }
     }
 }
