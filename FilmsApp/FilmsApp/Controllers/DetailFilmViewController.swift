@@ -115,6 +115,14 @@ extension DetailFilmViewController: UICollectionViewDataSource {
 extension DetailFilmViewController: UICollectionViewDelegate {
 }
 
+// MARK: - CollectionView DelegateFlowLayout
+extension DetailFilmViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 128, height: 128)
+    }
+}
+
 // MARK: - UIViewController TransitioningDelegate
 extension DetailFilmViewController: UIViewControllerTransitioningDelegate {
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
