@@ -84,6 +84,9 @@ extension MainViewController: UICollectionViewDelegate {
         
         guard let film = model.films?[indexPath.row] else { return }
         destinationVC.film = Film(from: film)
+                
+        Core.urlService.backdropsRequestByFilm(id: film.id)
+        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }

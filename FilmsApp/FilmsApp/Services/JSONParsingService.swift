@@ -37,10 +37,18 @@ class JSONParsingService {
     
     func parseJSONwithScreens(parseData: Data, parseError: Error?) {
         do {
-            let filmObject = try JSONDecoder().decode(ScreenShots.self, from: parseData)
-            let jsonObjects = filmObject.backdrops
+            let filmData = try JSONDecoder().decode(FilmData.self, from: parseData)
+            let filmID = filmData.id
+            let backdrops = filmData.backdrops
             
-            print("🟢 jsonObjects: \(jsonObjects)")
+            var filmBackDrops: [String] = []
+            
+            for backdrop in backdrops {
+                filmBackDrops.append(backdrop.filePath)
+            }
+            
+            print("🟢🟢🟢 filmID: \(filmID)")
+            print("🟢🟢🟢🟢 backdrops: \(filmBackDrops)")
             
         } catch let error {
             print(error)

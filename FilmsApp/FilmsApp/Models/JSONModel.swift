@@ -36,13 +36,8 @@ struct Result: Codable {
     }
 }
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let screenShots = try? newJSONDecoder().decode(ScreenShots.self, from: jsonData)
-
 // MARK: - ScreenShots
-struct ScreenShots: Codable {
+struct FilmData: Codable {
     let id: Int
     let backdrops: [Backdrop]
     let posters: [Backdrop]

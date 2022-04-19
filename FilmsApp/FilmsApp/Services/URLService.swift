@@ -66,14 +66,12 @@ class URLService {
         downloadingTask.resume()
     }
     
-    // https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=<<api_key>>&language=en-US
-    
-
+    // https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=<<api_key>>
     func backdropsRequestByFilm(id: Int) {
         
         let idString = String(id)
         
-        let urlString = "\(urlBase)\(request.rawValue)/images?api_key=\(apiKey)&language=en-US\(request.urlEnd)"
+        let urlString = "\(urlBase)\(idString)/images?api_key=\(apiKey)"
         
         guard let apiURL: URL = URL(string: urlString) else { return }
         
@@ -83,7 +81,7 @@ class URLService {
                   error == nil else {
                       return
                   }
-            self.parser.parseJSON(parseData: unwrData, parseError: error)
+            self.parser.parseJSONwithScreens(parseData: unwrData, parseError: error)
         }
         task.resume()
     }
