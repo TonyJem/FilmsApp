@@ -50,6 +50,9 @@ class JSONParsingService {
             print("🟢🟢🟢 filmID: \(filmID)")
             print("🟢🟢🟢🟢 backdrops: \(filmBackDrops)")
             
+            Core.tempStorage.screenshots = []
+            Core.tempStorage.screenshots = filmBackDrops
+            
         } catch let error {
             print(error)
         }

@@ -36,6 +36,8 @@ class DetailFilmViewController: UIViewController {
         galleryCollection.layer.borderWidth = 2.4
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
+//        registerCells()
+        
         DispatchQueue.main.async {
             self.setupFilmDetails()
         }
@@ -62,6 +64,13 @@ class DetailFilmViewController: UIViewController {
     }
     
     // MARK: - Private methods
+    
+    private func registerCells() {
+        let xibFavCell = UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
+        galleryCollection.register(xibFavCell, forCellWithReuseIdentifier: "GalleryPreviewCell")
+    }
+    
+    
     private func setLikeButtonImageForFilmWith(id: Int) {
         let isFilmLiked = model.isInLikedFilmsBy(id: id)
         let imageName = isFilmLiked ? "heart_red" : "heart_gray"
@@ -87,11 +96,19 @@ class DetailFilmViewController: UIViewController {
 // MARK: - UICollectionView DataSource
 extension DetailFilmViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return Core.tempStorage.screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+//        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath) as? ScreenShotCollectionViewCell else {
+//            return UICollectionViewCell()
+//        }
+        
         let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath)
+        
+//        cell.selectedId = indexPath.row
+        
         return cell
     }
 }
