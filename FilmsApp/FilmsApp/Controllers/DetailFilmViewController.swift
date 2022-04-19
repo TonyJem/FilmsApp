@@ -36,7 +36,7 @@ class DetailFilmViewController: UIViewController {
         galleryCollection.layer.borderWidth = 2.4
         galleryCollection.layer.borderColor = UIColor.darkGray.cgColor
         
-//        registerCells()
+        registerCells()
         
         DispatchQueue.main.async {
             self.setupFilmDetails()
@@ -101,13 +101,11 @@ extension DetailFilmViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-//        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath) as? ScreenShotCollectionViewCell else {
-//            return UICollectionViewCell()
-//        }
+        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath) as? ScreenShotCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         
-        let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath)
-        
-//        cell.selectedId = indexPath.row
+        cell.selectedId = indexPath.row
         
         return cell
     }
