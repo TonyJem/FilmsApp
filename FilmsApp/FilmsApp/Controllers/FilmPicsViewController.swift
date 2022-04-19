@@ -9,6 +9,7 @@ class FilmPicsViewController: UIViewController {
         super.viewDidLoad()
         
         setupDelegates()
+        registerCells()
     }
     
     // MARK: - Private methods
@@ -17,17 +18,37 @@ class FilmPicsViewController: UIViewController {
         filmPicsCollectionView.delegate = self
     }
     
+    private func registerCells() {
+        let xibFavCell = UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
+        filmPicsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "GalleryPreviewCell")
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource
 extension FilmPicsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return Core.tempStorage.screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "FilmPicCell", for: indexPath)
+//        let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "FilmPicCell", for: indexPath)
+        
+        guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath) as? ScreenShotCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.selectedId = indexPath.row
+        
         return cell
+    }
+}
+
+// MARK: - CollectionView DelegateFlowLayout
+extension FilmPicsViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 128, height: 128)
     }
 }
 
