@@ -1,7 +1,6 @@
 import UIKit
 
-class FilmPicsViewController: UIViewController {
-    
+class ScreenShotsViewController: UIViewController {
     @IBOutlet private weak var picsNumberLabel: UILabel!
     @IBOutlet private weak var filmPicsCollectionView: UICollectionView!
     
@@ -22,18 +21,15 @@ class FilmPicsViewController: UIViewController {
         let xibFavCell = UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
         filmPicsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "GalleryPreviewCell")
     }
-    
 }
 
 // MARK: - UICollectionViewDataSource
-extension FilmPicsViewController: UICollectionViewDataSource {
+extension ScreenShotsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Core.tempStorage.screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "FilmPicCell", for: indexPath)
-        
         guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath) as? ScreenShotCollectionViewCell else {
             return UICollectionViewCell()
         }
@@ -45,7 +41,7 @@ extension FilmPicsViewController: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView DelegateFlowLayout
-extension FilmPicsViewController: UICollectionViewDelegateFlowLayout {
+extension ScreenShotsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 128, height: 128)
@@ -53,5 +49,5 @@ extension FilmPicsViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - UICollectionViewDelegate
-extension FilmPicsViewController: UICollectionViewDelegate {
+extension ScreenShotsViewController: UICollectionViewDelegate {
 }

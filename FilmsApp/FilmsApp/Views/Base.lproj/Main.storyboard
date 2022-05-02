@@ -377,10 +377,10 @@
             </objects>
             <point key="canvasLocation" x="1850.7246376811595" y="137.94642857142856"/>
         </scene>
-        <!--Film Pics View Controller-->
+        <!--Screen Shots View Controller-->
         <scene sceneID="2zS-TR-CXN">
             <objects>
-                <viewController id="lPT-nd-rPo" customClass="FilmPicsViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lPT-nd-rPo" customClass="ScreenShotsViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fQZ-Yb-Egf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
