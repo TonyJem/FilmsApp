@@ -7,11 +7,16 @@ class ScreenShotsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         setupDelegates()
         registerCells()
     }
     
     // MARK: - Private methods
+    private func setupUI() {
+        picsNumberLabel.text = "\(Core.tempStorage.screenshots.count) кадров"
+    }
+    
     private func setupDelegates() {
         filmPicsCollectionView.dataSource = self
         filmPicsCollectionView.delegate = self
