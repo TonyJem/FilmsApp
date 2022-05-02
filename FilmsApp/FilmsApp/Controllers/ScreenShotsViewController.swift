@@ -35,7 +35,6 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
         }
         
         cell.selectedId = indexPath.row
-        
         return cell
     }
 }
@@ -44,10 +43,18 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
 extension ScreenShotsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 256, height: 256)
+        
+        let width: CGFloat = 320
+        let height = width * 0.625
+        
+        return CGSize(width: width, height: height)
     }
-}
-
-// MARK: - UICollectionViewDelegate
-extension ScreenShotsViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
 }
