@@ -153,7 +153,6 @@
 				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 				3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */,
 				3A3F82E5280F210200A6BEF7 /* ScreenShotCollectionViewCell.swift */,
-				3A3F82E6280F210200A6BEF7 /* ScreenShotCollectionViewCell.xib */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +163,7 @@
 				3A38A02826CC0082003E9A33 /* Main.storyboard */,
 				3AAAFA2627EBAA7C00839670 /* FilmCollectionViewCell.xib */,
 				3AAAFA2227EA4D1100839670 /* FavoriteFilmViewCell.xib */,
+				3A3F82E6280F210200A6BEF7 /* ScreenShotCollectionViewCell.xib */,
 				3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */,
 			);
 			path = Views;
