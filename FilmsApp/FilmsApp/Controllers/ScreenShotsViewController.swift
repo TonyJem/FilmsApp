@@ -18,8 +18,8 @@ class ScreenShotsViewController: UIViewController {
     }
     
     private func registerCells() {
-        let xibFavCell = UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
-        filmPicsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "GalleryPreviewCell")
+        let xibFavCell = UINib(nibName: "BigScreenShotCollectionViewCell", bundle: nil)
+        filmPicsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "ScreenShotGalleryCell")
     }
 }
 
@@ -30,7 +30,7 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath) as? ScreenShotCollectionViewCell else {
+        guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "ScreenShotGalleryCell", for: indexPath) as? BigScreenShotCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -44,7 +44,7 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
 extension ScreenShotsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 128, height: 128)
+        return CGSize(width: 256, height: 256)
     }
 }
 

@@ -25,6 +25,8 @@
 		3A3F82E4280D44C700A6BEF7 /* UIColor + Extensions.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F82E3280D44C600A6BEF7 /* UIColor + Extensions.swift.swift */; };
 		3A3F82E7280F210200A6BEF7 /* ScreenShotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F82E5280F210200A6BEF7 /* ScreenShotCollectionViewCell.swift */; };
 		3A3F82E8280F210200A6BEF7 /* ScreenShotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F82E6280F210200A6BEF7 /* ScreenShotCollectionViewCell.xib */; };
+		3A3F82F128205C7200A6BEF7 /* BigScreenShotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F82EF28205C7200A6BEF7 /* BigScreenShotCollectionViewCell.swift */; };
+		3A3F82F228205C7200A6BEF7 /* BigScreenShotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F82F028205C7200A6BEF7 /* BigScreenShotCollectionViewCell.xib */; };
 		3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */; };
 		3AAAFA1A27E77A4D00839670 /* RoundingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */; };
 		3AAAFA1D27E9047A00839670 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1C27E9047A00839670 /* Model.swift */; };
@@ -58,6 +60,8 @@
 		3A3F82E3280D44C600A6BEF7 /* UIColor + Extensions.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor + Extensions.swift.swift"; path = "FilmsApp/UIColor + Extensions.swift.swift"; sourceTree = SOURCE_ROOT; };
 		3A3F82E5280F210200A6BEF7 /* ScreenShotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotCollectionViewCell.swift; sourceTree = "<group>"; };
 		3A3F82E6280F210200A6BEF7 /* ScreenShotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenShotCollectionViewCell.xib; sourceTree = "<group>"; };
+		3A3F82EF28205C7200A6BEF7 /* BigScreenShotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigScreenShotCollectionViewCell.swift; sourceTree = "<group>"; };
+		3A3F82F028205C7200A6BEF7 /* BigScreenShotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BigScreenShotCollectionViewCell.xib; sourceTree = "<group>"; };
 		3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterFullViewController.swift; sourceTree = "<group>"; };
 		3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
 		3AAAFA1C27E9047A00839670 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				3A2924BF26D7560F003D2A9A /* FilmCollectionViewCell.swift */,
 				3AAAFA2027EA49DA00839670 /* FavoriteFilmViewCell.swift */,
 				3A3F82E5280F210200A6BEF7 /* ScreenShotCollectionViewCell.swift */,
+				3A3F82EF28205C7200A6BEF7 /* BigScreenShotCollectionViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				3AAAFA2627EBAA7C00839670 /* FilmCollectionViewCell.xib */,
 				3AAAFA2227EA4D1100839670 /* FavoriteFilmViewCell.xib */,
 				3A3F82E6280F210200A6BEF7 /* ScreenShotCollectionViewCell.xib */,
+				3A3F82F028205C7200A6BEF7 /* BigScreenShotCollectionViewCell.xib */,
 				3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */,
 			);
 			path = Views;
@@ -257,6 +263,7 @@
 				3A3F82E8280F210200A6BEF7 /* ScreenShotCollectionViewCell.xib in Resources */,
 				3AAAFA2327EA4D1100839670 /* FavoriteFilmViewCell.xib in Resources */,
 				3A38A02C26CC0084003E9A33 /* Assets.xcassets in Resources */,
+				3A3F82F228205C7200A6BEF7 /* BigScreenShotCollectionViewCell.xib in Resources */,
 				3A38A02A26CC0082003E9A33 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +293,7 @@
 				3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */,
 				3A3F82E4280D44C700A6BEF7 /* UIColor + Extensions.swift.swift in Sources */,
 				3A38A03F26CC03FD003E9A33 /* FullPicViewController.swift in Sources */,
+				3A3F82F128205C7200A6BEF7 /* BigScreenShotCollectionViewCell.swift in Sources */,
 				3AD6EFF527F21EBF0052F9C8 /* URLService.swift in Sources */,
 				3A38A03926CC0355003E9A33 /* DetailFilmViewController.swift in Sources */,
 			);
