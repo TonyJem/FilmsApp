@@ -1,17 +1,25 @@
 import UIKit
 
 class SingleScreenShotViewController: UIViewController {
-    
+    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var fullPicGalleryCollection: UICollectionView!
+    
+    var selectedItem: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
         setupDelegates()
         registerCells()
     }
     
     // MARK: - Private methods
+    private func setupUI() {
+        let selectedItem = String((selectedItem ?? 0) + 1)
+        titleLabel.text = "\(selectedItem)/\(Core.tempStorage.screenshots.count)"
+    }
+    
     private func setupDelegates() {
         fullPicGalleryCollection.dataSource = self
     }

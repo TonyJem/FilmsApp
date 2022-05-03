@@ -523,6 +523,7 @@
                     <navigationItem key="navigationItem" id="P87-fH-cg0"/>
                     <connections>
                         <outlet property="fullPicGalleryCollection" destination="LQH-Sx-Qmw" id="3Ri-TG-jZx"/>
+                        <outlet property="titleLabel" destination="uhe-M9-e3q" id="DIh-7c-Kqs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l1L-qE-CYV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
