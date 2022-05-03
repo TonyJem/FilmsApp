@@ -1,6 +1,6 @@
 import UIKit
 
-class FullPicViewController: UIViewController {
+class SingleScreenShotViewController: UIViewController {
     
     @IBOutlet private weak var fullPicGalleryCollection: UICollectionView!
     
@@ -18,7 +18,7 @@ class FullPicViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension FullPicViewController: UICollectionViewDataSource {
+extension SingleScreenShotViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
@@ -30,5 +30,5 @@ extension FullPicViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension FullPicViewController: UICollectionViewDelegate {
+extension SingleScreenShotViewController: UICollectionViewDelegate {
 }
