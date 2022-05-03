@@ -1,6 +1,6 @@
 import UIKit
 
-class SingleScreenShotViewController: UIViewController {
+class FullPicViewController: UIViewController {
     
     @IBOutlet private weak var fullPicGalleryCollection: UICollectionView!
     
@@ -18,7 +18,7 @@ class SingleScreenShotViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension SingleScreenShotViewController: UICollectionViewDataSource {
+extension FullPicViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Core.tempStorage.screenshots.count
     }
@@ -30,5 +30,5 @@ extension SingleScreenShotViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension SingleScreenShotViewController: UICollectionViewDelegate {
+extension FullPicViewController: UICollectionViewDelegate {
 }
