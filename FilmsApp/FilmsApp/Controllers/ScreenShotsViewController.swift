@@ -44,6 +44,21 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
+extension ScreenShotsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+  
+        print("🟢 In ScreenShotsViewController didSelectItemAt indexPath: \(indexPath.row)")
+        
+        
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewController") as? SingleScreenShotViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(destinationVC, animated: true)
+    }
+}
+
 // MARK: - CollectionView DelegateFlowLayout
 extension ScreenShotsViewController: UICollectionViewDelegateFlowLayout {
     

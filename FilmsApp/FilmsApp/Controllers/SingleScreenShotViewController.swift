@@ -20,7 +20,7 @@ class SingleScreenShotViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension SingleScreenShotViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return Core.tempStorage.screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
