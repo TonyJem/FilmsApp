@@ -458,7 +458,7 @@
         <!--Single Screen Shot View Controller-->
         <scene sceneID="gmo-MY-zWi">
             <objects>
-                <viewController id="QEL-fm-iQ3" customClass="SingleScreenShotViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleScreenShotViewControllerID" id="QEL-fm-iQ3" customClass="SingleScreenShotViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPf-qo-1mv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -50,8 +50,7 @@ extension ScreenShotsViewController: UICollectionViewDelegate {
   
         print("🟢 In ScreenShotsViewController didSelectItemAt indexPath: \(indexPath.row)")
         
-        
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewController") as? SingleScreenShotViewController else {
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController else {
             return
         }
         

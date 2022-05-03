@@ -8,12 +8,17 @@ class SingleScreenShotViewController: UIViewController {
         super.viewDidLoad()
         
         setupDelegates()
+        registerCells()
     }
     
     // MARK: - Private methods
     private func setupDelegates() {
         fullPicGalleryCollection.dataSource = self
-        fullPicGalleryCollection.delegate = self
+    }
+    
+    private func registerCells() {
+        let xibFavCell = UINib(nibName: "SingleScreenShotCollectionViewCell", bundle: nil)
+        fullPicGalleryCollection.register(xibFavCell, forCellWithReuseIdentifier: "SingleScreenShotGalleryCell")
     }
 }
 
@@ -24,11 +29,11 @@ extension SingleScreenShotViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = fullPicGalleryCollection.dequeueReusableCell(withReuseIdentifier: "FullPicCell", for: indexPath)
+        guard let cell = fullPicGalleryCollection.dequeueReusableCell(withReuseIdentifier: "SingleScreenShotGalleryCell", for: indexPath) as? SingleScreenShotCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.selectedId = indexPath.row
         return cell
     }
-}
-
-// MARK: - UICollectionViewDelegate
-extension SingleScreenShotViewController: UICollectionViewDelegate {
 }
