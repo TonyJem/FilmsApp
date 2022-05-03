@@ -22,6 +22,7 @@ class SingleScreenShotViewController: UIViewController {
     
     private func setupDelegates() {
         fullPicGalleryCollection.dataSource = self
+        fullPicGalleryCollection.delegate = self
     }
     
     private func registerCells() {
@@ -43,5 +44,25 @@ extension SingleScreenShotViewController: UICollectionViewDataSource {
         
         cell.selectedId = indexPath.row
         return cell
+    }
+}
+
+// MARK: - CollectionView DelegateFlowLayout
+extension SingleScreenShotViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+
+        return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let frameSize = collectionView.frame.size
+        return CGSize(width: frameSize.width - 10, height: frameSize.height)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     }
 }
