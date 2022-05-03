@@ -18,8 +18,6 @@ class SingleScreenShotViewController: UIViewController {
     private func setupUI() {
         let selectedItem = String((selectedItem ?? 0) + 1)
         titleLabel.text = "\(selectedItem)/\(Core.tempStorage.screenshots.count)"
-        
-        fullPicGalleryCollection.isPagingEnabled = true
     }
     
     private func setupDelegates() {
