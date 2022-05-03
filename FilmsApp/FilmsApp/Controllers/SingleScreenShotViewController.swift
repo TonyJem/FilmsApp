@@ -14,6 +14,12 @@ class SingleScreenShotViewController: UIViewController {
         registerCells()
     }
     
+    override func viewDidLayoutSubviews() {
+        guard let selectedItem = self.selectedItem else { return }
+        let indexPath = IndexPath(item: selectedItem, section: .zero)
+        fullPicGalleryCollection.scrollToItem(at: indexPath, at: .right, animated: false)
+    }
+    
     // MARK: - Private methods
     private func setupUI() {
         let selectedItem = String((selectedItem ?? 0) + 1)
