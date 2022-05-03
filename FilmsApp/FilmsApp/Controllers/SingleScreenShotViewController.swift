@@ -18,6 +18,8 @@ class SingleScreenShotViewController: UIViewController {
     private func setupUI() {
         let selectedItem = String((selectedItem ?? 0) + 1)
         titleLabel.text = "\(selectedItem)/\(Core.tempStorage.screenshots.count)"
+        
+        fullPicGalleryCollection.isPagingEnabled = true
     }
     
     private func setupDelegates() {
@@ -43,17 +45,5 @@ extension SingleScreenShotViewController: UICollectionViewDataSource {
         
         cell.selectedId = indexPath.row
         return cell
-    }
-}
-
-// MARK: - CollectionView DelegateFlowLayout
-extension SingleScreenShotViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width: CGFloat = 100
-        let height: CGFloat = 100
-        
-        return CGSize(width: width, height: height)
     }
 }
