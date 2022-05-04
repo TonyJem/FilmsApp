@@ -13,7 +13,6 @@ class DetailFilmViewController: UIViewController {
     let model = Core.model
     
     var film: Film?
-    
     var shouldHideLikeButton: Bool = false
     
     private var posterImage: UIImage? {
@@ -59,11 +58,7 @@ class DetailFilmViewController: UIViewController {
         setLikeButtonImageForFilmWith(id: id)
     }
     
-    @IBAction func goToGAlleryButtonAction(_ sender: UIButton) {
-    }
-    
     // MARK: - Private methods
-    
     private func registerCells() {
         let xibFavCell = UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
         galleryCollection.register(xibFavCell, forCellWithReuseIdentifier: "GalleryPreviewCell")
@@ -105,7 +100,6 @@ extension DetailFilmViewController: UICollectionViewDataSource {
         }
         
         cell.selectedId = indexPath.row
-        
         return cell
     }
 }
