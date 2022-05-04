@@ -110,8 +110,16 @@ extension DetailFilmViewController: UICollectionViewDataSource {
     }
 }
 
-// MARK: - UICollectionView Delegate
+// MARK: - UICollectionViewDelegate
 extension DetailFilmViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController else {
+            return
+        }
+        
+        destinationVC.selectedItem = indexPath.row
+        navigationController?.pushViewController(destinationVC, animated: true)
+    }
 }
 
 // MARK: - CollectionView DelegateFlowLayout
