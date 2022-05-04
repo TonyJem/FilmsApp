@@ -9,21 +9,20 @@ class SingleScreenShotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        setupTitleLabelWith(selectedItem)
         setupDelegates()
         registerCells()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        guard let selectedItem = self.selectedItem else { return }
-        let indexPath = IndexPath(item: selectedItem, section: .zero)
-        fullPicGalleryCollection.scrollToItem(at: indexPath, at: .right, animated: false)
+        showSelectedItem()
     }
     
     // MARK: - Private methods
-    private func setupUI() {
-        let selectedItem = String((selectedItem ?? 0) + 1)
-        titleLabel.text = "\(selectedItem)/\(Core.tempStorage.screenshots.count)"
+    private func setupTitleLabelWith(_ selectedItem: Int?) {
+        guard let selectedItem = selectedItem else {
+            titleLabel.text = ""
+            return
+        }
+        
+        titleLabel.text = "\(selectedItem + 1)/\(Core.tempStorage.screenshots.count)"
     }
     
     private func setupDelegates() {
@@ -34,6 +33,13 @@ class SingleScreenShotViewController: UIViewController {
     private func registerCells() {
         let xibFavCell = UINib(nibName: "SingleScreenShotCollectionViewCell", bundle: nil)
         fullPicGalleryCollection.register(xibFavCell, forCellWithReuseIdentifier: "SingleScreenShotGalleryCell")
+    }
+    
+    private func showSelectedItem() {
+        guard let selectedItem = self.selectedItem else { return }
+        let indexPath = IndexPath(item: selectedItem, section: .zero)
+        fullPicGalleryCollection.scrollToItem(at: indexPath, at: .right, animated: false)
+        fullPicGalleryCollection.layoutSubviews()
     }
 }
 
@@ -70,5 +76,20 @@ extension SingleScreenShotViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+    }
+}
+
+// MARK: - CollectionView's Scroll view Delegate
+extension SingleScreenShotViewController {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        var visibleRect = CGRect()
+        
+        visibleRect.origin = fullPicGalleryCollection.contentOffset
+        visibleRect.size = fullPicGalleryCollection.bounds.size
+        
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        
+        guard let indexPath = fullPicGalleryCollection.indexPathForItem(at: visiblePoint) else { return }
+        setupTitleLabelWith(indexPath.row)
     }
 }
