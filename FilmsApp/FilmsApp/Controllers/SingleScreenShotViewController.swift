@@ -9,14 +9,14 @@ class SingleScreenShotViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTitleLabelWith(selectedItem)
+        setupTitleLabel(with: selectedItem)
         setupDelegates()
         registerCells()
         showSelectedItem()
     }
     
     // MARK: - Private methods
-    private func setupTitleLabelWith(_ selectedItem: Int?) {
+    private func setupTitleLabel(with selectedItem: Int?) {
         guard let selectedItem = selectedItem else {
             titleLabel.text = ""
             return
@@ -90,6 +90,6 @@ extension SingleScreenShotViewController {
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         
         guard let indexPath = fullPicGalleryCollection.indexPathForItem(at: visiblePoint) else { return }
-        setupTitleLabelWith(indexPath.row)
+        setupTitleLabel(with: indexPath.row)
     }
 }
