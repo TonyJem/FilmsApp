@@ -60,7 +60,6 @@ class DetailFilmViewController: UIViewController {
     }
     
     @IBAction func goToGAlleryButtonAction(_ sender: UIButton) {
-        print("🟢🟢🟢 goToGAlleryButtonAction in DetailFilmViewController")
     }
     
     // MARK: - Private methods
