@@ -60,10 +60,9 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Private methods
     private func registerCells() {
-        let xibFavCell = UINib(nibName: "ScreenShotCollectionViewCell", bundle: nil)
-        galleryCollection.register(xibFavCell, forCellWithReuseIdentifier: "GalleryPreviewCell")
+        let xibFavCell = UINib(nibName: String(describing: ScreenShotCollectionViewCell.self), bundle: nil)
+        galleryCollection.register(xibFavCell, forCellWithReuseIdentifier: String(describing: ScreenShotCollectionViewCell.self))
     }
-    
     
     private func setLikeButtonImageForFilmWith(id: Int) {
         let isFilmLiked = model.isInLikedFilmsBy(id: id)
@@ -95,7 +94,7 @@ extension DetailFilmViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: "GalleryPreviewCell", for: indexPath) as? ScreenShotCollectionViewCell else {
+        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: String(describing: ScreenShotCollectionViewCell.self), for: indexPath) as? ScreenShotCollectionViewCell else {
             return UICollectionViewCell()
         }
         
@@ -107,9 +106,7 @@ extension DetailFilmViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension DetailFilmViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController else {
-            return
-        }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController else { return }
         
         destinationVC.selectedItem = indexPath.row
         navigationController?.pushViewController(destinationVC, animated: true)
@@ -118,8 +115,8 @@ extension DetailFilmViewController: UICollectionViewDelegate {
 
 // MARK: - CollectionView DelegateFlowLayout
 extension DetailFilmViewController: UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: 128, height: 128)
     }
 }
