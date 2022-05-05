@@ -2,7 +2,7 @@ import UIKit
 
 class BigScreenShotCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak private var screenshotImageView: UIImageView!
+    @IBOutlet private weak var screenshotImageView: UIImageView!
     
     var selectedId: Int? {
         didSet {
