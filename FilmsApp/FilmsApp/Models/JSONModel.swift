@@ -40,7 +40,6 @@ struct Result: Codable {
 struct FilmData: Codable {
     let id: Int
     let backdrops: [Backdrop]
-    let posters: [Backdrop]
 }
 
 // MARK: - Backdrop
