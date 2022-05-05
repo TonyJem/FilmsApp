@@ -5,27 +5,27 @@ class JSONParsingService {
     
     func parseJSON(parseData: Data, parseError: Error?) {
         do {
-            let filmObject = try JSONDecoder().decode(MovieList.self, from: parseData)
-            let jsonObjects = filmObject.results
+            let movieList = try JSONDecoder().decode(MovieList.self, from: parseData)
+            let results = movieList.results
             let realm = try? Realm()
             
             try realm?.write({
-                for item in jsonObjects {
+                for result in results {
                     let object = FilmObject()
                     
-                    if let unwrID = item.id,
-                       let unwrPoster = item.posterPath,
-                       let unwrOrigTitle = item.originalTitle,
-                       let unwrAbout = item.overview,
-                       let unwrReleaseYear = item.releaseDate,
-                       let unwrFilmRating = item.voteAverage {
+                    if let id = result.id,
+                       let posterPath = result.posterPath,
+                       let originalTitle = result.originalTitle,
+                       let overview = result.overview,
+                       let releaseDate = result.releaseDate,
+                       let voteAverage = result.voteAverage {
                         
-                        object.id = unwrID
-                        object.filmPic = unwrPoster
-                        object.filmTitle = unwrOrigTitle
-                        object.about = unwrAbout
-                        object.releaseYear = Int(unwrReleaseYear.prefix(4)) ?? 0000
-                        object.filmRating = unwrFilmRating
+                        object.id = id
+                        object.filmPic = posterPath
+                        object.filmTitle = originalTitle
+                        object.about = overview
+                        object.releaseYear = Int(releaseDate.prefix(4)) ?? 0000
+                        object.filmRating = voteAverage
                     }
                     realm?.add(object, update: .all)
                 }
