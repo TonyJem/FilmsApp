@@ -46,7 +46,7 @@ class URLService {
                   error == nil else {
                       return
                   }
-            self.parser.parseJSON(parseData: unwrData, parseError: error)
+            self.parser.parseMovieListJSON(parseData: unwrData, parseError: error)
         }
         task.resume()
     }
@@ -81,7 +81,7 @@ class URLService {
                   error == nil else {
                       return
                   }
-            self.parser.parseJSONwithScreens(parseData: unwrData, parseError: error)
+            self.parser.parseFilmDataJSON(parseData: unwrData, parseError: error)
         }
         task.resume()
     }

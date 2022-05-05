@@ -3,7 +3,7 @@ import RealmSwift
 
 class JSONParsingService {
     
-    func parseJSON(parseData: Data, parseError: Error?) {
+    func parseMovieListJSON(parseData: Data, parseError: Error?) {
         do {
             let movieList = try JSONDecoder().decode(MovieList.self, from: parseData)
             let results = movieList.results
@@ -35,7 +35,7 @@ class JSONParsingService {
         }
     }
     
-    func parseJSONwithScreens(parseData: Data, parseError: Error?) {
+    func parseFilmDataJSON(parseData: Data, parseError: Error?) {
         do {
             let filmData = try JSONDecoder().decode(FilmData.self, from: parseData)
             let filmID = filmData.id
@@ -48,6 +48,7 @@ class JSONParsingService {
             }
             
             print("🟢🟢🟢 filmID: \(filmID)")
+            
             print("🟢🟢🟢🟢 backdrops: \(filmBackDrops)")
             
             Core.tempStorage.screenshots = []
