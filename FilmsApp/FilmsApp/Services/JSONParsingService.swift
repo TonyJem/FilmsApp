@@ -41,6 +41,25 @@ class JSONParsingService {
             let filmID = filmData.id
             let backdrops = filmData.backdrops
             
+            let realm = try? Realm()
+            
+            guard let film = realm?.object(ofType: FilmObject.self, forPrimaryKey: filmID) else { return }
+            
+            do {
+                try realm?.write ({
+                    film.screenshots.removeAll()
+                    
+                    print("🟢 backdrops.count: \(backdrops.count)")
+                    
+                    for backdrop in backdrops {
+                        print("🟢🟢 backdrop.filePath: \(backdrop.filePath)")
+                        film.screenshots.append(objectsIn: Array(arrayLiteral: backdrop.filePath))
+                    }
+                })
+            } catch {
+                print("🔴 Can't update backdrops for film due error: \(error)")
+            }
+            
             var filmBackDrops: [String] = []
             
             for backdrop in backdrops {
