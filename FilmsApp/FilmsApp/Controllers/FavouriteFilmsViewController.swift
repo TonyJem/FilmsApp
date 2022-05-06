@@ -6,7 +6,7 @@ class FavoriteFilmsViewController: UIViewController {
     @IBOutlet private weak var updateButton: UIBarButtonItem!
     
     let model = Core.model
-    private var filmsSelectedToRemoveFromLikedFilms: [Int] = []
+    private var filmSelectedToRemoveFromLikedFilmsIDs: [Int] = []
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -20,14 +20,14 @@ class FavoriteFilmsViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func updateButtonPressed(_ sender: UIBarButtonItem) {
-        guard !filmsSelectedToRemoveFromLikedFilms.isEmpty else { return }
+        guard !filmSelectedToRemoveFromLikedFilmsIDs.isEmpty else { return }
         
         removeSelectedFilmsFromLikedFilms()
         reloadCollectionViewData()
     }
     
     @objc private func leftBarButtonAction() {
-        guard !filmsSelectedToRemoveFromLikedFilms.isEmpty else {
+        guard !filmSelectedToRemoveFromLikedFilmsIDs.isEmpty else {
             navigationController?.popViewController(animated: true)
             return
         }
@@ -41,10 +41,10 @@ class FavoriteFilmsViewController: UIViewController {
     
     // MARK: - Private Methods
     private func removeSelectedFilmsFromLikedFilms() {
-        for id in filmsSelectedToRemoveFromLikedFilms {
+        for id in filmSelectedToRemoveFromLikedFilmsIDs {
             model.removeFromLikedBy(id: id)
         }
-        filmsSelectedToRemoveFromLikedFilms = []
+        filmSelectedToRemoveFromLikedFilmsIDs = []
     }
     
     private func setupNavigationBackButton() {
@@ -100,7 +100,7 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
         cell.likedFilmViewCellDelegate = self
         
         var film = Film(from: likedFilm)
-        film.isSelectedToRemoveFromLikedFilms = filmsSelectedToRemoveFromLikedFilms.contains(film.id)
+        film.isSelectedToRemoveFromLikedFilms = filmSelectedToRemoveFromLikedFilmsIDs.contains(film.id)
         cell.likedFilm = film
         
         return cell
@@ -113,13 +113,13 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate {
         
         guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerID") as? DetailFilmViewController else { return }
         
-        if filmsSelectedToRemoveFromLikedFilms.isEmpty {
+        if filmSelectedToRemoveFromLikedFilmsIDs.isEmpty {
             showLikedFilmSelectedAt(indexPath: indexPath, in: destinationVC)
         } else {
             showAlert(title: "Warning", message: "All recently selected items will be unselected!") {
                 self.dismiss(animated: true)
                 self.showLikedFilmSelectedAt(indexPath: indexPath, in: destinationVC)
-                self.filmsSelectedToRemoveFromLikedFilms = []
+                self.filmSelectedToRemoveFromLikedFilmsIDs = []
                 self.reloadCollectionViewData()
             }
         }
@@ -138,13 +138,13 @@ extension FavoriteFilmsViewController: UICollectionViewDelegate {
 extension FavoriteFilmsViewController: LikedFilmViewCellDelegate {
     func deleteButtonDidTapOnFilmWith(id: Int) {
         
-        if let index = filmsSelectedToRemoveFromLikedFilms.firstIndex(of: id) {
-            filmsSelectedToRemoveFromLikedFilms.remove(at: index)
+        if let index = filmSelectedToRemoveFromLikedFilmsIDs.firstIndex(of: id) {
+            filmSelectedToRemoveFromLikedFilmsIDs.remove(at: index)
         } else {
-            filmsSelectedToRemoveFromLikedFilms.append(id)
+            filmSelectedToRemoveFromLikedFilmsIDs.append(id)
         }
         
-        print("🟢 filmsSelectedToRemoveFromLikedFilms : \(filmsSelectedToRemoveFromLikedFilms)")
+        print("🟢 filmsSelectedToRemoveFromLikedFilms : \(filmSelectedToRemoveFromLikedFilmsIDs)")
         reloadCollectionViewData()
         
     }
