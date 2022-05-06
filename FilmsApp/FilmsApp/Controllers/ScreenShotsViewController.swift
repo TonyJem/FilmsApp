@@ -16,7 +16,9 @@ class ScreenShotsViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupUI() {
-        picsNumberLabel.text = "\(Core.tempStorage.screenshots.count) кадров"
+        guard let film = film else { return }
+        
+        picsNumberLabel.text = "\(film.screenshots.count) backdrops"
     }
     
     private func setupDelegates() {
@@ -33,15 +35,18 @@ class ScreenShotsViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension ScreenShotsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Core.tempStorage.screenshots.count
+        guard let film = film else { return .zero }
+        
+        return film.screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "ScreenShotGalleryCell", for: indexPath) as? BigScreenShotCollectionViewCell else {
+        guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "ScreenShotGalleryCell", for: indexPath) as? BigScreenShotCollectionViewCell,
+        let film = film else {
             return UICollectionViewCell()
         }
+        cell.imagePath = film.screenshots[indexPath.row]
         
-        cell.selectedId = indexPath.row
         return cell
     }
 }
