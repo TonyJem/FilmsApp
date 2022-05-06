@@ -5,6 +5,7 @@ class SingleScreenShotViewController: UIViewController {
     @IBOutlet private weak var fullPicGalleryCollection: UICollectionView!
     
     var selectedItem: Int?
+    var film: Film?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +18,13 @@ class SingleScreenShotViewController: UIViewController {
     
     // MARK: - Private methods
     private func setupTitleLabel(with selectedItem: Int?) {
-        guard let selectedItem = selectedItem else {
+        guard let selectedItem = selectedItem,
+        let film = film else {
             titleLabel.text = ""
             return
         }
         
-        titleLabel.text = "\(selectedItem + 1)/\(Core.tempStorage.screenshots.count)"
+        titleLabel.text = "\(selectedItem + 1)/\(film.screenshots.count)"
     }
     
     private func setupDelegates() {
@@ -46,15 +48,20 @@ class SingleScreenShotViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension SingleScreenShotViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Core.tempStorage.screenshots.count
+        
+        guard let film = film else { return .zero }
+        
+        return film.screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = fullPicGalleryCollection.dequeueReusableCell(withReuseIdentifier: "SingleScreenShotGalleryCell", for: indexPath) as? SingleScreenShotCollectionViewCell else {
+        guard let cell = fullPicGalleryCollection.dequeueReusableCell(withReuseIdentifier: "SingleScreenShotGalleryCell", for: indexPath) as? SingleScreenShotCollectionViewCell,
+        let film = film else {
             return UICollectionViewCell()
         }
         
-        cell.selectedId = indexPath.row
+        cell.imagePath = film.screenshots[indexPath.row]
+        
         return cell
     }
 }

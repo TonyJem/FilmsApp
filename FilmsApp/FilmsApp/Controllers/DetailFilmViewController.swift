@@ -89,7 +89,7 @@ class DetailFilmViewController: UIViewController {
 // MARK: - UICollectionView DataSource
 extension DetailFilmViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
+        
         guard let film = self.film else { return .zero }
         print("♥️♥️♥️ Screenshots: \(film.screenshots)")
         
@@ -112,9 +112,12 @@ extension DetailFilmViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension DetailFilmViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController else { return }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController,
+        let film = film else { return }
         
         destinationVC.selectedItem = indexPath.row
+        destinationVC.film = film
+        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
