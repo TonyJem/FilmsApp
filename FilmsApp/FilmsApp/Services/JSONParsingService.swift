@@ -77,5 +77,4 @@ class JSONParsingService {
             print(error)
         }
     }
-    
 }

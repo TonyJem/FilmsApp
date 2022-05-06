@@ -44,8 +44,8 @@ class URLService {
             guard let unwrData = data,
                   (response as? HTTPURLResponse)?.statusCode == 200,
                   error == nil else {
-                      return
-                  }
+                return
+            }
             self.parser.parseMovieListJSON(parseData: unwrData, parseError: error)
         }
         task.resume()
@@ -79,8 +79,8 @@ class URLService {
             guard let unwrData = data,
                   (response as? HTTPURLResponse)?.statusCode == 200,
                   error == nil else {
-                      return
-                  }
+                return
+            }
             self.parser.parseFilmDataJSON(parseData: unwrData, parseError: error)
         }
         task.resume()

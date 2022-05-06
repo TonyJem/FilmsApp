@@ -89,6 +89,13 @@ class DetailFilmViewController: UIViewController {
 // MARK: - UICollectionView DataSource
 extension DetailFilmViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        guard let film = self.film else { return .zero }
+        
+        let screenshots = film.screenshots
+        
+        print("♥️♥️♥️ Screenshots: \(screenshots)")
+        
         return Core.tempStorage.screenshots.count
     }
     

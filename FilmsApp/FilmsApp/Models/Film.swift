@@ -8,6 +8,7 @@ struct Film {
     let about: String
     let releaseYear: Int
     let filmRating: Double
+    let screenshots: [String]
     let isLikedByUser: Bool
     var isSelectedToRemoveFromLikedFilms: Bool = false
     
@@ -18,6 +19,7 @@ struct Film {
         about = film.about
         releaseYear = film.releaseYear
         filmRating = film.filmRating
+        screenshots = Array(film.screenshots)
         isLikedByUser = film.isLikedByUser
     }
 }
