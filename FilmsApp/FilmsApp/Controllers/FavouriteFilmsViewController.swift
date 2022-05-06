@@ -73,8 +73,8 @@ class FavoriteFilmsViewController: UIViewController {
     }
     
     private func registerCells() {
-        let xibFavCell = UINib(nibName: "FavoriteFilmViewCell", bundle: nil)
-        favoriteFilmsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "FavoriteFilmCell")
+        let xibFavCell = UINib(nibName: String(describing: FavoriteFilmViewCell.self), bundle: nil)
+        favoriteFilmsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: String(describing: FavoriteFilmViewCell.self))
     }
     
     private func reloadCollectionViewData() {
@@ -91,8 +91,7 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = favoriteFilmsCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteFilmCell", for: indexPath) as? FavoriteFilmViewCell,
+        guard let cell = favoriteFilmsCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FavoriteFilmViewCell.self), for: indexPath) as? FavoriteFilmViewCell,
               let likedFilm = model.likedFilms?[indexPath.item] else {
             return UICollectionViewCell()
         }
