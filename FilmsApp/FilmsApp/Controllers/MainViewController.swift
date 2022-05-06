@@ -22,9 +22,7 @@ class MainViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        let xibCell = UINib(nibName: "FilmCollectionViewCell", bundle: nil)
-        mainCollectionView.register(xibCell, forCellWithReuseIdentifier: "CustomFilmCell")
-        
+        registerCells()
         setupSortButton()
         
         DispatchQueue.main.async {
@@ -42,6 +40,11 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    private func registerCells() {
+        let xibCell = UINib(nibName: String(describing: FilmCollectionViewCell.self), bundle: nil)
+        mainCollectionView.register(xibCell, forCellWithReuseIdentifier: String(describing: FilmCollectionViewCell.self))
+    }
+    
     private func setupSortButton() {
         let sortButtonImageName = model.isSortedAscending ? "arrow.up" : "arrow.down"
         sortButton.image = UIImage(systemName: sortButtonImageName)
@@ -62,7 +65,7 @@ extension MainViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "CustomFilmCell", for: indexPath) as? FilmCollectionViewCell,
+        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: String(describing: FilmCollectionViewCell.self), for: indexPath) as? FilmCollectionViewCell,
               let film = model.films?[indexPath.row] else {
             return UICollectionViewCell()
         }
