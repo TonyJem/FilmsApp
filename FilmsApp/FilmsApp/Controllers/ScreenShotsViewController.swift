@@ -59,6 +59,7 @@ extension ScreenShotsViewController: UICollectionViewDelegate {
         }
         
         destinationVC.selectedItem = indexPath.row
+        destinationVC.film = film
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }
