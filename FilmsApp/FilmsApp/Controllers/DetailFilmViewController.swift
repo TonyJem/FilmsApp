@@ -89,23 +89,22 @@ class DetailFilmViewController: UIViewController {
 // MARK: - UICollectionView DataSource
 extension DetailFilmViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
+
         guard let film = self.film else { return .zero }
+        print("♥️♥️♥️ Screenshots: \(film.screenshots)")
         
-        let screenshots = film.screenshots
-        
-        print("♥️♥️♥️ Screenshots: \(screenshots)")
-        
-        return Core.tempStorage.screenshots.count
+        return film.screenshots.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: String(describing: ScreenShotCollectionViewCell.self), for: indexPath) as? ScreenShotCollectionViewCell else {
+        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: String(describing: ScreenShotCollectionViewCell.self), for: indexPath) as? ScreenShotCollectionViewCell,
+              let film = self.film else {
             return UICollectionViewCell()
         }
         
-        cell.selectedId = indexPath.row
+        cell.imagePath = film.screenshots[indexPath.row]
+        
         return cell
     }
 }

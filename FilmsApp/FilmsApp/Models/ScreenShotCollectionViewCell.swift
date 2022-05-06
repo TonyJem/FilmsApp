@@ -4,11 +4,9 @@ class ScreenShotCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var screnshotImageView: UIImageView!
     
-    var selectedId: Int? {
+    var imagePath: String? {
         didSet {
-            guard let selectedId = self.selectedId else { return }
-            let imagePath = Core.tempStorage.screenshots[selectedId]
-            
+            guard let imagePath = self.imagePath else { return }
             guard let url = URL(string: Constants.urlBase + imagePath) else { return }
             Core.urlService.getSetPosters(withURL: url, imageView: screnshotImageView)
         }
