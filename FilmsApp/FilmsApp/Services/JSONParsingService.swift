@@ -59,18 +59,6 @@ class JSONParsingService {
             } catch {
                 print("🔴 Can't update backdrops for film due error: \(error)")
             }
-            
-            // That needs to be removed:
-            var filmBackDrops: [String] = []
-            for backdrop in backdrops {
-                filmBackDrops.append(backdrop.filePath)
-            }
-            print("🟢🟢🟢 filmID: \(filmID)")
-            print("🟢🟢🟢🟢 backdrops: \(filmBackDrops)")
-            Core.tempStorage.screenshots = []
-            Core.tempStorage.screenshots = filmBackDrops
-            // Until here.
-            
         } catch let error {
             print(error)
         }
