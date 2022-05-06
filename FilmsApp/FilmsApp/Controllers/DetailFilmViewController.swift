@@ -44,11 +44,18 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Override methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? PosterFullViewController else { return }
         
-        destinationVC.transitioningDelegate = self
-        destinationVC.modalPresentationStyle = .custom
-        destinationVC.posterImage = posterImage
+        if segue.identifier == "showFullCollection" {
+            guard let destinationVC = segue.destination as? ScreenShotsViewController else { return }
+            destinationVC.film = film
+        }
+        
+        if segue.identifier == "modalTap" {
+            guard let destinationVC = segue.destination as? PosterFullViewController else { return }
+            destinationVC.transitioningDelegate = self
+            destinationVC.modalPresentationStyle = .custom
+            destinationVC.posterImage = posterImage
+        }
     }
     
     // MARK: - Actions
@@ -112,12 +119,10 @@ extension DetailFilmViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension DetailFilmViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController,
-        let film = film else { return }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleScreenShotViewController else { return }
         
         destinationVC.selectedItem = indexPath.row
         destinationVC.film = film
-        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }

@@ -4,6 +4,8 @@ class ScreenShotsViewController: UIViewController {
     @IBOutlet private weak var picsNumberLabel: UILabel!
     @IBOutlet private weak var filmPicsCollectionView: UICollectionView!
     
+    var film: Film?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
