@@ -78,7 +78,7 @@ extension MainViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController,
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerID") as? DetailFilmViewController,
               let selectedFilmId = model.films?[indexPath.row].id else {
             return
         }

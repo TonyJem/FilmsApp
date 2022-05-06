@@ -111,7 +111,7 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
 extension FavoriteFilmsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerS") as? DetailFilmViewController else { return }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerID") as? DetailFilmViewController else { return }
         
         if filmsSelectedToRemoveFromLikedFilms.isEmpty {
             showLikedFilmSelectedAt(indexPath: indexPath, in: destinationVC)
