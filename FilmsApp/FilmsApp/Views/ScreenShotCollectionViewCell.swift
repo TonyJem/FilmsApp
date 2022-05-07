@@ -8,7 +8,10 @@ class ScreenShotCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let imagePath = self.imagePath else { return }
             guard let url = URL(string: Constants.urlBase + imagePath) else { return }
-            Core.urlService.getSetPosters(withURL: url, imageView: screnshotImageView)
+            
+            Core.dataProvider.downloadImage(url: url) { image in
+                self.screnshotImageView.image = image
+            }
         }
     }
 }

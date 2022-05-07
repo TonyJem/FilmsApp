@@ -8,7 +8,10 @@ class BigScreenShotCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let imagePath = self.imagePath else { return }
             guard let url = URL(string: Constants.urlBase + imagePath) else { return }
-            Core.urlService.getSetPosters(withURL: url, imageView: screenshotImageView)
+            
+            Core.dataProvider.downloadImage(url: url) { image in
+                self.screenshotImageView.image = image
+            }
             
             screenshotImageView.layer.borderColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0).cgColor
             screenshotImageView.layer.borderWidth = 2

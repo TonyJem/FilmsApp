@@ -22,7 +22,9 @@ class FavoriteFilmViewCell: UICollectionViewCell {
                 return
             }
             
-            Core.urlService.getSetPosters(withURL: url, imageView: favoritePosterImageView)
+            Core.dataProvider.downloadImage(url: url) { image in
+                self.favoritePosterImageView.image = image
+            }
             
             favoriteFilmTitleLabel.text = likedFilm.filmTitle
             favoriteYearLabel.text = String(likedFilm.releaseYear)

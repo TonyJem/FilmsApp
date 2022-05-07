@@ -83,7 +83,9 @@ class DetailFilmViewController: UIViewController {
         
         guard let posterURL = URL(string: Constants.urlBase + pictureStringURL) else { return }
         
-        Core.urlService.getSetPosters(withURL: posterURL, imageView: posterImageView)
+        Core.dataProvider.downloadImage(url: posterURL) { image in
+            self.posterImageView.image = image
+        }
         
         filmTitleLabel.text = film.filmTitle
         releaseYearLabel.text = String(film.releaseYear)

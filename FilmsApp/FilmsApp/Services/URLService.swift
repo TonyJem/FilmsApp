@@ -51,21 +51,6 @@ class URLService {
         task.resume()
     }
     
-    func getSetPosters(withURL url: URL, imageView: UIImageView) {
-        
-        let downloadingTask = session.dataTask(with: url) { pictures, response, failure in
-            guard let picture = try? Data(contentsOf: url) else {
-                print("🔴 Can't set picture")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                imageView.image = UIImage(data: picture)
-            }
-        }
-        downloadingTask.resume()
-    }
-    
     // https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=<<api_key>>
     func backdropsRequestByFilm(id: Int) {
         
