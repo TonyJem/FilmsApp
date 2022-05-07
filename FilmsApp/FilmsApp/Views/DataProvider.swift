@@ -7,6 +7,7 @@ class DataProvider {
     func downloadImage(url: URL, completion: @escaping (UIImage?) -> Void) {
         
         if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) {
+            print("🟣🟣🟣 Used cachedImage!")
             completion(cachedImage)
         } else {
             let request = URLRequest(url: url,
@@ -22,6 +23,7 @@ class DataProvider {
                     return
                 }
                 
+                print("🟡🟡🟡 Set new image to cach!")
                 self.imageCache.setObject(image, forKey: url.absoluteString as NSString)
                 
                 DispatchQueue.main.async {

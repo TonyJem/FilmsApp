@@ -13,7 +13,10 @@ class FilmCollectionViewCell: UICollectionViewCell {
                   let url = URL(string: Constants.urlBase + film.pictureStringURL) else {
                 return
             }
-            Core.urlService.getSetPosters(withURL: url, imageView: posterImageView)
+            
+            Core.dataProvider.downloadImage(url: url) { image in
+                self.posterImageView.image = image
+            }
             
             filmTitleLabel.text = film.filmTitle
             yearLabel.text = String(film.releaseYear)

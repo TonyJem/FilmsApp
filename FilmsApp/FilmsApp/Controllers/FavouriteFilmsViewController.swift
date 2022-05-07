@@ -143,7 +143,7 @@ extension FavoriteFilmsViewController: LikedFilmViewCellDelegate {
             filmSelectedToRemoveFromLikedFilmsIDs.append(id)
         }
         
-        print("🟢 filmsSelectedToRemoveFromLikedFilms : \(filmSelectedToRemoveFromLikedFilmsIDs)")
+//        print("🟢 filmsSelectedToRemoveFromLikedFilms : \(filmSelectedToRemoveFromLikedFilmsIDs)")
         reloadCollectionViewData()
         
     }

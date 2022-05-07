@@ -49,10 +49,10 @@ class JSONParsingService {
                 try realm?.write ({
                     film.screenshots.removeAll()
                     
-                    print("🟢 backdrops.count: \(backdrops.count)")
+//                    print("🟢 backdrops.count: \(backdrops.count)")
                     
                     for backdrop in backdrops {
-                        print("🟢🟢 backdrop.filePath: \(backdrop.filePath)")
+//                        print("🟢🟢 backdrop.filePath: \(backdrop.filePath)")
                         film.screenshots.append(objectsIn: Array(arrayLiteral: backdrop.filePath))
                     }
                 })
