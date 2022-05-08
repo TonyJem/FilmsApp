@@ -2,6 +2,11 @@ import UIKit
 
 class DetailFilmViewController: UIViewController {
     
+    enum SegueIdentifiers: String {
+        case showPoster
+        case showFullCollection
+    }
+    
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var filmTitleLabel: UILabel!
@@ -45,12 +50,12 @@ class DetailFilmViewController: UIViewController {
     // MARK: - Override methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "showFullCollection" {
+        if segue.identifier == SegueIdentifiers.showFullCollection.rawValue {
             guard let destinationVC = segue.destination as? ScreenShotsViewController else { return }
             destinationVC.film = film
         }
         
-        if segue.identifier == "modalTap" {
+        if segue.identifier == SegueIdentifiers.showPoster.rawValue {
             guard let destinationVC = segue.destination as? PosterFullViewController else { return }
             destinationVC.transitioningDelegate = self
             destinationVC.modalPresentationStyle = .custom
