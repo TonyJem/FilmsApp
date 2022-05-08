@@ -50,16 +50,20 @@ class DetailFilmViewController: UIViewController {
     // MARK: - Override methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == SegueIdentifiers.showFullCollection.rawValue {
+        switch segue.identifier {
+            
+        case SegueIdentifiers.showFullCollection.rawValue:
             guard let destinationVC = segue.destination as? ScreenShotsViewController else { return }
             destinationVC.film = film
-        }
-        
-        if segue.identifier == SegueIdentifiers.showPoster.rawValue {
+            
+        case SegueIdentifiers.showPoster.rawValue:
             guard let destinationVC = segue.destination as? PosterFullViewController else { return }
             destinationVC.transitioningDelegate = self
             destinationVC.modalPresentationStyle = .custom
             destinationVC.posterImage = posterImage
+            
+        default:
+            return
         }
     }
     
