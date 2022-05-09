@@ -11,6 +11,10 @@ class DetailFilmViewController: UIViewController {
         case cell
     }
     
+    enum VCIdentifiers: String {
+        case SingleBackdropVC_ID
+    }
+    
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var filmTitleLabel: UILabel!
@@ -134,7 +138,7 @@ extension DetailFilmViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension DetailFilmViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleBackdropVC_ID") as? SingleBackdropVC else { return }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: VCIdentifiers.SingleBackdropVC_ID.rawValue) as? SingleBackdropVC else { return }
         
         destinationVC.selectedItem = indexPath.row
         destinationVC.film = film
