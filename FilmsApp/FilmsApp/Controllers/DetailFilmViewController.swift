@@ -1,5 +1,9 @@
 import UIKit
 
+enum VCIdentifiers: String {
+    case SingleBackdropVC_ID
+}
+
 class DetailFilmViewController: UIViewController {
     
     enum SegueIdentifiers: String {
@@ -9,10 +13,6 @@ class DetailFilmViewController: UIViewController {
     
     enum CellIdentifiers: String {
         case cell
-    }
-    
-    enum VCIdentifiers: String {
-        case SingleBackdropVC_ID
     }
     
     @IBOutlet private weak var likeButton: UIButton!
