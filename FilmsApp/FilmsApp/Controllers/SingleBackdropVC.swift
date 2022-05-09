@@ -1,6 +1,6 @@
 import UIKit
 
-class SingleScreenShotViewController: UIViewController {
+class SingleBackdropVC: UIViewController {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var fullPicGalleryCollection: UICollectionView!
     
@@ -46,7 +46,7 @@ class SingleScreenShotViewController: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension SingleScreenShotViewController: UICollectionViewDataSource {
+extension SingleBackdropVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         guard let film = film else { return .zero }
@@ -67,7 +67,7 @@ extension SingleScreenShotViewController: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView DelegateFlowLayout
-extension SingleScreenShotViewController: UICollectionViewDelegateFlowLayout {
+extension SingleBackdropVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
@@ -87,7 +87,7 @@ extension SingleScreenShotViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - CollectionView's Scroll view Delegate
-extension SingleScreenShotViewController {
+extension SingleBackdropVC {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var visibleRect = CGRect()
         

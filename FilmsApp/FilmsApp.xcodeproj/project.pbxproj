@@ -16,7 +16,7 @@
 		3A38A02F26CC0084003E9A33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A38A02D26CC0084003E9A33 /* LaunchScreen.storyboard */; };
 		3A38A03926CC0355003E9A33 /* DetailFilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A03826CC0355003E9A33 /* DetailFilmViewController.swift */; };
 		3A38A03C26CC03ED003E9A33 /* ScreenShotsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A03B26CC03ED003E9A33 /* ScreenShotsViewController.swift */; };
-		3A38A03F26CC03FD003E9A33 /* SingleScreenShotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A03E26CC03FD003E9A33 /* SingleScreenShotViewController.swift */; };
+		3A38A03F26CC03FD003E9A33 /* SingleBackdropVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A03E26CC03FD003E9A33 /* SingleBackdropVC.swift */; };
 		3A38A04226CC0410003E9A33 /* FavouriteFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */; };
 		3A38A04826CC0642003E9A33 /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A38A04726CC0642003E9A33 /* JSONModel.swift */; };
 		3A3F5D3A27F3914900DF2EEB /* JSONParsingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F5D3927F3914900DF2EEB /* JSONParsingService.swift */; };
@@ -54,7 +54,7 @@
 		3A38A03026CC0084003E9A33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A38A03826CC0355003E9A33 /* DetailFilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFilmViewController.swift; sourceTree = "<group>"; };
 		3A38A03B26CC03ED003E9A33 /* ScreenShotsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenShotsViewController.swift; sourceTree = "<group>"; };
-		3A38A03E26CC03FD003E9A33 /* SingleScreenShotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleScreenShotViewController.swift; sourceTree = "<group>"; };
+		3A38A03E26CC03FD003E9A33 /* SingleBackdropVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleBackdropVC.swift; sourceTree = "<group>"; };
 		3A38A04126CC0410003E9A33 /* FavouriteFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteFilmsViewController.swift; sourceTree = "<group>"; };
 		3A38A04726CC0642003E9A33 /* JSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
 		3A3F5D3927F3914900DF2EEB /* JSONParsingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParsingService.swift; sourceTree = "<group>"; };
@@ -178,7 +178,7 @@
 				3A38A03826CC0355003E9A33 /* DetailFilmViewController.swift */,
 				3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */,
 				3A38A03B26CC03ED003E9A33 /* ScreenShotsViewController.swift */,
-				3A38A03E26CC03FD003E9A33 /* SingleScreenShotViewController.swift */,
+				3A38A03E26CC03FD003E9A33 /* SingleBackdropVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -330,7 +330,7 @@
 				3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */,
 				3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */,
 				3A3F82E4280D44C700A6BEF7 /* UIColor + Extensions.swift.swift in Sources */,
-				3A38A03F26CC03FD003E9A33 /* SingleScreenShotViewController.swift in Sources */,
+				3A38A03F26CC03FD003E9A33 /* SingleBackdropVC.swift in Sources */,
 				3A3F82F128205C7200A6BEF7 /* BigScreenShotCollectionViewCell.swift in Sources */,
 				3AD6EFF527F21EBF0052F9C8 /* URLService.swift in Sources */,
 				3A38A03926CC0355003E9A33 /* DetailFilmViewController.swift in Sources */,
