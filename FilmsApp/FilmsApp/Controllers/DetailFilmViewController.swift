@@ -7,6 +7,10 @@ class DetailFilmViewController: UIViewController {
         case showFullCollection
     }
     
+    enum CellIdentifiers: String {
+        case cell
+    }
+    
     @IBOutlet private weak var likeButton: UIButton!
     @IBOutlet private weak var posterImageView: UIImageView!
     @IBOutlet private weak var filmTitleLabel: UILabel!
@@ -76,8 +80,8 @@ class DetailFilmViewController: UIViewController {
     
     // MARK: - Private methods
     private func registerCells() {
-        let xibFavCell = UINib(nibName: String(describing: ScreenShotCollectionViewCell.self), bundle: nil)
-        galleryCollection.register(xibFavCell, forCellWithReuseIdentifier: String(describing: ScreenShotCollectionViewCell.self))
+        let nib = UINib(nibName: String(describing: ScreenShotCollectionViewCell.self), bundle: nil)
+        galleryCollection.register(nib, forCellWithReuseIdentifier: CellIdentifiers.cell.rawValue)
     }
     
     private func setLikeButtonImageForFilmWith(id: Int) {
@@ -116,7 +120,7 @@ extension DetailFilmViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: String(describing: ScreenShotCollectionViewCell.self), for: indexPath) as? ScreenShotCollectionViewCell,
+        guard let cell = galleryCollection.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.cell.rawValue, for: indexPath) as? ScreenShotCollectionViewCell,
               let film = self.film else {
             return UICollectionViewCell()
         }
