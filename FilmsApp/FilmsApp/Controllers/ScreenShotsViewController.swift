@@ -54,7 +54,7 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension ScreenShotsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleBackdropVC else {
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleBackdropVC_ID") as? SingleBackdropVC else {
             return
         }
         

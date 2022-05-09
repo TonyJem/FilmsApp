@@ -134,7 +134,7 @@ extension DetailFilmViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension DetailFilmViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleScreenShotViewControllerID") as? SingleBackdropVC else { return }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "SingleBackdropVC_ID") as? SingleBackdropVC else { return }
         
         destinationVC.selectedItem = indexPath.row
         destinationVC.film = film
