@@ -1,6 +1,11 @@
 import UIKit
 
 class ScreenShotsViewController: UIViewController {
+    
+    enum VCIdentifiers: String {
+        case SingleBackdropVC_ID
+    }
+    
     @IBOutlet private weak var picsNumberLabel: UILabel!
     @IBOutlet private weak var filmPicsCollectionView: UICollectionView!
     
