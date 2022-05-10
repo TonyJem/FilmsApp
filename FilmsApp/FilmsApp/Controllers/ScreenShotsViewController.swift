@@ -2,6 +2,10 @@ import UIKit
 
 class ScreenShotsViewController: UIViewController {
     
+    enum CellIdentifiers: String {
+        case cell
+    }
+    
     enum VCIdentifiers: String {
         case SingleBackdropVC_ID
     }
@@ -32,8 +36,8 @@ class ScreenShotsViewController: UIViewController {
     }
     
     private func registerCells() {
-        let xibFavCell = UINib(nibName: "BigScreenShotCollectionViewCell", bundle: nil)
-        filmPicsCollectionView.register(xibFavCell, forCellWithReuseIdentifier: "ScreenShotGalleryCell")
+        let nib = UINib(nibName: String(describing: BigScreenShotCollectionViewCell.self), bundle: nil)
+        filmPicsCollectionView.register(nib, forCellWithReuseIdentifier: CellIdentifiers.cell.rawValue)
     }
 }
 
@@ -46,8 +50,8 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: "ScreenShotGalleryCell", for: indexPath) as? BigScreenShotCollectionViewCell,
-        let film = film else {
+        guard let cell = filmPicsCollectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.cell.rawValue, for: indexPath) as? BigScreenShotCollectionViewCell,
+              let film = film else {
             return UICollectionViewCell()
         }
         cell.imagePath = film.screenshots[indexPath.row]
