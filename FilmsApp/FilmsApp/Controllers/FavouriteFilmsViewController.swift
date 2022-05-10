@@ -2,6 +2,10 @@ import UIKit
 
 class FavoriteFilmsViewController: UIViewController {
     
+    enum Identifiers: String {
+        case DetailFilmViewControllerID
+    }
+    
     @IBOutlet private weak var favoriteFilmsCollectionView: UICollectionView!
     @IBOutlet private weak var updateButton: UIBarButtonItem!
     
@@ -110,7 +114,7 @@ extension FavoriteFilmsViewController:  UICollectionViewDataSource {
 extension FavoriteFilmsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerID") as? DetailFilmViewController else { return }
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: Identifiers.DetailFilmViewControllerID.rawValue) as? DetailFilmViewController else { return }
         
         if filmSelectedToRemoveFromLikedFilmsIDs.isEmpty {
             showLikedFilmSelectedAt(indexPath: indexPath, in: destinationVC)
@@ -145,6 +149,5 @@ extension FavoriteFilmsViewController: LikedFilmViewCellDelegate {
         
 //        print("🟢 filmsSelectedToRemoveFromLikedFilms : \(filmSelectedToRemoveFromLikedFilmsIDs)")
         reloadCollectionViewData()
-        
     }
 }

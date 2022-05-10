@@ -2,6 +2,10 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    enum Identifiers: String {
+        case DetailFilmViewControllerID
+    }
+    
     @IBOutlet private weak var mainCollectionView: UICollectionView!
     @IBOutlet private weak var sortButton: UIBarButtonItem!
     
@@ -78,7 +82,7 @@ extension MainViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: "DetailFilmViewControllerID") as? DetailFilmViewController,
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: Identifiers.DetailFilmViewControllerID.rawValue) as? DetailFilmViewController,
               let selectedFilmId = model.films?[indexPath.row].id else {
             return
         }
