@@ -52,7 +52,7 @@ class URLService {
     }
     
     // https://api.themoviedb.org/3/movie/{movie_id}/images?api_key=<<api_key>>
-    func backdropsRequestByFilm(id: Int) {
+    func getBackdropsForFilmBy(id: Int) {
         
         let idString = String(id)
         
@@ -66,6 +66,7 @@ class URLService {
                   error == nil else {
                 return
             }
+            print("🟢🟢🟢 UnwrData: \(unwrData)")
             self.parser.parseFilmDataJSON(parseData: unwrData, parseError: error)
         }
         task.resume()
