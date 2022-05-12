@@ -6,8 +6,8 @@ class ScreenShotsViewController: UIViewController {
         case cell
     }
     
-    enum VCIdentifiers: String {
-        case SingleBackdropVC_ID
+    enum Identifiers: String {
+        case SingleBackdropViewControllerID
     }
     
     @IBOutlet private weak var picsNumberLabel: UILabel!
@@ -63,7 +63,7 @@ extension ScreenShotsViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension ScreenShotsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: VCIdentifiers.SingleBackdropVC_ID.rawValue) as? SingleBackdropVC else {
+        guard let destinationVC = storyboard?.instantiateViewController(withIdentifier: Identifiers.SingleBackdropViewControllerID.rawValue) as? SingleBackdropVC else {
             return
         }
         

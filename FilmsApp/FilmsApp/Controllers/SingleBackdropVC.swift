@@ -1,6 +1,11 @@
 import UIKit
 
 class SingleBackdropVC: UIViewController {
+    
+    enum CellIdentifiers: String {
+        case cell
+    }
+    
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var fullPicGalleryCollection: UICollectionView!
     
@@ -33,8 +38,8 @@ class SingleBackdropVC: UIViewController {
     }
     
     private func registerCells() {
-        let xibFavCell = UINib(nibName: "SingleScreenShotCollectionViewCell", bundle: nil)
-        fullPicGalleryCollection.register(xibFavCell, forCellWithReuseIdentifier: "SingleScreenShotGalleryCell")
+        let nib = UINib(nibName: String(describing: SingleScreenShotCollectionViewCell.self), bundle: nil)
+        fullPicGalleryCollection.register(nib, forCellWithReuseIdentifier: CellIdentifiers.cell.rawValue)
     }
     
     private func showSelectedItem() {
@@ -55,7 +60,7 @@ extension SingleBackdropVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = fullPicGalleryCollection.dequeueReusableCell(withReuseIdentifier: "SingleScreenShotGalleryCell", for: indexPath) as? SingleScreenShotCollectionViewCell,
+        guard let cell = fullPicGalleryCollection.dequeueReusableCell(withReuseIdentifier: CellIdentifiers.cell.rawValue, for: indexPath) as? SingleScreenShotCollectionViewCell,
         let film = film else {
             return UICollectionViewCell()
         }
