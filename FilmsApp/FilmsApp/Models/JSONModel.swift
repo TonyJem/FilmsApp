@@ -3,7 +3,7 @@ import Foundation
 // MARK: - MovieList
 struct MovieList: Codable {
     let page: Int
-    let results: [Result]
+    let results: [ResultCustom]
     let totalPages: Int?
     let totalResults: Int?
     
@@ -16,7 +16,7 @@ struct MovieList: Codable {
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct ResultCustom: Codable {
     let id: Int?
     let posterPath: String?
     let originalTitle: String?

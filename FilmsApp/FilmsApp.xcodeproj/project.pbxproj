@@ -31,6 +31,8 @@
 		3A3F82F62821837A00A6BEF7 /* SingleScreenShotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F82F42821837900A6BEF7 /* SingleScreenShotCollectionViewCell.xib */; };
 		3A3F82FB2826296A00A6BEF7 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F82FA2826296A00A6BEF7 /* DataProvider.swift */; };
 		3A3F82FE282C29B100A6BEF7 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F82FD282C29B100A6BEF7 /* APIError.swift */; };
+		3A3F8300282C2A1600A6BEF7 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F82FF282C2A1600A6BEF7 /* APIEndpoint.swift */; };
+		3A3F8303282C2CB100A6BEF7 /* FilmDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F8302282C2CB100A6BEF7 /* FilmDataResponse.swift */; };
 		3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */; };
 		3AAAFA1A27E77A4D00839670 /* RoundingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */; };
 		3AAAFA1D27E9047A00839670 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAAFA1C27E9047A00839670 /* Model.swift */; };
@@ -70,6 +72,8 @@
 		3A3F82F42821837900A6BEF7 /* SingleScreenShotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleScreenShotCollectionViewCell.xib; sourceTree = "<group>"; };
 		3A3F82FA2826296A00A6BEF7 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		3A3F82FD282C29B100A6BEF7 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		3A3F82FF282C2A1600A6BEF7 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		3A3F8302282C2CB100A6BEF7 /* FilmDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDataResponse.swift; sourceTree = "<group>"; };
 		3AAAFA1727E6F57200839670 /* PosterFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterFullViewController.swift; sourceTree = "<group>"; };
 		3AAAFA1927E77A4D00839670 /* RoundingTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundingTransition.swift; sourceTree = "<group>"; };
 		3AAAFA1C27E9047A00839670 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -165,9 +169,19 @@
 		3A3F82FC282C299700A6BEF7 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				3A3F8301282C2C8000A6BEF7 /* Response */,
 				3A3F82FD282C29B100A6BEF7 /* APIError.swift */,
+				3A3F82FF282C2A1600A6BEF7 /* APIEndpoint.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		3A3F8301282C2C8000A6BEF7 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				3A3F8302282C2CB100A6BEF7 /* FilmDataResponse.swift */,
+			);
+			path = Response;
 			sourceTree = "<group>";
 		};
 		3AAAFA1127E5069900839670 /* Application */ = {
@@ -332,6 +346,7 @@
 				3A38A04226CC0410003E9A33 /* FavouriteFilmsViewController.swift in Sources */,
 				3AAAFA1D27E9047A00839670 /* Model.swift in Sources */,
 				3A38A02726CC0082003E9A33 /* MainViewController.swift in Sources */,
+				3A3F8303282C2CB100A6BEF7 /* FilmDataResponse.swift in Sources */,
 				3A3F82FB2826296A00A6BEF7 /* DataProvider.swift in Sources */,
 				3A38A02326CC0082003E9A33 /* AppDelegate.swift in Sources */,
 				3A3F82F52821837A00A6BEF7 /* SingleScreenShotCollectionViewCell.swift in Sources */,
@@ -341,6 +356,7 @@
 				3A38A04826CC0642003E9A33 /* JSONModel.swift in Sources */,
 				3AAAFA1827E6F57200839670 /* PosterFullViewController.swift in Sources */,
 				3A2924C026D7560F003D2A9A /* FilmCollectionViewCell.swift in Sources */,
+				3A3F8300282C2A1600A6BEF7 /* APIEndpoint.swift in Sources */,
 				3A3F82E4280D44C700A6BEF7 /* UIColor + Extensions.swift.swift in Sources */,
 				3A38A03F26CC03FD003E9A33 /* SingleBackdropVC.swift in Sources */,
 				3A3F82F128205C7200A6BEF7 /* BigScreenShotCollectionViewCell.swift in Sources */,

@@ -94,6 +94,10 @@ extension MainViewController: UICollectionViewDelegate {
                 
         Core.urlService.getBackdropsForFilmBy(id: film.id)
         
+        Core.urlService.getDataForFilmBy(id: film.id) { result in
+            print("🟢🟢🟢 RESULT: \(result)")
+        }
+        
         navigationController?.pushViewController(destinationVC, animated: true)
     }
 }

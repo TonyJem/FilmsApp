@@ -14,6 +14,7 @@
 // https://api.themoviedb.org/3/movie/upcoming?api_key=<<api_key>>&language=en-US&page=1
 
 import UIKit
+import Foundation
 
 enum ApiRequest: String {
     case latest = "latest"
@@ -71,4 +72,37 @@ class URLService {
         }
         task.resume()
     }
+    
+    func getDataForFilmBy(id: Int, _ completion: @escaping (Result<FilmDataResponse, APIError>) -> ()) {
+//        guard let url = APIEndpoint.episodes.url else {
+//            completion(.failure(.failedURLCreation))
+//            return
+//        }
+        let idString = String(id)
+        
+        let urlString = "\(urlBase)\(idString)/images?api_key=\(apiKey)"
+        
+        guard let apiURL = URL(string: urlString) else { return }
+        
+        var request = URLRequest(url: apiURL)
+        request.httpMethod = "GET"
+        
+        session.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                if let data = data {
+                    do {
+                        let filmDataResponse = try JSONDecoder().decode(FilmDataResponse.self, from: data)
+                        
+                        print("🟢♥️🟢 filmDataResponse: \(filmDataResponse)")
+                        completion(.success(filmDataResponse))
+                    } catch {
+                        completion(.failure(.unexpectedDataFormat))
+                    }
+                } else {
+                    completion(.failure(.failedRequest))
+                }
+            }
+        }.resume()
+    }
+    
 }
