@@ -454,10 +454,10 @@
             </objects>
             <point key="canvasLocation" x="2655" y="138"/>
         </scene>
-        <!--Single BackdropVC-->
+        <!--Single Backdrop View Controller-->
         <scene sceneID="gmo-MY-zWi">
             <objects>
-                <viewController storyboardIdentifier="SingleBackdropViewControllerID" id="QEL-fm-iQ3" customClass="SingleBackdropVC" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleBackdropViewControllerID" id="QEL-fm-iQ3" customClass="SingleBackdropViewController" customModule="FilmsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GPf-qo-1mv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

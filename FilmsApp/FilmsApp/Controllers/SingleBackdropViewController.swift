@@ -1,6 +1,6 @@
 import UIKit
 
-class SingleBackdropVC: UIViewController {
+class SingleBackdropViewController: UIViewController {
     
     enum CellIdentifiers: String {
         case cell
@@ -51,7 +51,7 @@ class SingleBackdropVC: UIViewController {
 }
 
 // MARK: - UICollectionViewDataSource
-extension SingleBackdropVC: UICollectionViewDataSource {
+extension SingleBackdropViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         guard let film = film else { return .zero }
@@ -72,7 +72,7 @@ extension SingleBackdropVC: UICollectionViewDataSource {
 }
 
 // MARK: - CollectionView DelegateFlowLayout
-extension SingleBackdropVC: UICollectionViewDelegateFlowLayout {
+extension SingleBackdropViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
@@ -92,7 +92,7 @@ extension SingleBackdropVC: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - CollectionView's Scroll view Delegate
-extension SingleBackdropVC {
+extension SingleBackdropViewController {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         var visibleRect = CGRect()
         
